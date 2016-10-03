@@ -1,0 +1,1 @@
+json.partial! "todo_app_lists/todo_app_list", todo_app_list: @todo_app_list

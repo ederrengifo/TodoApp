@@ -1,0 +1,29 @@
+<div id="wrapper">
+<!--p id="notice"><%= notice %></p-->
+
+<h1 class="title_todo">Checklist</h1>
+
+<table class="table_todo">
+  <thead>
+    <tr>
+      <th>Today</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @todo_app_lists.each do |todo_app_list| %>
+      <tr>
+        <td><%= todo_app_list.title %></td>
+        <td><%= link_to 'Show', todo_app_list %></td>
+        <td><%= link_to 'Edit', edit_todo_app_list_path(todo_app_list) %></td>
+        <td><%= link_to 'Destroy', todo_app_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="button_todo"><%= link_to 'New Todo App List', new_todo_app_list_path %></div
+</div>

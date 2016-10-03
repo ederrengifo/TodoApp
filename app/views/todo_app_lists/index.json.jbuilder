@@ -1,0 +1,1 @@
+json.array! @todo_app_lists, partial: 'todo_app_lists/todo_app_list', as: :todo_app_list

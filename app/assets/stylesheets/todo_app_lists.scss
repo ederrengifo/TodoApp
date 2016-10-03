@@ -1,0 +1,74 @@
+// Place all the styles related to the todo_app_lists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+a {
+  text-decoration: none;
+  color: #6A1B9A;
+  &:hover {
+    text-decoration: underline;
+    background-color: #fff;
+    color: #6A1B9A;
+  }
+  &:visited {
+    color: #6A1B9A;
+  }
+}
+
+table, th, td {
+  border-left: none;
+  border-right: none;
+}
+
+
+#wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+  text-align: left;
+}
+.title_todo {
+  margin-top:40px;
+  margin-bottom: 40px;
+  font-weight: 100;
+}
+.table_todo {
+  width: 100%;
+  border: 2px #f2f2f2 solid;
+  border-radius: 5px;
+}
+.table_todo thead {
+  background-color: #f4f4f4;
+}
+.table_todo thead tr th {
+  padding: 15px 15px 15px 20px;
+}
+.table_todo tbody tr td {
+  padding: 10px 10px 10px 20px;
+  border-top: 1px #f4f4f4 solid;
+  text-align: center;
+}
+.table_todo tbody tr:hover {
+  background-color: #fbfbfb;
+}
+
+.table_todo tbody tr td:first-child {
+  width: 640px;
+  text-align: left;
+}
+.button_todo {
+  margin-top: 30px;
+}
+
+.button_todo a {
+  padding: 12px 20px 12px 20px;
+  background-color: #6A1B9A;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: ease 0.2s;
+}
+.button_todo a:hover {
+  background-color: #803CA9;
+  padding: 15px 23px 15px 23px;
+}
