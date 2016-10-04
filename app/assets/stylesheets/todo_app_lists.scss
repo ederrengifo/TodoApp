@@ -19,9 +19,51 @@ table, th, td {
   border-left: none;
   border-right: none;
 }
+.actions {
+  border-bottom: 1px #F4F4F4 solid;
+  padding-bottom: 40px;
+}
+.actions input {
+  padding: 12px 20px 12px 20px;
+  background-color: #6A1B9A;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: ease 0.2s;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+}
+.actions input:hover {
+  background-color: #803CA9;
+  padding: 15px 23px 15px 23px;
+}
+.field {
+  width: 100%;
+  border-top: 1px #F4f4f4 solid;
+  padding-top: 20px;
+}
+.field input {
+  background-color: #fff;
+  border-radius: 4px;
+  font-size: 14px;
+  padding: 10px;
+  border: 1px #e0e0e0 solid;
+  min-width: 320px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.field .t {
+  font-weight: bold;
+  margin-top: 10px;
+}
+label {
+  background-color: #fff;
+  border: 1px #f4f4f4 solid;
+}
 
-
-#wrapper {
+.wrapper {
   max-width: 1024px;
   margin: 0 auto;
   text-align: left;
@@ -71,4 +113,14 @@ table, th, td {
 .button_todo a:hover {
   background-color: #803CA9;
   padding: 15px 23px 15px 23px;
+}
+.box_todo {
+  border-top: 1px #f4f4f4 solid;
+  border-bottom: 1px #f4f4f4 solid;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.detail-todo {
+  font-size: 16px;
+  padding-top: 10px;
 }
