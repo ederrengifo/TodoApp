@@ -5,6 +5,7 @@
 a {
   text-decoration: none;
   color: #6A1B9A;
+  font-size: 14px;
   &:hover {
     text-decoration: underline;
     background-color: #fff;
@@ -20,6 +21,23 @@ table {
 table, th, td {
   border-left: none;
   border-right: none;
+}
+table tbody tr td .task {
+  color: #222;
+  padding: 0px;
+}
+table tbody tr td .task:hover {
+  color: #6A1B9A;
+  text-decoration: none;
+}
+.wrapper {
+  max-width: 1024px;
+  margin: 0 auto;
+  text-align: left;
+}
+.wrapper a {
+  padding-right: 10px;
+  padding-left: 10px;
 }
 .actions {
   border-bottom: 1px #F4F4F4 solid;
@@ -71,16 +89,10 @@ label {
   background-color: #fff;
   border: 1px #f4f4f4 solid;
 }
-
-.wrapper {
-  max-width: 1024px;
-  margin: 0 auto;
-  text-align: left;
-}
 .title_todo {
   margin-top:40px;
   margin-bottom: 40px;
-  font-weight: 100;
+  font-weight: 300;
 }
 .table_todo {
   width: 100%;
@@ -92,6 +104,7 @@ label {
 }
 .table_todo thead tr th {
   padding: 15px 15px 15px 20px;
+  font-size: 14px;
 }
 .table_todo tbody tr td {
   padding: 10px 10px 10px 20px;
@@ -103,7 +116,7 @@ label {
 }
 
 .table_todo tbody tr td:first-child {
-  width: 640px;
+  width: 720px;
   text-align: left;
 }
 .button_todo {
@@ -129,10 +142,40 @@ label {
 .box_todo {
   border-top: 1px #f4f4f4 solid;
   border-bottom: 1px #f4f4f4 solid;
-  padding: 20px;
+  padding: 30px;
   margin-bottom: 20px;
 }
-.detail-todo {
-  font-size: 16px;
+.field_title_todo {
+  font-size: 14px;
+  font-weight: 500;
+}
+.detail_todo {
+  font-size: 20px;
   padding-top: 10px;
+}
+.update_todo {
+  padding: 30px;
+  background-color: #f8f8f8;
+  width: 100% -60px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: ease 0.2s;
+  a {
+    color: #222;
+    padding: 0px;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
+.update_todo:hover {
+  background-color: #FBFBFB;
+  .detail_todo {
+    color: #6A1B9A;
+    text-decoration: none;
+  }
+  .field_title_todo {
+    color: #777777;
+    text-decoration: none;
+  }
 }

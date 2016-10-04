@@ -3,11 +3,14 @@
 <h1 class="title_todo">Detail</h1>
 
 <div class="box_todo">
-<p>
-  <div><strong>Title:</strong></div>
-  <div class="detail_todo"><%= @todo_app_list.title %></div>
+  <div class="update_todo">
+    <a href="<%= edit_todo_app_list_path(@todo_app_list) %>">
+      <div class="field_title_todo"><strong>Project task:</strong></div>
+      <div class="detail_todo"><%= @todo_app_list.title %></div>
+    </a>
+  </div>
 </div>
-<%= link_to 'Edit', edit_todo_app_list_path(@todo_app_list) %> |
+<%= link_to 'Edit', edit_todo_app_list_path(@todo_app_list) %>  |
 <%= link_to 'Back', todo_app_lists_path %>
 
 </div>
