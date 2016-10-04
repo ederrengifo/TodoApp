@@ -14,7 +14,9 @@ a {
     color: #6A1B9A;
   }
 }
-
+table {
+  font-family: 'Roboto', Helvetica, sans-serif;
+}
 table, th, td {
   border-left: none;
   border-right: none;
@@ -27,12 +29,12 @@ table, th, td {
   padding: 12px 20px 12px 20px;
   background-color: #6A1B9A;
   color: #fff;
-  font-weight: bold;
+  font-weight: 700;
   text-decoration: none;
   border-radius: 4px;
   transition: ease 0.2s;
   border: none;
-  font-size: 13px;
+  font-size: 14px;
   cursor: pointer;
 }
 .actions input:hover {
@@ -53,6 +55,13 @@ table, th, td {
   min-width: 320px;
   margin-top: 10px;
   margin-bottom: 10px;
+  transition: ease 0.5s;
+}
+.field input:focus, textarea:focus {
+  border: 1px #6A1B9A solid;
+  box-shadow: none;
+  min-width: 380px;
+  outline: none;
 }
 .field .t {
   font-weight: bold;
@@ -105,10 +114,13 @@ label {
   padding: 12px 20px 12px 20px;
   background-color: #6A1B9A;
   color: #fff;
-  font-weight: bold;
+  font-weight: 700;
   text-decoration: none;
   border-radius: 4px;
   transition: ease 0.2s;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
 }
 .button_todo a:hover {
   background-color: #803CA9;
