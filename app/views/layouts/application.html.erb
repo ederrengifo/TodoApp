@@ -7,9 +7,18 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
+    <div class="header">
+      <div class="wrapper" id="wrapper_header">
+        <ul>
+          <li class="<%= 'active' if current_page? controller:todo_app_lists_path %>"><%= link_to 'Tasks', todo_app_lists_path %></li>
+          <li><a>Tools</a></li>
+        </ul>
+      </div>
+    </div>
     <%= yield %>
   </body>
 </html>

@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  padding: 0px;
+  margin: 0px;
+}
 a {
   text-decoration: none;
   color: #6A1B9A;
@@ -15,6 +19,51 @@ a {
     color: #6A1B9A;
   }
 }
+.header {
+  width: 100%;
+  height: 55px;
+  background-color: #FBFBFB;
+  border-bottom: 1px #f4f4f4 solid;
+}
+.header .wrapper {
+  padding-top: 17px;
+}
+.header .wrapper ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.header .wrapper ul li {
+  display: inline;
+}
+.header .wrapper a {
+    color: #222;
+    opacity: 0.5;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: 30px;
+    transition: ease 0.2s;
+    cursor: pointer;
+    padding-bottom: 18px;
+    font-weight: 700;
+}
+.header .wrapper a:hover {
+  opacity: 1;
+  background: none;
+  text-decoration: none;
+  color: #6A1B9A;
+  border-bottom: 2px #6A1B9A solid;
+}
+.header .wrapper a:focus {
+  border-bottom: 2px #6A1B9A solid;
+}
+.header .wrapper .active a {
+  border-bottom: 2px #6A1B9A solid;
+  color: #6A1B9A;
+  opacity: 1;
+}
+
+
 table {
   font-family: 'Roboto', Helvetica, sans-serif;
 }
@@ -222,5 +271,41 @@ label {
     padding-left: 5px;
     font-size: 14px;
   }
-
+}
+.label_sent {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 5px 2px 5px;
+  background-color: #00C853;
+  border-radius: 2px;
+  margin-left: 10px;
+  color: #FFF;
+  text-transform: uppercase;
+}
+.label_inProgress {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 5px 2px 5px;
+  background-color: #1976D2;
+  border-radius: 2px;
+  margin-left: 10px;
+  color: #FFF;
+  text-transform: uppercase;
+}
+.label_pending {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 5px 2px 5px;
+  background-color: #E53935;
+  border-radius: 2px;
+  margin-left: 10px;
+  color: #FFF;
+  text-transform: uppercase;
+}
+.show_label {
+  margin-top: 20px;
+  margin-left: -10px;
+}
+.show_label span {
+  font-size: 12px;
 }

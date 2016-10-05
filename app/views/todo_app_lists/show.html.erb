@@ -9,6 +9,9 @@
       <div class="detail_todo"><%= @todo_app_list.title %></div>
     </a>
   </div>
+  <div class="show_label">
+    <span class="label_sent">Sent</span>
+  </div>
 </div>
 <%= link_to 'Edit', edit_todo_app_list_path(@todo_app_list) %>  |
 <%= link_to 'Back', todo_app_lists_path %>

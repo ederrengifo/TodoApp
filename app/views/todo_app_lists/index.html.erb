@@ -14,7 +14,7 @@
   <tbody>
     <% @todo_app_lists.each do |todo_app_list| %>
       <tr>
-        <td><a class="task" href="<%= todo_app_list_path(todo_app_list) %>"><%= todo_app_list.title %></a></td>
+        <td><a class="task" href="<%= todo_app_list_path(todo_app_list) %>"><%= todo_app_list.title %></a><span class="label_sent">Sent</span></td>
         <td><%= link_to 'Edit', edit_todo_app_list_path(todo_app_list) %></td>
         <td><%= link_to 'Remove', todo_app_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
