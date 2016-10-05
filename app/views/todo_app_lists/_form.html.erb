@@ -17,16 +17,16 @@
     <div class="task_status">
       <div class="field_title_todo" style="width:100%;">Task Status</div>
       <div>
-        <div class="radio_todo"><%= radio_button_tag(:task, "Pending") %></div>
-        <div class="tag_todo"><%= label_tag(:task_pending, "Pending") %></div>
+        <div class="radio_todo"><%= f.radio_button :status, 'pending' %></div>
+        <div class="tag_todo"><%= f.label :status, 'Pending' %></div>
       </div>
       <div>
-        <div class="radio_todo"><%= radio_button_tag(:task, "In progress") %></div>
-        <div class="tag_todo"><%= label_tag(:task_progress, "In progress") %></div>
+        <div class="radio_todo"><%= f.radio_button :status, 'progress' %></div>
+        <div class="tag_todo"><%= f.label :status, 'Progress' %></div>
       </div>
       <div>
-        <div class="radio_todo"><%= radio_button_tag(:task, "Sent") %></div>
-        <div class="tag_todo"><%= label_tag(:task_sent, "Sent") %></div>
+        <div class="radio_todo"><%= f.radio_button :status, 'sent' %></div>
+        <div class="tag_todo"><%= f.label :status, 'Sent' %></div>
       </div>
     </div>
   </div>

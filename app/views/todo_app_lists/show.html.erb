@@ -10,7 +10,7 @@
     </a>
   </div>
   <div class="show_label">
-    <span class="label_sent">Sent</span>
+    <span class="label_<%= @todo_app_list.status %>"><%= @todo_app_list.status %></span>
   </div>
 </div>
 <%= link_to 'Edit', edit_todo_app_list_path(@todo_app_list) %>  |
