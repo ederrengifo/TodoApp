@@ -1,3 +1,5 @@
+
+
 <div class="wrapper">
 
 <h1 class="title_todo">Detail</h1>
@@ -12,8 +14,17 @@
   <div class="show_label">
     <span class="label_<%= @todo_app_list.status %>"><%= @todo_app_list.status %></span>
   </div>
+
+  <div class="task_container">
+    <div class="task">
+      <div class="detail"><%= @todo_app_list.task %></div>
+      <div class="action"><%= link_to 'Done', @todo_app_list, method: :done, data: { confirm: "Well done!" } %></div>
+    </div>
+
+    <%= render 'task', todo_app_list: @todo_app_list %>
+
+  </div>
 </div>
 <%= link_to 'Edit', edit_todo_app_list_path(@todo_app_list) %>  |
 <%= link_to 'Back', todo_app_lists_path %>
-
 </div>

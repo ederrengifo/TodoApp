@@ -1,5 +1,5 @@
 class TodoAppListsController < ApplicationController
-  before_action :set_todo_app_list, only: [:show, :edit, :update, :destroy]
+  before_action :set_todo_app_list, only: [:show, :edit, :update, :destroy, :done]
 
   # GET /todo_app_lists
   # GET /todo_app_lists.json
@@ -61,6 +61,14 @@ class TodoAppListsController < ApplicationController
     end
   end
 
+  def done
+    @todo_app_list = TodoAppList.destroy(todo_app_list_params[:task])
+    respond_to do |format|
+      format.html { redirect_to @todo_app_list, notice: 'One task less!'}
+      format.json { head :no_content}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo_app_list
@@ -69,6 +77,6 @@ class TodoAppListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_app_list_params
-      params.require(:todo_app_list).permit(:title, :status)
+      params.require(:todo_app_list).permit(:title, :status, :task)
     end
 end
