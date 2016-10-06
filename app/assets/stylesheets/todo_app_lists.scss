@@ -36,6 +36,20 @@ a {
 .header .wrapper ul li {
   display: inline;
 }
+.logo {
+  font-family: 'Roboto Mono', monospace;
+  color: #222;
+  margin-right: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  font-kerning: -50;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-kerning: normal;
+  border: 2px #222 solid;
+  border-radius: 50px;
+  opacity: 0.25;
+}
 .header .wrapper a {
     color: #222;
     opacity: 0.5;
@@ -202,7 +216,7 @@ label {
   border-radius: 5px;
 }
 .table_todo thead {
-  background-color: #f4f4f4;
+  background-color: #F9F9F9;
 }
 .table_todo thead tr th {
   padding: 15px 15px 15px 20px;
@@ -256,7 +270,7 @@ label {
   padding-top: 10px;
 }
 .update_todo {
-  padding: 30px;
+  padding: 10px 0px 20px 30px;
   background-color: #f8f8f8;
   width: 100% -60px;
   border-radius: 5px;
@@ -391,6 +405,7 @@ label {
   }
 }
 .task_container .task .detail {
+  font-family: 'Roboto Mono', monospace;
   width: 75%;
   float: left;
   text-align: left;

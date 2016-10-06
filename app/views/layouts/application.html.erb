@@ -2,8 +2,9 @@
 <html>
   <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <title>Todo List</title>
+    <title>Doable | A personal tool</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -15,8 +16,9 @@
     <div class="header">
       <div class="wrapper" id="wrapper_header">
         <ul>
-          <li class="<%= 'active' if current_page? controller:todo_app_lists_path %>"><%= link_to 'Tasks', todo_app_lists_path %></li>
-          <li><a>Tools</a></li>
+          <li class="logo">DOABLE</li>
+          <li class="<%= 'active' if current_page? controller:todo_app_lists_path %>"><%= link_to 'TASKS', todo_app_lists_path %></li>
+          <li><a>TOOLS</a></li>
         </ul>
       </div>
     </div>
