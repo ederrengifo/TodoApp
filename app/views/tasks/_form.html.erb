@@ -1,5 +1,5 @@
-<%= form_for(todo_app_list) do |f| %>
-  <% if todo_app_list.errors.any? %>
+<%= form_for([task.todo_app_list, task]) do |f| %>
+  <% if task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(todo_app_list.errors.count, "error") %> prohibited this todo_app_list from being saved:</h2>
 
@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field_task">
-    <%= f.text_field :task, placeholder: "Write your new task here" %>
+    <%= f.text_field :content, placeholder: "Write your new task here" %>
     <div class="actions_task">
        <%= f.submit 'Add Task' %>
     </div>

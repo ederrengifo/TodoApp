@@ -15,12 +15,18 @@
   </div>
 
   <div class="task_container">
-    <div class="task">
-      <div class="detail"><%= @todo_app_list.task %></div>
-      <div class="action"><%= link_to 'Done', @todo_app_list, method: :done, data: { confirm: "Well done!" } %></div>
-    </div>
+    <% @todo_app_list.tasks.each do |task| %>
+      <div class="task">
+        <div class="detail"><%= task.content %></div>
+        <div class="action">
 
-    <%= render 'task', todo_app_list: @todo_app_list %>
+            <%= link_to 'Done', todo_app_list_task_path(@todo_app_list, task), method: :delete %>
+
+        </div>
+      </div>
+    <% end %>
+
+    <%= render 'tasks/form', task: Task.new(todo_app_list: @todo_app_list) %>
 
   </div>
 </div>
