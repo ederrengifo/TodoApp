@@ -9,7 +9,7 @@
       <tr>
         <td><a class="task" href="<%= tool.link %>" target="_blank"><%= tool.tool %><a></td>
         <td><%= link_to 'Edit', edit_tool_path(tool) %></td>
-        <td><%= link_to 'Destroy', tool, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove', tool, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
