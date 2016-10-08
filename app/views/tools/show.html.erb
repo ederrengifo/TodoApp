@@ -1,0 +1,18 @@
+<div class="wrapper">
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tool:</strong>
+  <%= @tool.tool %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @tool.link %>
+</p>
+
+<%= link_to 'Edit', edit_tool_path(@tool) %> |
+<%= link_to 'Back', tools_path %>
+
+</div>

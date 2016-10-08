@@ -1,0 +1,25 @@
+<%= form_for(tool) do |f| %>
+  <% if tool.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(tool.errors.count, "error") %> prohibited this tool from being saved:</h2>
+
+      <ul>
+      <% tool.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <div class="field_title_todo">Tool name</div>
+    <div><%= f.text_field :tool, placeholder:"Enter the name of your tool" %></div>
+    <div class="field_title_todo">Link</div>
+    <div><%= f.text_field :link, placeholder:"Paste the URL" %></div>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

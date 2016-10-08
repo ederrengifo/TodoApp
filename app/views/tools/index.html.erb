@@ -1,0 +1,22 @@
+<div class="wrapper">
+
+<h1 class="title_todo">Tools</h1>
+
+<table class="table_todo">
+
+  <tbody>
+    <% @tools.each do |tool| %>
+      <tr>
+        <td><a class="task" href="<%= tool.link %>" target="_blank"><%= tool.tool %><a></td>
+        <td><%= link_to 'Edit', edit_tool_path(tool) %></td>
+        <td><%= link_to 'Destroy', tool, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="button_todo"><%= link_to 'New Tool', new_tool_path %></div>
+
+</div>
