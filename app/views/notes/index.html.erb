@@ -1,0 +1,28 @@
+<div class="wrapper">
+
+<h1 class="title_todo">Notes</h1>
+
+<table class="table_todo">
+  <thead>
+    <tr>
+      <th>Notetitle</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @notes.each do |note| %>
+      <tr>
+        <td><a class="task" href="<%= note_path(note) %>" ><%= note.noteTitle %></a></td>
+        <td><%= link_to 'Edit', edit_note_path(note) %></td>
+        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div class="button_todo"><%= link_to 'New Note', new_note_path %></div>
+
+</div>

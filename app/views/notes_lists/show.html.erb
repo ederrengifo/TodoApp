@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Codetitle:</strong>
+  <%= @notes_list.codeTitle %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @notes_list.code %>
+</p>
+
+<%= link_to 'Edit', edit_notes_list_path(@notes_list) %> |
+<%= link_to 'Back', notes_lists_path %>

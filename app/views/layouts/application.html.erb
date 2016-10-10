@@ -19,7 +19,7 @@
           <li class="logo">DOABLE</li>
           <li class="<%= 'active' if current_page? controller:todo_app_lists_path %>"><%= link_to 'TASKS', todo_app_lists_path %></li>
           <li class="<%= 'active' if current_page? controller:tools_path %>"><%= link_to 'TOOLS', tools_path %></li>
-          <li><a>NOTES</a><li>
+          <li class="<%= 'active' if current_page? controller:notes_path %>"><%= link_to 'NOTES', notes_path %></li>
         </ul>
       </div>
     </div>

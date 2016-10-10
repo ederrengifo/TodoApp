@@ -1,0 +1,25 @@
+<div class="wrapper">
+
+  <div class="box_todo">
+    <div class="update=todo">
+      <div class="detail_todo"><%= @note.noteTitle %></div>
+    </div>
+
+    <div class="task_container">
+      <% @note.notes_lists.each do |notes_list| %>
+
+        <%= notes_list.codeTitle %>
+        <%= notes_list.code %>
+
+      <% end %>
+
+      <%= render 'notes_lists/form_new_note', notes_list: NotesList.new(note: @note) %>
+
+    </div>
+
+  </div>
+
+  <%= link_to 'Edit', edit_note_path(@note) %> |
+  <%= link_to 'Back', notes_path %>
+
+</div>

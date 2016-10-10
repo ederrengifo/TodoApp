@@ -1,0 +1,1 @@
+json.array! @notes_lists, partial: 'notes_lists/notes_list', as: :notes_list

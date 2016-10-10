@@ -75,4 +75,5 @@ class TasksController < ApplicationController
     def set_todo_app_list
       @todo_app_list = TodoAppList.find(params[:todo_app_list_id])
     end
+
 end

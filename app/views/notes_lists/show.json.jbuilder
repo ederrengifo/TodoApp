@@ -1,0 +1,1 @@
+json.partial! "notes_lists/notes_list", notes_list: @notes_list
