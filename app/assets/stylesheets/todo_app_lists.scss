@@ -29,6 +29,7 @@ input, textarea {
   transition: ease 0.5s;
   resize: none;
   margin-bottom: 15px;
+  white-space: wrap;
 }
 
 input:focus, textarea:focus {
@@ -402,9 +403,14 @@ label {
 .show_label {
   margin-top: 20px;
   margin-left: -10px;
+  width: 100%;
 }
 .show_label span {
   font-size: 12px;
+}
+.show_label a {
+  text-align: right;
+  float: right;
 }
 .task_container {
   width: 100%;
@@ -509,10 +515,23 @@ label {
   border-radius: 5px;
   margin-bottom: 10px;
 }
+.note_box .note_head {
+  width: 100%;
+  height: 30px;
+}
 .note_box .note_title {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 10px;
+  min-width: 800px;
+  float: left;
+}
+.note_box .note_clear {
+  padding-top: 10px;
+  text-align: right;
+  width: 10%;
+  float: right;
+  margin-top: -37px;
 }
 .note_box .note_detail {
   border-radius: 4px;
@@ -522,8 +541,4 @@ label {
   color: #1A237E;
   font-size: 15px;
   color: #99C6EE;
-}
-.note_box .note_clear {
-  padding-top: 10px;
-  text-align: right;
 }

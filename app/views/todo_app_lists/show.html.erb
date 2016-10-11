@@ -11,7 +11,7 @@
     </a>
   </div>
   <div class="show_label">
-    <span class="label_<%= @todo_app_list.status %>"><%= @todo_app_list.status %></span>
+    <span class="label_<%= @todo_app_list.status %>"><%= @todo_app_list.status %></span><%= link_to 'Edit Status', edit_todo_app_list_path(@todo_app_list) %>
   </div>
 
   <div class="task_container">
@@ -30,6 +30,5 @@
 
   </div>
 </div>
-<%= link_to 'Edit', edit_todo_app_list_path(@todo_app_list) %>  |
 <%= link_to 'Back', todo_app_lists_path %>
 </div>
