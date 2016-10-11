@@ -3,6 +3,7 @@
   <head>
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700" rel="stylesheet">
+    <%= render 'favicon' %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <title>Doable | A personal tool</title>
     <%= csrf_meta_tags %>
@@ -13,6 +14,7 @@
   </head>
 
   <body>
+
     <div class="header">
       <div class="wrapper" id="wrapper_header">
         <ul>
@@ -21,6 +23,7 @@
           <li class="<%= 'active' if current_page? controller:tools_path %>"><%= link_to 'TOOLS', tools_path %></li>
           <li class="<%= 'active' if current_page? controller:notes_path %>"><%= link_to 'NOTES', notes_path %></li>
         </ul>
+        <div class="logout_todo"><a href="../user/login.html">Logout</a></div>
       </div>
     </div>
     <%= yield %>
