@@ -22,11 +22,11 @@ ActiveRecord::Schema.define(version: 20161010171738) do
   end
 
   create_table "notes_lists", force: :cascade do |t|
-    t.integer  "note_id"
     t.string   "codeTitle"
     t.text     "code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "note_id"
   end
 
   create_table "tasks", force: :cascade do |t|

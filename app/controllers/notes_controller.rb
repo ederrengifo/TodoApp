@@ -61,6 +61,14 @@ class NotesController < ApplicationController
     end
   end
 
+  def clear
+    @note = Note.destroy(note_params[:notes_list])
+    respond_to do |format|
+      format.html { redirect_to @todo, notice: 'One task less!'}
+      format.json { head :no_content}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note

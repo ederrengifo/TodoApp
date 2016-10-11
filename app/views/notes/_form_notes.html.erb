@@ -11,12 +11,17 @@
     </div>
   <% end %>
 
+<div class="form_container">
+
   <div class="field">
-    <div class="field_title_todo">Note title</div>
+    <div class="form_title">Note title</div>
     <div><%= f.text_field :noteTitle, placeholder: "Your note title here" %></div>
   </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
+
+</div>
+
 <% end %>

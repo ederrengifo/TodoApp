@@ -11,17 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :codeTitle %>
-    <%= f.text_field :codeTitle %>
+  <div class="field_new_note">
+    <div class="field_title">New Note</div>
+    <div class="field_note"><%= f.text_field :codeTitle, placeholder: "Write your topic here" %></div>
+    <div class="text_area"><%= f.text_area :code, placeholder: "Insert your note" %></div>
+    <div class="actions">
+      <%= f.submit 'Create Note' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :code %>
-    <%= f.text_area :code %>
-  </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

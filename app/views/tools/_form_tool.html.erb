@@ -11,10 +11,12 @@
     </div>
   <% end %>
 
+<div class="form_container">
+
   <div class="field">
-    <div class="field_title_todo">Tool name</div>
+    <div class="form_title">Tool name</div>
     <div><%= f.text_field :tool, placeholder:"Enter the name of your tool" %></div>
-    <div class="field_title_todo">Link</div>
+    <div class="form_title">Link</div>
     <div><%= f.text_field :link, placeholder:"Paste the URL" %></div>
   </div>
 
@@ -22,4 +24,7 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+
+</div>
+
 <% end %>

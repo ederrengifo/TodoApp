@@ -7,10 +7,11 @@
 
     <div class="task_container">
       <% @note.notes_lists.each do |notes_list| %>
-
-        <%= notes_list.codeTitle %>
-        <%= notes_list.code %>
-
+      <div class="note_box">
+        <div class="note_title" style="font-weight:500; padding-bottom:10px; font-size:15px;"><%= notes_list.codeTitle %></div>
+        <div class="note_detail"><%= notes_list.code %></div>
+        <div class="note_clear"><%= link_to 'Clear', note_notes_list_path(@note, notes_list), method: :delete %></div>
+      </div>
       <% end %>
 
       <%= render 'notes_lists/form_new_note', notes_list: NotesList.new(note: @note) %>

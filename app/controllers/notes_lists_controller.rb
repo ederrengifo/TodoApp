@@ -26,7 +26,6 @@ class NotesListsController < ApplicationController
   # POST /notes_lists.json
   def create
     @notes_list = @note.notes_lists.new(notes_list_params)
-
     respond_to do |format|
       if @notes_list.save
         format.html { redirect_to @note, notice: 'Notes list was successfully created.' }
@@ -57,7 +56,7 @@ class NotesListsController < ApplicationController
   def destroy
     @notes_list.destroy
     respond_to do |format|
-      format.html { redirect_to notes_lists_url, notice: 'Notes list was successfully destroyed.' }
+      format.html { redirect_to @note, notice: 'Notes list was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,7 +64,7 @@ class NotesListsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_notes_list
-      @notes_list = @notes.notes_lists.find(params[:id])
+      @notes_list = @note.notes_lists.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

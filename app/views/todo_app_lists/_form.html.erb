@@ -11,11 +11,13 @@
     </div>
   <% end %>
 
+<div class="form_container">
+
   <div class="field">
-    <div class="field_title_todo">Task title</div>
+    <div class="form_title">Task title</div>
     <div><%= f.text_field :title, placeholder:"Title of the project" %></div>
     <div class="task_status">
-      <div class="field_title_todo" style="width:100%;">Task Status</div>
+      <div class="form_title" style="width:100%;">Task Status</div>
       <div>
         <div class="radio_todo"><%= f.radio_button :status, 'pending' %></div>
         <div class="tag_todo"><%= f.label :status, 'Pending' %></div>
@@ -34,4 +36,7 @@
   <div class="actions">
      <%= f.submit 'Create' %>
   </div>
+
+</div>
+
 <% end %>
