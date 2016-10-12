@@ -7,10 +7,9 @@ Rails.application.routes.draw do
       only: [:create, :edit, :update]
   end
 
-  get "/sign_in" => "user#login", as: "sign_in"
+  get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
-  get "/passwords/new" => "user#forgot_password", as: "reset_password"
 
   get 'user/login'
   get 'user/signup'

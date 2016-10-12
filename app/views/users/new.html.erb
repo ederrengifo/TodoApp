@@ -5,11 +5,14 @@
   <h1 class="title_todo">Sign up</h1>
   <div class="description_todo">Register your account</div>
 
-
-
-    <%= render partial: '/user/form_signup', object: form %>
-
-
+  <%= form_for @user do |form| %>
+    <%= render partial: '/users/form', object: form %>
+    <div class="user_actions">
+      <div class="actions">
+        <%= form.submit 'Register' %>
+      </div>
+    </div>
+  <% end %>
   </div>
 
   <div class="user_footer">
