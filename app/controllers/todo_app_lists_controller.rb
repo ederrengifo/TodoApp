@@ -5,7 +5,7 @@ class TodoAppListsController < ApplicationController
   # GET /todo_app_lists
   # GET /todo_app_lists.json
   def index
-    @todo_app_lists = TodoAppList.all
+    @todo_app_lists = current_user.todo_app_lists
   end
 
   # GET /todo_app_lists/1
@@ -15,7 +15,7 @@ class TodoAppListsController < ApplicationController
 
   # GET /todo_app_lists/new
   def new
-    @todo_app_list = TodoAppList.new
+    @todo_app_list = current_user.todo_app_lists.new
   end
 
   # GET /todo_app_lists/1/edit
@@ -25,7 +25,7 @@ class TodoAppListsController < ApplicationController
   # POST /todo_app_lists
   # POST /todo_app_lists.json
   def create
-    @todo_app_list = TodoAppList.new(todo_app_list_params)
+    @todo_app_list = current_user.todo_app_lists.new(todo_app_list_params)
 
     respond_to do |format|
       if @todo_app_list.save

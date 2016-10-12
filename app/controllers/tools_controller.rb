@@ -4,7 +4,7 @@ class ToolsController < ApplicationController
   # GET /tools
   # GET /tools.json
   def index
-    @tools = Tool.all
+    @tools = current_user.tools
   end
 
   # GET /tools/1
@@ -14,7 +14,7 @@ class ToolsController < ApplicationController
 
   # GET /tools/new
   def new
-    @tool = Tool.new
+    @tool = current_user.tools.new
   end
 
   # GET /tools/1/edit
@@ -24,7 +24,7 @@ class ToolsController < ApplicationController
   # POST /tools
   # POST /tools.json
   def create
-    @tool = Tool.new(tool_params)
+    @tool = current_user.tools.new(tool_params)
 
     respond_to do |format|
       if @tool.save
