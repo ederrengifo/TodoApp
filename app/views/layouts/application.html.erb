@@ -14,7 +14,7 @@
   </head>
 
   <body>
-
+    <% if signed_in? %>
     <div class="header">
       <div class="wrapper" id="wrapper_header">
         <ul>
@@ -23,9 +23,16 @@
           <li class="<%= 'active' if current_page? controller:tools_path %>"><%= link_to 'TOOLS', tools_path %></li>
           <li class="<%= 'active' if current_page? controller:notes_path %>"><%= link_to 'NOTES', notes_path %></li>
         </ul>
-        <div class="logout_todo"><a href="../user/login.html">Logout</a></div>
+        <div class="logout_todo"><%= link_to "Logout", sign_out_path, method: :delete %></div>
       </div>
     </div>
     <%= yield %>
+    <% else %>
+      <div class="user_header">
+        <%= image_tag("logo.png") %>
+      </div>
+      <%= yield %>
+    <% end %>
+
   </body>
 </html>

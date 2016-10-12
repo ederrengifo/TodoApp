@@ -10,4 +10,5 @@ class UserController < ApplicationController
 
   def new_password
   end
+
 end

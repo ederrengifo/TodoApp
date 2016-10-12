@@ -1,0 +1,16 @@
+<%= form_for @user do |form| %>
+
+<div class="user_form_fields">
+  <div class="form_title">E-mail address</div>
+  <div><%= form.text_field :email, placeholder: "name@able.co" %></div>
+  <div class="form_title">Password</div>
+  <div><%= form.text_field :password, placeholder: "4-8 characters", type: "password" %></div>
+</div>
+
+<div class="user_actions">
+  <div class="actions">
+    <%= form.submit, 'Register' %>
+  </div>
+</div>
+
+<% end %>

@@ -1,4 +1,5 @@
 class TodoAppListsController < ApplicationController
+  before_action :require_login
   before_action :set_todo_app_list, only: [:show, :edit, :update, :destroy, :done]
 
   # GET /todo_app_lists
