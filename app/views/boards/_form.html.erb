@@ -1,0 +1,29 @@
+<%= form_for(board) do |f| %>
+  <% if board.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(board.errors.count, "error") %> prohibited this board from being saved:</h2>
+
+      <ul>
+      <% board.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form_container">
+
+    <div class="field">
+      <div class="form_title">Title</div>
+      <div><%= f.text_field :board_title, placeholder:"Title of the board" %></div>
+      <div class="form_title">Topic</div>
+      <div><%= f.text_field :topic, placeholder:"Insert a topic" %></div>
+    </div>
+
+    <div class="actions">
+       <%= f.submit 'Create' %>
+    </div>
+
+  </div>
+
+<% end %>

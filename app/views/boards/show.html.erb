@@ -1,0 +1,23 @@
+<div class="wrapper">
+
+<h1 class="title_todo"><%= @board.board_title %></h1>
+
+  <div class="box_todo">
+
+    <% @board.messages.each do |message| %>
+
+    <div class="message">
+      <div class="message_author">Author<span><%= message.created_at %></span></div>
+      <%= message.content %>
+    </div>
+
+    <% end %>
+
+    <%= render 'messages/form_message', message: Message.new(board: @board) %>
+
+  </div>
+
+<%= link_to 'Edit', edit_board_path(@board) %> |
+<%= link_to 'Back', boards_path %>
+
+</div>

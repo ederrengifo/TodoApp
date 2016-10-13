@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :messages
+  resources :boards
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
   resources :users, controller: "clearance/users", only: [:create] do
@@ -16,6 +18,11 @@ Rails.application.routes.draw do
   get 'user/forgot_password'
   get 'user/new_password'
 
+  resources :boards do
+    resources :messages do
+      put :toggle, on: :member
+    end
+  end
   resources :tools
   resources :notes do
     resources :notes_lists do

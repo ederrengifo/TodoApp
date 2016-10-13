@@ -22,6 +22,7 @@
           <li class="<%= 'active' if current_page? controller:todo_app_lists_path %>"><%= link_to 'TASKS', todo_app_lists_path %></li>
           <li class="<%= 'active' if current_page? controller:tools_path %>"><%= link_to 'TOOLS', tools_path %></li>
           <li class="<%= 'active' if current_page? controller:notes_path %>"><%= link_to 'NOTES', notes_path %></li>
+          <li class="<%= 'active' if current_page? controller:boards_path %>"><%= link_to 'BOARD', boards_path %></li>
         </ul>
         <div class="logout_todo"><%= link_to "Logout", sign_out_path, method: :delete %></div>
       </div>
