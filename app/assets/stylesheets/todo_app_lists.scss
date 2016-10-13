@@ -627,17 +627,51 @@ label {
   color: #999;
 }
 
+.box_board {
+  border-bottom: 1px #f4f4f4 solid;
+  padding: 0px 0px 30px 0px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 100%;
+  clear: both;
+}
+.box_messages {
+  width: 50%;
+  float: left;
+}
+.box_favorites {
+  width: 45%;
+  float: right;
+}
+.box_favorites .favorites_title {
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+.box_favorites .favorites_content {
+  font-size: 15px;
+  font-weight: 300;
+  padding: 15px;
+  background-color: #F8F9FC;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  border: 1px #E8EAF6 solid;
+}
 .message {
-  width: 60%;
+  width: 100% -15px;
   border: 1px #F4F4F4 solid;
   border-radius: 5px;
   padding: 15px;
-  font-size: 14px;
+  font-size: 15px;
   margin-bottom: 5px;
-  color: #555;
+  color: #666;
   font-weight: 300;
+  margin-top: 5px;
 }
-.message .message_author {
+.message:hover {
+  background-color: #F9F9F9;
+}
+.message_author {
   font-weight: 500;
   color: #222;
   span {
@@ -646,6 +680,11 @@ label {
     color: #BDBDBD;
     font-weight: 400;
   }
+}
+.message_content {
+  font-size: 15px;
+  padding-top: 5px;
+  line-height: 21px;
 }
 .actions_message {
   max-width: 20%;
@@ -675,4 +714,38 @@ label {
 }
 .field_message {
   margin-top: 20px;
+  width: 50%;
+}
+.field_message .actions_textarea textarea {
+  max-width: 20px;
+}
+
+.icon_fav {
+  float: right;
+  margin-right: -10px;
+  cursor: pointer;
+  color: #E0E0E0;
+  position: relative;
+  display: inline-block;
+}
+.icon_fav .tooltip {
+  visibility: hidden;
+  background-color: #37474F;
+  color: #FFF;
+  width: 110px;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px 0;
+  font-size: 12px;
+  position: absolute;
+  z-index: 1;
+  top: -20px;
+  left: 70%;
+  opacity: 0.85;
+}
+.icon_fav:hover {
+  color: #FF6D00;
+  .tooltip {
+  visibility: visible;
+  }
 }

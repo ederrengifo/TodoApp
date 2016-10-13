@@ -12,7 +12,8 @@
   <% end %>
 
   <div class="field_message">
-    <%= f.text_area :content, placeholder:"Your message here" %>
+    <div><%= current_user.name %></div>
+    <div class="actions_textarea"><%= f.text_area :content, placeholder:"Your message here" %></div>
     <div class="actions_message">
       <%= f.submit 'Send' %>
     </div>
