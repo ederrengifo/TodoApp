@@ -749,3 +749,32 @@ label {
   visibility: visible;
   }
 }
+.icon_delete {
+  float: right;
+  margin-right: -10px;
+  cursor: pointer;
+  color: #E0E0E0;
+  position: relative;
+  display: inline-block;
+}
+.icon_delete .tooltip {
+  visibility: hidden;
+  background-color: #37474F;
+  color: #FFF;
+  width: 110px;
+  text-align: center;
+  border-radius: 4px;
+  padding: 5px 0;
+  font-size: 12px;
+  position: absolute;
+  z-index: 1;
+  top: -20px;
+  left: 70%;
+  opacity: 0.85;
+}
+.icon_delete:hover {
+  color: #5E35B1;
+  .tooltip {
+  visibility: visible;
+  }
+}

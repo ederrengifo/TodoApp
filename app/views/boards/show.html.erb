@@ -9,7 +9,15 @@
       <% @board.messages.each do |message| %>
 
       <div class="message">
-        <div class="message_author">Author<span>at <%= message.created_at.to_date %></span><a class="icon_fav"><i class="material-icons md-18">whatshot</i><span class="tooltip">Add to favorites</span></a></div>
+        <div class="message_author"><%= message.user.name %><span>at <%= message.created_at.to_date %></span>
+        <a class="icon_fav"><i class="material-icons md-18">whatshot</i><span class="tooltip">Add to favorites</span></a>
+
+        <%= link_to board_message_path(@board, message), method: :delete, class:"icon_delete" do %>
+            <i class="material-icons md-18">delete forever</i>
+            <span class="tooltip">Remove message</span>
+        <% end %>
+
+        </div>
         <div class="message_content"><%= message.content %></div>
       </div>
 
@@ -22,7 +30,7 @@
     <div class="box_favorites">
       <div class="favorites_title">Favorites</div>
       <div class="favorites_content">
-        <div class="message_author">Author</div>
+        <div class="message_author">Author<a class="icon_delete"><i class="material-icons md-18">delete forever</i><span class="tooltip">Remove favorite</span></a></div>
         <div class="message_content">Hello, welcome to doable, this a personal tool to improve our producitivity, also as a board section where we can discuss about topics and the value messages can be storaged at the right of the screen...</div>
       </div>
     </div>
