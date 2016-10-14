@@ -28,7 +28,6 @@ input, textarea {
   transition: ease 0.5s;
   resize: none;
   margin-bottom: 15px;
-  white-space: wrap;
 }
 
 input:focus, textarea:focus {
@@ -73,6 +72,11 @@ input:active, textarea:active {
   border: 2px #222 solid;
   border-radius: 50px;
   opacity: 0.25;
+  cursor: pointer;
+  transition: ease 0.75s;
+}
+.logo:hover {
+  opacity: 1;
 }
 .header .wrapper a {
     color: #222;
@@ -194,7 +198,7 @@ table tbody tr td .task:hover {
   width: 100% -20px;
   clear: both;
   border-radius: 5px;
-  background: #F4F4F4;
+  background: #F2EDF9;
   padding: 10px 10px 0px 10px;
   margin-top: 10px;
   div {
@@ -324,7 +328,7 @@ label {
 }
 .update_todo {
   padding: 10px 0px 20px 30px;
-  background-color: #f8f8f8;
+  background-color: #F6F3FA;
   width: 100% -60px;
   border-radius: 5px;
   cursor: pointer;
@@ -483,9 +487,9 @@ label {
   width: 100% -20px;
   clear: both;
   border-radius: 5px;
-  background: #F4F4F4;
+  background: #F2EDF9;
   padding: 30px;
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .field_new_note input textarea {
   background-color: #fff;
@@ -519,9 +523,8 @@ label {
   min-width: 520px;
   outline: none;
 }
-.field_new_note .text_field, textarea {
+.field_new_note .text_field textarea {
   margin-top: 0px;
-  min-width: 600px;
 }
 .field_new_note .field_title {
   font-size: 18px;
@@ -652,10 +655,9 @@ label {
   font-size: 15px;
   font-weight: 300;
   padding: 15px;
-  background-color: #F8F9FC;
+  background-color: #EDE7F6;
   border-radius: 5px;
   margin-bottom: 5px;
-  border: 1px #E8EAF6 solid;
 }
 .message {
   width: 100% -15px;
@@ -708,23 +710,33 @@ label {
 }
 .topic {
   text-align: left;
+  cursor: pointer;
   a {
     text-align: left;
   }
 }
 .field_message {
   margin-top: 20px;
-  width: 50%;
+  max-width: 50%;
 }
-.field_message .actions_textarea textarea {
-  max-width: 20px;
+.field_message .messsage_textarea {
+  width: 50% +20px;
+}
+.textarea_board {
+  width: 100%;
+  margin-bottom: 10px;
+  border: 2px #e0e0e0 solid;
+}
+.textarea_board:focus {
+  padding-right: 0px;
+  border: 2px #5E35B1 solid;
 }
 
 .icon_fav {
   float: right;
   margin-right: -10px;
   cursor: pointer;
-  color: #E0E0E0;
+  color: #D1C4E9;
   position: relative;
   display: inline-block;
 }
@@ -753,7 +765,7 @@ label {
   float: right;
   margin-right: -10px;
   cursor: pointer;
-  color: #E0E0E0;
+  color: #D1C4E9;
   position: relative;
   display: inline-block;
 }
@@ -777,4 +789,12 @@ label {
   .tooltip {
   visibility: visible;
   }
+}
+.favorites_icon {
+  color: #9575CD;
+  padding-top: 20px;
+}
+.favorites_title_text {
+  position: relative;
+  top: -5px;
 }

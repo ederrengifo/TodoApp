@@ -13,7 +13,7 @@
 
   <div class="field_message">
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <div class="actions_textarea"><%= f.text_area :content, placeholder:"Your message here" %></div>
+    <div class="message_textarea"><%= f.text_area :content, placeholder:"Your message here", class:"textarea_board" %></div>
     <div class="actions_message">
       <%= f.submit 'Send' %>
     </div>
