@@ -1,11 +1,12 @@
 class MessagesController < ApplicationController
   before_action :set_board
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_message, only: [:show, :edit, :update, :destroy, :toggle_fav]
 
   # GET /messages
   # GET /messages.json
   def index
     @messages = @board.messages.all
+    @messages = @board.messages.order(params[:sort])
   end
 
   # GET /messages/1
@@ -60,6 +61,15 @@ class MessagesController < ApplicationController
       format.html { redirect_to @board, notice: 'Message was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def toggle_fav
+    if @message.favorite?
+      @message.update(favorite: false)
+    else
+      @message.update(favorite: true)
+    end
+    redirect_to board_path(@board)
   end
 
   private

@@ -3,15 +3,20 @@
 <h1 class="title_todo"><%= @board.board_title %></h1>
 
   <div class="box_board">
-
+  <!-- Messages column -->
     <div class="box_messages">
-
+    <!-- Insert a new message -->
       <% @board.messages.each do |message| %>
 
       <div class="message">
         <div class="message_author"><%= message.user.name %><span>at <%= message.created_at.to_date %></span>
-        <a class="icon_fav"><i class="material-icons md-18">whatshot</i><span class="tooltip">Add to favorites</span></a>
+        <!-- Adding the favorite values -->
+          <%= link_to toggle_fav_board_message_path(@board, message), method: :put,  class: "icon_fav" do %>
+            <i class="material-icons md-18">whatshot</i>
+            <span class="tooltip">Add to favorites</span>
+          <% end %>
 
+        <!-- Delete message icon -->
         <%= link_to board_message_path(@board, message), method: :delete, class:"icon_delete" do %>
             <i class="material-icons md-18">delete forever</i>
             <span class="tooltip">Remove message</span>
@@ -23,16 +28,30 @@
 
       <% end %>
 
+
+      <!-- Insert the message form -->
       <%= render 'messages/form_message', message: Message.new(board: @board) %>
 
     </div>
-
+    <!-- Favorites column -->
     <div class="box_favorites">
       <div class="favorites_title"><span class="favorites_icon"><i class="material-icons md-24" style="top: 5px;">whatshot</i></span> <span class="favorites_title_text">Favorites</span></div>
+      <!-- Insert a new favorite -->
+      <% @board.messages.favorites.each do |message| %>
+
       <div class="favorites_content">
-        <div class="message_author">Author<a class="icon_delete"><i class="material-icons md-18">delete forever</i><span class="tooltip">Remove favorite</span></a></div>
-        <div class="message_content">Hello, welcome to doable, this a personal tool to improve our producitivity, also as a board section where we can discuss about topics and the value messages can be storaged at the right of the screen...</div>
+        <div class="message_author"><%= message.user.name %>
+          <!-- Delete a favorite icon -->
+          <%= link_to board_message_path(@board, message), method: :delete, class:"icon_delete" do %>
+              <i class="material-icons md-18">delete forever</i>
+              <span class="tooltip">Remove favorite</span>
+          <% end %>
+        </div>
+        <div class="message_content"><%= message.content %></div>
       </div>
+
+      <% end %>
+
     </div>
 
     <div style="clear:both"></div>

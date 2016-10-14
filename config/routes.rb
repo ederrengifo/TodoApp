@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :favorites
   resources :messages
   resources :boards
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
@@ -20,6 +21,10 @@ Rails.application.routes.draw do
 
   resources :boards do
     resources :messages do
+      put :toggle, on: :member
+      put :toggle_fav, on: :member
+    end
+    resources :favorites do
       put :toggle, on: :member
     end
   end
