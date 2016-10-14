@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
   # GET /messages.json
   def index
     @messages = @board.messages.all
-    @messages = @board.messages.order(params[:sort])
+    @messages = @board.messages.order('messages.created_at DESC')
   end
 
   # GET /messages/1
@@ -43,6 +43,7 @@ class MessagesController < ApplicationController
   # PATCH/PUT /messages/1.json
   def update
     respond_to do |format|
+    @messages = @board.messages.order('messages.created_at DESC')
       if @message.update(message_params)
         format.html { redirect_to @message, notice: 'Message was successfully updated.' }
         format.json { render :show, status: :ok, location: @message }
@@ -70,6 +71,7 @@ class MessagesController < ApplicationController
       @message.update(favorite: true)
     end
     redirect_to board_path(@board)
+    @messages = @board.messages.order('messages.created_at DESC')
   end
 
   private
