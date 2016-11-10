@@ -25,4 +25,28 @@
 <br>
 
 <div class="button_todo"><%= link_to 'Create New Project Task', new_todo_app_list_path %></div>
+
+<div class="priorities_all">
+  <h1 class="title_todo">Priority Tasks</h1>
+  <div>
+  <% @todo_app_lists.each do |todo_app_list| %>
+      <div class="task_container">
+      <div class="prior_project"><%= todo_app_list.title %></div>
+        <% todo_app_list.tasks.priorities.each do |task| %>
+          <div class="task">
+            <div class="detail"><%= task.content %></div>
+            <div class="action">
+                  <div class="icon_<%= task.priority %>">
+                    <i class="material-icons md-18">priority_high</i>
+                  </div>
+                <%= link_to 'Done', todo_app_list_task_path(todo_app_list, task), method: :delete %>
+
+            </div>
+          </div>
+        <% end %>
+      </div>
+  <% end %>
+  </div>
+</div>
+
 </div>
