@@ -19,7 +19,11 @@
       <div class="task">
         <div class="detail"><%= task.content %></div>
         <div class="action">
-
+            <%= link_to toggle_todo_app_list_task_path(@todo_app_list, task), method: :put do %>
+              <div class="icon_<%= task.priority %>">
+                <i class="material-icons md-18">priority_high</i>
+              </div>
+            <% end %>
             <%= link_to 'Done', todo_app_list_task_path(@todo_app_list, task), method: :delete %>
 
         </div>
@@ -31,4 +35,7 @@
   </div>
 </div>
 <%= link_to 'Back', todo_app_lists_path %>
+
+
+
 </div>

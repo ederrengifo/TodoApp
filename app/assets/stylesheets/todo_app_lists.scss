@@ -474,6 +474,7 @@ label {
   text-align: left;
   padding-left: 10px;
   font-size: 14px;
+  font-weight: 400;
 }
 .task_container .task .action {
   text-align: right;
@@ -801,4 +802,52 @@ label {
 .favorites_title_text {
   position: relative;
   top: -5px;
+}
+
+.icon_priority {
+  cursor: pointer;
+  color: #5E35B1;
+  position: relative;
+  display: inline-block;
+  opacity: 0.25;
+}
+.icon_priority:hover {
+  color: #F6C623;
+  opacity: 1;
+}
+.icon_fav:visited {
+  color: #F6C623;
+  opacity: 1;
+}
+.icon_false {
+  cursor: pointer;
+  color: #5E35B1;
+  position: relative;
+  display: inline-block;
+  opacity: 0.25;
+}
+.icon_false:hover {
+  color: #F6C623;
+  opacity: 1;
+}
+.icon_false:visited {
+  color: #F6C623;
+  opacity: 1;
+}
+.icon_true {
+  cursor: pointer;
+  color: #F6C623;
+  position: relative;
+  display: inline-block;
+  opacity: 1;
+}
+
+.prior_project {
+  color: #999;
+  margin-bottom: 10px;
+}
+.priorities_all {
+  margin-top: 80px;
+  font-weight: 500;
+  margin-bottom: 40px;
 }
