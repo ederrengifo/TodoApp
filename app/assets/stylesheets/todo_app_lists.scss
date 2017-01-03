@@ -2,6 +2,314 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.body-content .container-open .box-project {
+  display: inline-block;
+  width: 282px;
+  min-height: 100%;
+  position: relative;
+  margin-right: 10px;
+  float: left;
+  background: #FFFFFF;
+  border: 1px solid rgba(74,87,105,0.12);
+  border-radius: 4px;
+}
+.body-content .container-open .box-project:hover {
+  background: #FBFBFB;
+  border: 1px solid rgba(74,87,105,0.25);
+}
+.project-head {
+  padding: 15px 15px 15px 20px;
+  height: 50px;
+}
+.project-head-detail {
+  padding: 15px 15px 15px 20px;
+  height: 65px;
+}
+.project-title {
+  font-size: 16px;
+  padding-bottom: 3px;
+}
+.project-title a {
+  color: #000;
+  clear: both;
+  width: 100%;
+}
+.project-title:hover a {
+  color: #000;
+  text-decoration: underline;;
+}
+.project-title-detail {
+  font-size: 24px;
+  padding-bottom: 3px;
+}
+.project-status-progress {
+  width: auto;
+  font-size: 10px;
+  color: #FFF;
+  text-transform: uppercase;
+  opacity: 0.45;
+  background: #1384FF;
+  border-radius: 100px;
+  padding: 1px 15px 0px 15px;
+}
+.project-status-pending {
+  width: auto;
+  font-size: 10px;
+  color: #FFF;
+  text-transform: uppercase;
+  opacity: 0.45;
+  background: #FF1313;
+  border-radius: 100px;
+  padding: 1px 15px 0px 15px;
+}
+.project-status-completed {
+  width: auto;
+  font-size: 10px;
+  color: #FFF;
+  text-transform: uppercase;
+  opacity: 0.45;
+  background: #5BC43E;
+  border-radius: 100px;
+  padding: 1px 15px 0px 15px;
+}
+
+.project-task {
+  background: #FFF;
+  border: 1px solid #E6EAEE;
+  box-shadow: 0 1px 0 0 rgba(233,235,237,0.24);
+  border-radius: 4px;
+  padding: 10px 15px;
+  margin: 0px 10px 3px 10px;
+  color: #4A586A;
+  cursor: pointer;
+  -vendor-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  -webkit-animation-delay: 0.5s;
+
+}
+.project-task:hover {
+  color: #000;
+  border: 1px solid #C8D1DA;
+  box-shadow: 0 1px 0 0 rgba(233,235,237,0.5);
+}
+.project-task-new {
+  box-shadow: 0 1px 0 0 rgba(233,235,237,0.24);
+  border-radius: 4px;
+  margin: 0px 10px 10px 10px;
+  color: #A8AEB7;
+}
+
+.project-menu {
+  width: 20px;
+  position: relative;
+  float: right;
+}
+.project-menu-btn {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+}
+.project-menu-btn i {
+  color: #D8D8D8;
+  cursor: pointer;
+}
+.project-menu-btn i:hover {
+  color: #007AFF;
+}
+.dropdown-project-content {
+  display: none;
+  position: absolute;
+  background-color: #FFF;
+  min-width: 180px;
+  right: -15px;
+  top: 30px;
+  text-align: left;
+  border: 1px solid rgba(168,174,183,0.50);
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.07), 0 1px 2px 0 rgba(0,0,0,0.14);
+  border-radius: 4px;
+  z-index: 2;
+}
+.dropdown-project-content a:first-child {
+  display: block;
+  padding: 15px 20px 5px 20px;
+  color: #4A586A;
+  cursor: pointer;
+}
+.dropdown-project-content a {
+  display: block;
+  padding: 10px 20px 5px 20px;
+  color: #4A586A;
+  cursor: pointer;
+}
+.dropdown-project-content a:last-child {
+  display: block;
+  padding: 10px 20px 18px 20px;
+  color: #4A586A;
+  cursor: pointer;
+}
+.dropdown-project-content a:hover {
+  color: #007AFF;
+  text-decoration: none;
+  cursor: pointer;
+}
+.new-box-project {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.new-box-project a {
+  margin: 20px;
+  color: #A8AEB7;
+}
+.new-box-project:hover {
+  padding-bottom: 20px;
+}
+.new-box-project:hover a {
+  color: #007AFF;
+  text-decoration: none;
+}
+
+
+.icon_false {
+  color: #DADFE4;
+  position: relative;
+  top:5px;
+  right: 5px;
+  float: right;
+}
+.icon_false i {
+  color: #DADFE4;
+}
+.icon_false:hover i {
+  color: #F89F1C;
+}
+.icon_true {
+  color: #F89F1C;
+  position: relative;
+  top:5px;
+  right: 5px;
+  float: right;
+}
+.icon_true i {
+  color: #F89F1C;
+}
+.icon_true:hover i {
+  color: #F89F1C;
+}
+
+.field_task {
+  width: 100%;
+}
+.field_task textarea {
+  width: 100%;
+  text-align: left;
+  margin-top: 5px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.actions_task {
+  display: none;
+}
+.field_task .actions_task input {
+  padding: 5px 0px 5px 10px;
+  color: #007AFF;
+  cursor: pointer;
+  border: none;
+}
+.field_task .actions_task input:hover {
+  text-decoration: underline;
+  color: #007AFF;
+}
+
+.task-options-content {
+  display: none;
+  margin-top: 10px;
+}
+.task-options-btn {
+  text-align: left;
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  background: none;
+  font-size: 14px;
+  cursor: pointer;
+  color: #4A586A;
+}
+.task-options-btn:hover {
+  color: #000;
+}
+.done {
+  cursor: pointer;
+}
+.done a {
+  color: #43D24F;
+  top: -3px;
+  position: relative;
+}
+.done i {
+  color: #43D24F;
+}
+.not-yet {
+  float: right;
+  text-align: left;
+  margin-right: -15px;
+  color: #A8AEB7
+}
+
+.priority-tooltip {
+  position: absolute;
+  padding: 5px 10px 5px 10px;
+  border-radius: 4px;
+  background: #4A586A;
+  color: #FFF;
+  opacity: 0.95;
+  font-size: 13px;
+  z-index: 4;
+  top: -20px;
+  left: 20px;
+  display: none;
+}
+
+.icon_true:hover .priority-tooltip {
+  display: block;
+}
+
+// Task detail style
+
+.back-button i {
+  color: #C8D1DA;
+}
+.back-button:hover i {
+  color: #007AFF;
+}
+.project-menu-detail {
+  float: right;
+}
+.project-menu-detail a {
+  color: #C8D1DA;
+  margin-left: 20px;
+}
+.project-menu-detail .edit:hover {
+  color: #007AFF;
+}
+.project-menu-detail .remove:hover {
+  color: #FF7D7D;
+}
+
+.show {
+  display: block;
+}
+.show2 {
+  display: block;
+}
+.show3 {
+  display: block;
+}
+
+/*
 body {
   padding: 0px;
   margin: 0px;
@@ -854,3 +1162,4 @@ label {
   font-weight: 500;
   margin-bottom: 40px;
 }
+*/

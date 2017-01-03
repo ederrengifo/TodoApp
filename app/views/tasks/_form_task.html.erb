@@ -12,10 +12,16 @@
   <% end %>
 
   <div class="field_task">
-    <%= f.text_field :content, placeholder: "Write your new task here" %>
-    <div class="actions_task">
+    <div id="textarea-task-<%= task.todo_app_list.id %>"><%= f.text_area :content, placeholder: "Your new task here", rows: 1, class: "textarea-tasks" %></div>
+    <div id="action-task-<%= task.todo_app_list.id %>" class="actions_task">
        <%= f.submit 'Add Task' %>
     </div>
+    <script>
+      var taskInput = document.getElementById("textarea-task-<%= task.todo_app_list.id %>").getElementsByClassName("textarea-tasks")[0];
+      taskInput.onclick = function() {
+        document.getElementById("action-task-<%= task.todo_app_list.id %>").classList.toggle("show");
+      }
+    </script>
   </div>
 
 

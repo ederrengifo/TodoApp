@@ -1,5 +1,109 @@
+<div class="body-content animated fadeInRight">
+  <div class="container-open">
+    <!-- Adding a new project and tasks -->
+    <% @todo_app_lists.each do |todo_app_list| %>
+      <div class="box-project" style="
+      display: inline-block;
+      width: 282px;
+      min-height: 100%;
+      position: relative;
+      margin-right: 10px;
+      float: left;
+      background: #FFFFFF;
+      border: 1px solid rgba(74,87,105,0.12);
+      border-radius: 4px;
+      margin-bottom: 10px;
+      ">
+        <div class="project-head">
+          <div class="project-info" style="width: 220px;
+          height: 40px;
+          float: left;
+          position: relative;">
+            <div class="project-title"><a href="<%= todo_app_list_path(todo_app_list) %>"><%= todo_app_list.title %></a></div>
+            <span class="project-status-<%= todo_app_list.status %>"><%= todo_app_list.status %></span>
+          </div>
+          <div class="project-menu">
+            <div class="dropdown">
+              <button id="myBtn-<%= todo_app_list.id %>" class="project-menu-btn"><i class="material-icons md-20">more_vert</i></button>
+              <div id="myDropdown-<%= todo_app_list.id %>" class="dropdown-project-content">
+                <%= link_to 'Edit Name & Status', edit_todo_app_list_path(todo_app_list) %>
+                <%= link_to 'Remove Project', todo_app_list, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+              <script>
+                var projectBtn = document.getElementById("myBtn-<%= todo_app_list.id %>");
+                projectBtn.onclick = function() {
+                  document.getElementById("myDropdown-<%= todo_app_list.id %>").classList.toggle("show");
+                }
+              </script>
+            </div>
+          </div>
+        </div>
+        <!-- Adding a new task content -->
+        <% todo_app_list.tasks.each do |task| %>
+        <div class="project-task animated fadeInDown">
+          <div class="project-task-content">
+            <div style="clear:both; height: auto;">
+              <button id="task-option-btn-<%= task.id %>" style="width:190px;" class="task-options-btn">
+                 <p><%= task.content %></p>
+              </button>
+              <div style="width:100%; position:relative; top:-23px; right:-10px; z-index:1;" class="icon-priority">
+                <%= link_to toggle_todo_app_list_task_path(todo_app_list, task) , method: :put do %>
+                  <div class="icon_<%= task.priority %>">
+                    <i class="material-icons md-18">turned_in_not</i>
+                    <div class="priority-tooltip">Priority</div>
+                  </div>
+                <% end %>
+              </div>
+
+              <div id="task-option-content-<%= task.id %>" class="task-options-content">
+                <span class="done">
+                    <i class="material-icons md-18">done</i>
+                    <%= link_to 'Is it done?', todo_app_list_task_path(todo_app_list, task), method: :delete %>
+                </span>
+                <a id="hide-task-option-<%= task.id %>" class="not-yet">Not yet</a>
+              </div>
+              <script>
+                var taskBtn = document.getElementById("task-option-btn-<%= task.id %>");
+                var hideTask = document.getElementById("hide-task-option-<%= task.id %>");
+                taskBtn.onclick = function() {
+                  document.getElementById("task-option-content-<%= task.id %>").classList.toggle("show2");
+                };
+                hideTask.onclick = function() {
+                  document.getElementById("task-option-content-<%= task.id %>").classList.remove('show2');
+                }
+              </script>
+            </div>
+          </div>
+        </div>
+        <% end %>
+        <!-- Adding a new task -->
+        <div class="project-task-new">
+          <%= render 'tasks/form_task', task: Task.new(todo_app_list: todo_app_list) %>
+        </div>
+      </div>
+    <% end %>
+      <div class="new-box-project" style="
+      display: inline-block;
+      width: 282px;
+      min-height: 100%;
+      position: relative;
+      margin-right: 10px;
+      float: left;
+      background: #FFFFFF;
+      border: 1px solid rgba(74,87,105,0.12);
+      border-radius: 4px;
+      ">
+      <%= link_to '+ Create New Project', new_todo_app_list_path %>
+    </div>
+  </div>
+</div>
+
+<div style="clear:both"></div>
+
+<!--
+
 <div class="wrapper">
-<!--p id="notice"><%= notice %></p-->
+<p id="notice"><%= notice %></p>
 
 <h1 class="title_todo">Projects</h1>
 
@@ -53,3 +157,4 @@
 </div>
 
 </div>
+-->

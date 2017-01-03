@@ -1,5 +1,82 @@
+<div class="body-content animated fadeInLeft">
+  <div class="container-open">
+    <div style="width:65px; margin-right:10px; float:left; padding-top:20px;">
+      <a class="back-button" href="<%= todo_app_lists_path %>">
+        <i class="material-icons md-24">arrow_back</i>
+      </a>
+    </div>
+    <div class="box-project" style="
+    display: inline-block;
+    width: 720px;
+    min-height: 100%;
+    position: relative;
+    margin-right: 10px;
+    float: left;
+    background: #FFFFFF;
+    border: 1px solid rgba(74,87,105,0.12);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    ">
+      <div class="project-head-detail">
+        <div class="project-info" style="width: 520px;
+        height: 40px;
+        float: left;
+        position: relative;">
+          <div class="project-title-detail"><%= @todo_app_list.title %></div>
+          <span class="project-status-<%= @todo_app_list.status %>"><%= @todo_app_list.status %></span>
+        </div>
+        <div class="project-menu-detail">
+          <%= link_to 'Edit', edit_todo_app_list_path(@todo_app_list), class: "edit" %>
+          <%= link_to 'Remove', @todo_app_list, method: :delete, data: { confirm: 'Are you sure?' }, class: "remove" %>
+        </div>
+      </div>
+    <!-- Adding a new task content -->
+      <% @todo_app_list.tasks.each do |task| %>
+      <div class="project-task animated fadeInDown">
+        <div class="project-task-content">
+          <div style="clear:both; height: auto;">
+            <button id="task-option-btn-<%= task.id %>" style="width:80%;" class="task-options-btn">
+               <p><%= task.content %></p>
+            </button>
+            <div style="width:100%; position:relative; top:-23px; right:-10px; z-index:1;" class="icon-priority">
+              <%= link_to toggle_todo_app_list_task_path(@todo_app_list, task) , method: :put do %>
+                <div class="icon_<%= task.priority %>">
+                  <i class="material-icons md-18">turned_in_not</i>
+                  <div class="priority-tooltip">Priority</div>
+                </div>
+              <% end %>
+            </div>
 
+            <div id="task-option-content-<%= task.id %>" class="task-options-content">
+              <span class="done">
+                  <i class="material-icons md-18">done</i>
+                  <%= link_to 'Is it done?', todo_app_list_task_path(@todo_app_list, task), method: :delete %>
+              </span>
+              <a id="hide-task-option-<%= task.id %>" class="not-yet">Not yet</a>
+            </div>
+            <script>
+              var taskBtn = document.getElementById("task-option-btn-<%= task.id %>");
+              var hideTask = document.getElementById("hide-task-option-<%= task.id %>");
+              taskBtn.onclick = function() {
+                document.getElementById("task-option-content-<%= task.id %>").classList.toggle("show2");
+              };
+              hideTask.onclick = function() {
+                document.getElementById("task-option-content-<%= task.id %>").classList.remove('show2');
+              }
+            </script>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <!-- Adding a new task -->
+      <div class="project-task-new">
+        <%= render 'tasks/form_task', task: Task.new(todo_app_list: @todo_app_list) %>
+      </div>
+    </div>
 
+  </div>
+</div>
+<!--
 <div class="wrapper">
 
 <h1 class="title_todo">Detail</h1>
@@ -39,3 +116,4 @@
 
 
 </div>
+-->
