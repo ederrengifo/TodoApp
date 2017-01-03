@@ -42,8 +42,8 @@
         <% todo_app_list.tasks.each do |task| %>
         <div class="project-task animated fadeInDown">
           <div class="project-task-content">
-            <div style="clear:both; height: auto;">
-              <button id="task-option-btn-<%= task.id %>" style="width:190px;" class="task-options-btn">
+            <div style="clear:both; height:100%; white-space: none;">
+              <button id="task-option-btn-<%= task.id %>" style="width:190px; white-space: normal;" class="task-options-btn">
                  <p><%= task.content %></p>
               </button>
               <div style="width:100%; position:relative; top:-23px; right:-10px; z-index:1;" class="icon-priority">
