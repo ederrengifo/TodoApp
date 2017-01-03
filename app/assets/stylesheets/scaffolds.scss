@@ -75,11 +75,12 @@ textarea:focus {
 
 .header {
   padding: 20px 30px 20px 30px;
+  width: auto;
 }
 .container-open {
   width: 100%;
-  height: 26px;
-  min-width: 1190px;
+  overflow-x: scroll;;
+  overflow-y: hidden;
 }
 .logo-container {
   position: relative;

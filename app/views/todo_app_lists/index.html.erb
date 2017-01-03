@@ -1,18 +1,18 @@
 <div class="body-content animated fadeInRight">
   <div class="container-open">
+    <div class="content-index">
     <!-- Adding a new project and tasks -->
     <% @todo_app_lists.each do |todo_app_list| %>
       <div class="box-project" style="
       display: inline-block;
       width: 282px;
-      min-height: 100%;
-      position: relative;
       margin-right: 10px;
-      float: left;
+      margin-top: 0px;
       background: #FFFFFF;
       border: 1px solid rgba(74,87,105,0.12);
       border-radius: 4px;
       margin-bottom: 10px;
+      vertical-align: top;
       ">
         <div class="project-head">
           <div class="project-info" style="width: 220px;
@@ -88,12 +88,13 @@
       min-height: 100%;
       position: relative;
       margin-right: 10px;
-      float: left;
       background: #FFFFFF;
       border: 1px solid rgba(74,87,105,0.12);
       border-radius: 4px;
+      padding-bottom: 10px;
       ">
       <%= link_to '+ Create New Project', new_todo_app_list_path %>
+      </div>
     </div>
   </div>
 </div>

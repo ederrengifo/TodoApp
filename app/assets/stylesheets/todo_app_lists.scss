@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.content-index {
+  width: auto;
+  white-space: nowrap;
+  vertical-align: top;
+  min-height: 100%;
+  bottom: 0px;
+}
+
 .body-content .container-open .box-project {
   display: inline-block;
   width: 282px;
@@ -164,7 +172,7 @@
   color: #A8AEB7;
 }
 .new-box-project:hover {
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 .new-box-project:hover a {
   color: #007AFF;
