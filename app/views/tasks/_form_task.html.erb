@@ -12,17 +12,24 @@
   <% end %>
 
   <div class="field_task">
-    <div id="textarea-task-<%= task.todo_app_list.id %>"><%= f.text_area :content, placeholder: "Your new task here", rows: 1, class: "textarea-tasks" %></div>
+    <div id="textarea-task-<%= task.todo_app_list.id %>">
+      <%= f.text_area :content, placeholder: "Your new task here", rows: 1, class: "textarea-tasks", required: "Text here is required" %>
+    </div>
     <div id="action-task-<%= task.todo_app_list.id %>" class="actions_task">
        <%= f.submit 'Add Task' %>
     </div>
     <script>
-      var taskInput = document.getElementById("textarea-task-<%= task.todo_app_list.id %>").getElementsByClassName("textarea-tasks")[0];
-      taskInput.onclick = function() {
-        document.getElementById("action-task-<%= task.todo_app_list.id %>").classList.toggle("show");
+      var inputTask = document.getElementById("textarea-task-<%= task.todo_app_list.id %>").getElementsByClassName("textarea-tasks")[0];
+      inputTask.onchange = function() {
+        var value = this.value;
+        console.log('holi');
+        if (value && value.length > 0) {
+
+          document.getElementById("action-task-<%= task.todo_app_list.id %>").classList.toggle("show3");
+        } else {
+          document.getElementById("action-task-<%= task.todo_app_list.id %>").classList.remove("show3");
+        }
       }
     </script>
   </div>
-
-
 <% end %>
