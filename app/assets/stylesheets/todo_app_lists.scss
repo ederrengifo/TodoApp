@@ -307,6 +307,33 @@
   color: #FF7D7D;
 }
 
+// New and Edit forms
+
+.detail-content {
+  padding: 20px 30px 20px 30px;
+}
+.detail-content .detail-form {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.form-title {
+  margin-bottom: 5px;
+  font-weight: 700;
+  font-size: 14px
+}
+.task-status {
+  margin-top: 20px;
+}
+.form-input input {
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+// Others
+
 .show {
   display: block;
 }

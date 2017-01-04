@@ -14,19 +14,19 @@
 <div class="form_container">
 
   <div class="field">
-    <div class="form_title">Task title</div>
-    <div><%= f.text_field :title, placeholder:"Title of the project" %></div>
-    <div class="task_status">
-      <div class="form_title" style="width:100%;">Task Status</div>
-      <div>
-        <div class="radio_todo"><%= f.radio_button :status, 'pending' %></div>
+    <div class="form-title">Task title</div>
+    <div class="form-input"><%= f.text_field :title, placeholder:"Title of the project" %></div>
+    <div class="task-status">
+      <div class="form-title" style="width:100%;">Task Status</div>
+      <div class="select-pending">
+        <div class="radio_todo"><%= f.radio_button :status, 'pending', checked:"checked" %></div>
         <div class="tag_todo"><%= f.label :status, 'Pending' %></div>
       </div>
-      <div>
+      <div class="select-progress">
         <div class="radio_todo"><%= f.radio_button :status, 'progress' %></div>
         <div class="tag_todo"><%= f.label :status, 'Progress' %></div>
       </div>
-      <div>
+      <div class="select-completed">
         <div class="radio_todo"><%= f.radio_button :status, 'completed' %></div>
         <div class="tag_todo"><%= f.label :status, 'Completed' %></div>
       </div>
@@ -34,7 +34,7 @@
   </div>
 
   <div class="actions">
-     <%= f.submit 'Create' %>
+     <%= f.submit 'Save Changes' %>
   </div>
 
 </div>

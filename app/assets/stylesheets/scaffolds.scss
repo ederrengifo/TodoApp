@@ -180,6 +180,21 @@ textarea:focus {
   float: right;
   margin-left: 30px;
 }
+.actions {
+  margin-top: 20px;
+}
+.actions input {
+  border: 1px solid #007AFF;
+  padding: 6px 25px 8px 25px;
+  color: #007AFF;
+  cursor: pointer;
+  border-radius: 30px;
+  font-weight: 500;
+}
+.actions input:hover {
+  background: #007AFF;
+  color: #FFF;
+}
 
 // Body general layout options
 
