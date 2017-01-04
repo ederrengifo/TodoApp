@@ -14,25 +14,28 @@
 <div class="form_container">
 
   <div class="field">
-    <div class="form-title">Task title</div>
+    <div class="form-title">Project Title</div>
     <div class="form-input"><%= f.text_field :title, placeholder:"Title of the project" %></div>
-    <div class="task-status">
-      <div class="form-title" style="width:100%;">Task Status</div>
-      <div class="select-pending">
-        <div class="radio_todo"><%= f.radio_button :status, 'pending', checked:"checked" %></div>
-        <div class="tag_todo"><%= f.label :status, 'Pending' %></div>
+    <div class="task-status" style="height:100%; width:100%; clear: both;">
+      <div class="form-title" style="width:100%;">Status</div>
+      <div class="selected pending" style="padding:10px 20px 10px 20x; float:left;">
+        <%= f.radio_button :status, 'pending', checked:"checked", type:"radio" %>
+        <%= f.label :status, 'Pending' %>
+        <div class="check"></div>
       </div>
-      <div class="select-progress">
-        <div class="radio_todo"><%= f.radio_button :status, 'progress' %></div>
-        <div class="tag_todo"><%= f.label :status, 'Progress' %></div>
+      <div class="selected progress" style="padding:10px 20px 10px 20x; float:left;">
+        <%= f.radio_button :status, 'progress' %>
+        <%= f.label :status, 'Progress' %>
+        <div class="check"></div>
       </div>
-      <div class="select-completed">
-        <div class="radio_todo"><%= f.radio_button :status, 'completed' %></div>
-        <div class="tag_todo"><%= f.label :status, 'Completed' %></div>
+      <div class="selected completed" style="padding:10px 20px 10px 20x; float: left;">
+        <%= f.radio_button :status, 'completed' %>
+        <%= f.label :status, 'Completed' %>
+        <div class="check"></div>
       </div>
     </div>
   </div>
-
+  <div style="clear:both"></div>
   <div class="actions">
      <%= f.submit 'Save Changes' %>
   </div>

@@ -51,7 +51,7 @@
 }
 .project-title-detail {
   font-size: 24px;
-  padding-bottom: 3px;
+  padding-bottom: 10px;
 }
 .project-status-progress {
   width: auto;
@@ -317,22 +317,158 @@
 }
 .detail-content .detail-form {
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 .form-title {
-  margin-bottom: 5px;
   font-weight: 700;
-  font-size: 14px
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.field {
+  padding-top: 25px;
+  padding-bottom: 75px;
+  border-top: 1px solid #E9EBED;
+  border-bottom: 1px solid #E9EBED;
+  clear:both;
 }
 .task-status {
   margin-top: 20px;
+  width: 100%;
+  clear: both;
 }
 .form-input input {
   width: 100%;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  margin-bottom: 10px;
 }
+.selected input {
+  width: 25px;
+  display: inline-block;
+  float: left;
+  margin-right: 5px;
+}
+.selected label {
+  float: left;
+  cursor: pointer;
+  color: #4A586A;
+}
+.selected  {
+  padding: 7px 30px 7px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  margin-right: 20px;
+  border-radius: 50px;
+}
+.selected input[type=radio] {
+  position: relative;
+  visibility: visible;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 100;
+}
+.selected label {
+  display: block;
+  position: relative;
+  left: 7px;
+  z-index: 9;
+  cursor: pointer;
+  -webkit-transition: all 0.25s linear;
+}
+.pending:hover label {
+  color: #FF7D7D;
+}
+.progress:hover label {
+  color: #62ACFD;
+}
+.completed:hover label {
+  color: #5BC43E;
+}
+.selected .check {
+  display: block;
+  position: relative;
+  border: 1px solid #C8D0DA;
+  border-radius: 100%;
+  height: 14px;
+  width: 14px;
+  top: 2px;
+  right: -10px;
+  z-index: 5;
+  transition: border .25s linear;
+}
+.pending:hover .check {
+  border: 1px solid #FF7D7D;
+}
+.progress:hover .check {
+  border: 1px solid #A5D0FF;
+}
+.completed:hover .check {
+  border: 1px solid #9EDC8C;
+}
+.selected .check::before {
+  display: block;
+  position: relative;
+  content: '';
+  border-radius: 100%;
+  height: 10px;
+  width: 10px;
+  top: 2px;
+  left: 0px;
+  margin: auto;
+  transition: background 0.25s linear;
+}
+
+.pending input[type=radio]:checked ~ .check {
+  border: 1px solid #FF7D7D;
+}
+.pending input[type=radio]:checked ~ .check::before {
+  background: #FF7D7D;
+}
+.pending input[type=radio]:checked ~ label {
+  color: #FF7D7D;
+}
+
+.progress input[type=radio]:checked ~ .check {
+  border: 1px solid #A5D0FF;
+}
+.progress input[type=radio]:checked ~ .check::before {
+  background: #A5D0FF;
+}
+.progress input[type=radio]:checked ~ label {
+  color: #A5D0FF;
+}
+
+.completed input[type=radio]:checked ~ .check {
+  border: 1px solid #9EDC8C;
+}
+.completed input[type=radio]:checked ~ .check::before {
+  background: #9EDC8C;
+}
+.completed input[type=radio]:checked ~ label {
+  color: #9EDC8C;
+}
+
+
+.pending {
+  border: 1px solid #E9EBED;
+}
+.pending:hover {
+  border: 1px solid #FF7D7D;
+}
+.progress {
+  border: 1px solid #E9EBED;
+}
+.progress:hover {
+  border: 1px solid #A5D0FF;
+}
+.completed {
+  border: 1px solid #E9EBED;
+}
+.completed:hover {
+  border: 1px solid #9EDC8C;
+}
+
 
 
 // Others
