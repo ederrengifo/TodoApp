@@ -9,6 +9,9 @@
   height: 100%;
   margin-bottom: 20px;
 }
+.body-content {
+  z-index: 5;
+}
 
 .body-content .container-open .box-project {
   display: inline-block;
