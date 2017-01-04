@@ -1,3 +1,124 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.user-header {
+  width: 100%;
+  text-align: center;
+  padding: 50px 0px 50px 0px;
+}
+.user-header img {
+  width: 42px;
+}
+.user-container {
+  margin: 0 auto;
+  width: 600px;
+  text-align: center;
+}
+.user-content {
+  width: 100%;
+  height: 100%;
+}
+.user-form {
+  border: 1px solid #E9EBED;
+  padding: 30px 60px 30px 60px;
+  border-radius: 0px 0px 4px 4px;
+}
+.user-tabs {
+  width: 600px;
+  text-align: left;
+  height: 50px;
+}
+.user-tabs .active {
+  font-size: 14px;
+  width: 298px;
+  display: inline-block;
+  text-align: center;
+  border: 1px solid #E9EBED;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #FFF;
+  border-radius: 4px 4px 0px 0px;
+}
+.user-tabs .non-active {
+  font-size: 14px;
+  width: 298px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  padding-top: 14px;
+}
+.user-tabs .non-active a {
+  padding: 14px 120px 14px 120px;
+  margin: 0;
+  border-radius: 4px;
+}
+.user-tabs .non-active a:hover {
+  background-color: #FAFAFA;
+}
+.title-session {
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+.description-session {
+  font-size: 16px;
+  color: #4A586A;
+}
+.form-session {
+  width: 100%;
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+// Form styles
+
+.user-form-fields {
+  width: 100%;
+}
+.user-form-fields div input {
+  margin-bottom: 15px;
+  font-size: 16px;
+  padding: 13px 15px 13px 15px;
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.forgot-password {
+  width: 100%;
+  text-align: right;
+  font-size: 14px;
+  margin-top: -5px;
+}
+.forgot-password a {
+  color: #A8AEB7;
+}
+.forgot-password a:hover {
+  color: #4A586A;
+  text-decoration: underline;
+}
+
+.actions-session {
+  margin-top: 20px;
+}
+.actions-session input {
+  background-color: #007AFF;
+  border-radius: 50px;
+  padding: 13px 30px 13px 30px;
+  color: #FFF;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+.actions-session input:hover {
+  background-color: #3395FF;
+  border: none;
+  padding: 13px 33px 13px 33px;
+}
+.user-footer {
+  margin-top: 40px;
+}
+.user-footer p {
+  color: #4A586A;
+}
