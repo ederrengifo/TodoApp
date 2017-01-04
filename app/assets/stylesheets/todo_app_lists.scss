@@ -125,8 +125,28 @@
   color: #D8D8D8;
   cursor: pointer;
 }
+.project-menu-btn:hover {
+  outline-style: none;
+  box-shadow: none;
+}
+.project-menu-btn:focus {
+  outline-style: none;
+  box-shadow: none;
+}
 .project-menu-btn i:hover {
   color: #007AFF;
+  outline-style: none;
+  box-shadow: none;
+}
+.project-menu-btn i:focus {
+  color: #007AFF;
+  outline-style: none;
+  box-shadow: none;
+}
+.project-menu-btn i:active {
+  color: #007AFF;
+  outline-style: none;
+  box-shadow: none;
 }
 .dropdown-project-content {
   display: none;

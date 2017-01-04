@@ -160,10 +160,7 @@ textarea:focus {
   color: #007AFF;
   text-decoration: none;
 }
-.dropdown:hover .dropdown-user-content {
-  display: block;
-  z-index: 15;
-}
+
 
 .dropdown-user-icon {
   position: relative;
@@ -187,7 +184,7 @@ textarea:focus {
   margin-left: 30px;
 }
 .actions {
-  margin-top: 30px;
+  margin-top: 25px;
 }
 .actions input {
   border: 1px solid #007AFF;

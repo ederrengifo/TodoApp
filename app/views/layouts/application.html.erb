@@ -28,15 +28,21 @@
         </div>
         <div class="user-menu">
           <div class="dropdown">
-            <div class="dropdown-user-btn">
+            <div id="dropdown-user"class="dropdown-user-btn">
               <div class="dropdown-user-down"><%= image_tag("down.svg") %></div>
               <div class="dropdown-user-name"><%= current_user.name %></div>
               <div class="dropdown-user-icon"><%= image_tag("user.svg") %></div>
             </div>
-            <div class="dropdown-user-content">
+            <div id="user-content" class="dropdown-user-content">
               <a href="">Profile</a>
               <%= link_to "Logout", sign_out_path, method: :delete %>
             </div>
+            <script>
+              var projectBtn = document.getElementById("dropdown-user");
+              projectBtn.onclick = function() {
+                document.getElementById("user-content").classList.toggle("show");
+              }
+            </script>
           </div>
         </div>
       </div>
