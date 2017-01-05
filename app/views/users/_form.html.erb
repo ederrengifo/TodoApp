@@ -1,8 +1,5 @@
-<div class="user_form_fields">
-  <div class="form_title">Name</div>
-  <div><%= form.text_field :name, placeholder: "e.g. Gianfranco" %></div>
-  <div class="form_title">E-mail address</div>
-  <div><%= form.text_field :email, placeholder: "name@able.co" %></div>
-  <div class="form_title">Password</div>
-  <div><%= form.text_field :password, placeholder: "4-8 characters", type: "password" %></div>
+<div class="user-form-fields">
+  <div><%= form.text_field :name, placeholder: "Name" %></div>
+  <div><%= form.text_field :email, placeholder: "Your e-mail address", type: "email" %></div>
+  <div><%= form.text_field :password, placeholder: "Set your password", type: "password" %></div>
 </div>

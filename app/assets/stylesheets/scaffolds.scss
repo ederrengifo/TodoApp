@@ -1,8 +1,9 @@
-body {
+html, body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', Helvetica,sans-serif;
   font-size: 14px;
+  height: 100%;
 }
 
 ul {
@@ -69,6 +70,31 @@ textarea:focus {
   border: 1px solid #A5D0FF;
   outline: none;
 }
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FFF;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #D8E0EA;
+    border-radius: 10px;
+    opacity: 0.45;
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+::-webkit-scrollbar-thumb:hover {
+   background: #D8E0EA;
+   opacity: 1;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+   background: #D8E0EA;
+   opacity: 0;
+}
 
 
 // Header & Basic Style
@@ -79,9 +105,22 @@ textarea:focus {
 }
 .container-open {
   width: 100%;
-  overflow-x: scroll;;
+  overflow-x: scroll;
   overflow-y: hidden;
   margin-top: 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.container-open-index {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-top: 20px;
+  height: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .container-header {
   width: 100%;
@@ -91,7 +130,10 @@ textarea:focus {
   float: left;
   width: 35px;
   height: 26px;
-  margin-right: 50px;
+  margin-right: 40px;
+}
+.logo-container a img {
+  width: 32px;
 }
 .menu-container {
   position: relative;
