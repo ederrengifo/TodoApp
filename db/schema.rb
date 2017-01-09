@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161109224345) do
+ActiveRecord::Schema.define(version: 20170109012007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,14 @@ ActiveRecord::Schema.define(version: 20161109224345) do
     t.integer  "board_id"
   end
 
+  create_table "links", force: :cascade do |t|
+    t.string   "folderName"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "tool"
+  end
+
   create_table "messages", force: :cascade do |t|
     t.string   "content"
     t.string   "author"
@@ -46,9 +54,10 @@ ActiveRecord::Schema.define(version: 20161109224345) do
 
   create_table "notes", force: :cascade do |t|
     t.string   "noteTitle"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.integer  "user_id"
+    t.string   "noteDescription"
   end
 
   create_table "notes_lists", force: :cascade do |t|
@@ -57,6 +66,11 @@ ActiveRecord::Schema.define(version: 20161109224345) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "note_id"
+    t.string   "noteStatus"
+    t.string   "txtTitle"
+    t.text     "txt"
+    t.string   "embedTitle"
+    t.text     "embed"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -83,6 +97,8 @@ ActiveRecord::Schema.define(version: 20161109224345) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+    t.integer  "link_id"
+    t.string   "link_url"
   end
 
   create_table "users", force: :cascade do |t|

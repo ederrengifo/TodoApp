@@ -1,7 +1,7 @@
 <div class="body-content animated fadeInLeft">
   <div class="container-open">
     <div style="width:65px; margin-right:10px; float:left; padding-top:20px;">
-      <a class="back-button" href="<%= link_path(@link) %>">
+      <a class="back-button" href="<%= links_path %>">
         <i class="material-icons md-24">arrow_back</i>
       </a>
     </div>
@@ -18,11 +18,21 @@
     margin-bottom: 10px;
     ">
       <div class="detail-content">
-        <div class="project-title-detail">Editing link in <%= @link.folderName %></div>
+        <div class="project-title-detail">New Folder</div>
         <div class="detail-form">
-          <%= render 'form_tool', tool: @tool %>
+          <%= render 'form', link: @link %>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+<!--
+<h1>New Link</h1>
+
+<%= render 'form', link: @link %>
+
+<%= link_to 'Back', links_path %>
+-->

@@ -11,13 +11,63 @@
     </div>
   <% end %>
 
-  <div class="field_new_note">
-    <div class="field_title">New Note</div>
-    <div class="field_note"><%= f.text_field :codeTitle, placeholder: "Write your topic here" %></div>
-    <div class="text_area"><%= f.text_area :code, placeholder: "Insert your note" %></div>
-    <div class="actions">
-      <%= f.submit 'Create Note' %>
+  <div class="note-form-container">
+    <ul class="notes-navbar notes-navbar-style">
+      <li><a href="javascript:void(0)" class="tablink formNote-active" onClick="openForm(event, 'formText');">Text Field</a></li>
+      <li><a href="javascript:void(0)" class="tablink" onClick="openForm(event, 'formSnippet');">Code Snippet</a></li>
+      <li><a href="javascript:void(0)" class="tablink" onClick="openForm(event, 'formEmbed');">Embed</a></li>
+    </ul>
+    <!-- Types of forms: Text -->
+    <div id="formText" class="noteForm-container noteForm" style="display:block">
+      <div class="field" style="border-top: 0px; border-bottom: 0px; height:100%; padding: 0;">
+        <div class="form-title">Text title</div>
+        <div class="form-input" style="margin-bottom:10px;"><%= f.text_field :txtTitle, placeholder: "Optional" %></div>
+        <div class="form-title">Text</div>
+        <div class="form-input"><%= f.text_area :txt, placeholder: "Insert your text" %></div>
+      </div>
+      <div style="clear:both"></div>
     </div>
+    <!-- Types of forms: Snippet -->
+    <div id="formSnippet" class="noteForm-container noteForm" style="display:none">
+      <div class="field" style="border-top: 0px; border-bottom: 0px; height:100%; padding: 0;">
+        <div class="form-title">Snippet title</div>
+        <div class="form-input" style="margin-bottom:10px;"><%= f.text_field :codeTitle, placeholder: "Optional" %></div>
+        <div class="form-title">Code</div>
+        <div class="form-input"><%= f.text_area :code, placeholder: "Insert code snippet" %></div>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+    <!-- Types of forms: Embed -->
+    <div id="formEmbed" class="noteForm-container noteForm" style="display:none">
+      <div class="field" style="border-top: 0px; border-bottom: 0px; height:100%; padding: 0;">
+        <div class="form-title">Embed Object Title</div>
+        <div class="form-input" style="margin-bottom:10px;"><%= f.text_field :embedTitle, placeholder: "Optional" %></div>
+        <div class="form-title">Embed Code</div>
+        <div class="form-input"><%= f.text_area :embed, placeholder: "Paste here" %></div>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+    <!-- Send action -->
+    <div class="actions">
+      <%= f.submit 'Save Changes' %>
+    </div>
+    <!-- Js -->
+    <script>
+      function openForm(evt, formName) {
+        var i, x, tablinks;
+        x = document.getElementsByClassName("noteForm");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < x.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" formNote-active", "");
+        }
+        document.getElementById(formName).style.display = "block";
+        evt.currentTarget.className += " formNote-active";
+      }
+    </script>
+
   </div>
 
 

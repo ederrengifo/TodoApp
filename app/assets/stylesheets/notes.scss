@@ -1,3 +1,357 @@
 // Place all the styles related to the Notes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Notes Table Content */
+
+.notes-content {
+  width: 1024px;
+  display: inline-block;
+  vertical-align: top;
+  -vendor-animation-delay: 0.25s;
+  -moz-animation-delay: 0.25s;
+  -webkit-animation-delay: 0.25s;
+}
+.notes-head {
+  width: 100%;
+  padding: 0px 0px 20px 15px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-bottom: 1px solid #C8D1DA;
+}
+.notes-head .remove {
+  color: #C8D1DA;
+}
+.notes-head .remove:hover {
+  color: #FF7D7D !important;
+  text-decoration: none;
+}
+.notes-title span {
+  font-size: 18px;
+  margin-right: 5px;
+}
+.new-note {
+  text-align: right;
+  float: right;
+  cursor: pointer;
+  margin-right: 20px;
+  padding-top: 5px;
+}
+.empty-content {
+  width: 100%;
+  padding: 50px 0;
+  text-align: center;
+  color: #A8AEB7;
+}
+
+/* Link Table Style */
+
+.notes-table {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-collapse: collapse;
+}
+.notes-table tbody {
+  width: 100%;
+}
+.notes-table tbody tr {
+  width: 100%;
+  height: 80px;
+  vertical-align: middle;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background-color: #FFF;
+  margin: 0px;
+}
+.notes-table tbody tr:hover {
+  background-color: #F6FAFF;
+  border-bottom: 1px solid #CEE5FF;
+}
+.notes-table tbody tr:hover td a.note-options {
+  display: block;
+}
+.notes-table tbody tr td {
+  border-bottom: 1px solid #E9EBED;
+  padding-left: 15px;
+  margin: 0px;
+  border-right: 0px;
+}
+.notes-table tbody tr td .note-icon {
+  width: 30px;
+  float: left;
+  margin-right: 20px;
+}
+.notes-table tbody tr td .note-icon img {
+  opacity: 0.25;
+  transition: 0.25s ease;
+}
+.notes-table tbody tr:hover td .note-icon img {
+  opacity: 1;
+}
+.notes-table tbody tr td .note-texts {
+  width: 500px;
+  float: left;
+}
+.notes-table tbody tr td .note-texts .note-title-index a {
+  font-size: 16px;
+  color: #000;
+}
+.notes-table tbody tr td .note-texts .note-description-index {
+  padding-top: 2px;
+  font-size: 14px;
+  color: #4A586A;
+}
+
+.notes-table tbody tr td a.note-options {
+  display: none;
+  text-align: center;
+}
+
+/* Notes detail styles */
+
+.notes-container-details {
+  width: 100%;
+  text-align: center;
+}
+.notes-content-details {
+  width: 720px;
+  margin: 0 auto;
+  padding: 40px 0;
+  text-align: left;
+  border: none;
+}
+.notes-content-detail {
+  padding: 20px 0px 0px 0px;
+}
+.note-input {
+  padding: 18px 30px 18px 30px;
+  border-left: 2px solid #FFF;
+}
+.note-input:hover {
+  border-left: 2px solid #007AFF;
+  background-color: #FBFBFB;
+}
+.note-input:hover .dropdown-detail-container .dropdowns-detail {
+  display: block;
+}
+.notes-head-details {
+  padding: 0 30px;
+  border-bottom: 0px;
+}
+.notes-head-content {
+  border-bottom: 1px solid #E9EBED;
+  padding-bottom: 40px;
+}
+.notes-main-title {
+  font-size: 38px;
+  color: #000;
+  width: 80%;
+  line-height: 45px;
+}
+.notes-main-description {
+  font-size: 16px;
+  color: #4A586A;
+  padding-top: 10px;
+}
+.note-title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+  margin-bottom: 15px;
+}
+.note-title p {
+  font-size: 16px;
+  font-weight: 400;
+  width: 85%;
+}
+.note-detail p {
+  font-size: 16px;
+  color: #4A586A;
+  line-height: 24px
+}
+.note-detail p.codeStyle {
+  font-family: 'Roboto Mono';
+  font-size: 14px;
+  border: 1px solid #DCE3EC;
+  background-color: #F6FAFF;
+  border-radius: 4px;
+  line-height: 20px;
+  padding: 5px 10px 5px 20px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border-left: 4px solid #DCE3EC;
+}
+.note-detail p.codeStyle:hover {
+  border-left: 4px solid #BFCDE0;
+  color: #000;
+}
+/* General notes dropdown */
+
+.dropdown-notes {
+  position: relative;
+  right: 0px;
+  float: right;
+  top: -60px;
+}
+.dropdown-detail-container .dropdowns-detail {
+  position: relative;
+  right: 0px;
+  float: right;
+  top: -44px;
+  display: none;
+}
+.note-menu-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  color: #D8D8D8;
+}
+.note-menu-btn:active {
+  color: #007AFF;
+}
+.note-menu-btn:hover {
+  color: #007AFF;
+}
+.note-menu-btn:focus {
+  color: #007AFF;
+}
+.dropdown-note-content {
+  display: none;
+  position: absolute;
+  background-color: #FFF;
+  min-width: 160px;
+  left: 0;
+  top: 30px;
+  text-align: left;
+  border: 1px solid rgba(168,174,183,0.50);
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.07), 0 1px 2px 0 rgba(0,0,0,0.14);
+  border-radius: 4px;
+  z-index: 10;
+}
+.dropdown-note-content a:first-child {
+  display: block;
+  padding: 15px 20px 5px 20px;
+  color: #4A586A;
+}
+.dropdown-note-content a {
+  display: block;
+  padding: 10px 20px 5px 20px;
+  color: #4A586A;
+}
+.dropdown-note-content a:last-child {
+  display: block;
+  padding: 10px 20px 18px 20px;
+  color: #4A586A;
+}
+.dropdown-note-content a:hover {
+  color: #007AFF;
+  text-decoration: none;
+}
+
+/* New Form Content */
+
+.showNoteCreation {
+  margin: 30px 0px 30px 0px;
+  padding: 0 30px;
+}
+.new-note-btn {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  opacity: 0.25;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+.new-note-btn:hover {
+  opacity: 1;
+}
+.new-note-btn:focus {
+  opacity: 1;
+}
+.new-note-btn:active {
+  opacity: 1;
+}
+.new-note-btn:hover span.new-note-txt {
+  opacity: 0.5;
+  left: 0;
+}
+.new-note-btn:active span.new-note-txt {
+  opacity: 0.5;
+  color: #000;
+  left: 0;
+}
+.new-note-btn span {
+  margin-right: 15px;
+}
+.new-note-btn span.new-note-txt {
+  font-size: 18px;
+  color: #000;
+  vertical-align: top;
+  top: 5px;
+  opacity: 0;
+  position: relative;
+  left: -50px;
+}
+.new-note-content {
+  display: none;
+  margin-top: 30px;
+}
+
+/* New Form Box */
+
+.notes-navbar-style {
+  width: 100%;
+  list-style-type: none;
+  height: 100%;
+  clear: both;
+}
+.notes-navbar-style li {
+  display: inline;
+}
+.notes-navbar-style a.tablink {
+  padding: 13px 40px;
+  color: #007AFF;
+}
+.notes-navbar-style a.tablink.formNote-active {
+  border: 1px solid #E9EBED;
+  border-radius: 4px 4px 0px 0px;
+  border-bottom: 1px solid #FFF;
+  color: #000;
+  background-color: #FFF;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 10;
+}
+.notes-navbar-style a.tablink.formNote-active:hover {
+  text-decoration: none;
+}
+
+.noteForm-container {
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+  border: 1px solid #E9EBED;
+  border-radius: 0px 0px 4px 4px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin-top: 13px;
+  z-index: 1;
+}
+.form-input textarea {
+  width: 100%;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 150px;
+  white-space: pre-wrap;
+  overflow: auto;
+  resize: vertical;
+}

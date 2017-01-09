@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
-<div class="form_container">
+  <div class="form_container">
+    <div class="field" style="height:100%; padding: 20px 0;">
+      <div class="form-title">Note Title</div>
+      <div class="form-input" style="margin-bottom:10px;"><%= f.text_field :noteTitle, placeholder: "Your note title here" %></div>
+      <div class="form-title">Description</div>
+      <div class="form-input"><%= f.text_field :noteDescription, placeholder: "Be short!" %></div>
+    </div>
 
-  <div class="field">
-    <div class="form_title">Note title</div>
-    <div><%= f.text_field :noteTitle, placeholder: "Your note title here" %></div>
+    <div style="clear:both"></div>
+    <div class="actions">
+       <%= f.submit 'Save Changes' %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
-</div>
 
 <% end %>

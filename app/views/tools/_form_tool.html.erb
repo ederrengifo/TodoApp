@@ -1,4 +1,4 @@
-<%= form_for(tool) do |f| %>
+<%= form_for([tool.link, tool]) do |f| %>
   <% if tool.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(tool.errors.count, "error") %> prohibited this tool from being saved:</h2>
@@ -12,19 +12,16 @@
   <% end %>
 
 <div class="form_container">
-
-  <div class="field">
-    <div class="form_title">Tool name</div>
-    <div><%= f.text_field :tool, placeholder:"Enter the name of your tool" %></div>
-    <div class="form_title">Link</div>
-    <div><%= f.text_field :link, placeholder:"Paste the URL" %></div>
+  <div class="field" style="height:100%; padding: 20px 0;">
+    <div class="form-title">Title</div>
+    <div class="form-input" style="margin-bottom:10px;"><%= f.text_field :tool, placeholder:"Enter the name of your link" %></div>
+    <div class="form-title">URL</div>
+    <div class="form-input"><%= f.text_field :link_url, placeholder:"Paste the URL" %></div>
   </div>
-
-
+  <div style="clear:both"></div>
   <div class="actions">
-    <%= f.submit %>
+     <%= f.submit 'Save Changes' %>
   </div>
-
 </div>
 
 <% end %>

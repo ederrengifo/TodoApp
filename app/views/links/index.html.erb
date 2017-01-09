@@ -1,0 +1,63 @@
+<div class="body-content">
+  <div class="container-open">
+    <div class="content-index">
+      <!-- Navigation Column -->
+      <div class="box-project" style= "
+      display: inline-block;
+      width: 282px;
+      position: relative;
+      margin-right: 35px;
+      background: #FFFFFF;
+      border: 1px solid rgba(74,87,105,0.12);
+      border-radius: 4px;
+      padding: 10px 0px;
+      ">
+        <div class="folder current">
+          <a>
+            <%= image_tag("folder.svg") %>
+            <span>All links</span>
+          </a>
+        </div>
+        <% @links.each do |link| %>
+        <div class="folder">
+          <a href="<%= link_path(link) %>">
+            <%= image_tag("folder.svg") %>
+            <span><%= link.folderName %></span>
+          </a>
+        </div>
+        <% end %>
+        <div class="new-folder">
+          <a href="<%= new_link_path %>">
+            + New Folder
+          </a>
+        </div>
+      </div>
+      <!-- Links Detail Table -->
+      <div class="links-content">
+        <div class="links-head">
+          <div class="links-title">
+            <span>All links</span>
+            <!-- <a><%= image_tag("delete.svg") %></a> -->
+          </div>
+        </div>
+        <table class="links-table">
+          <tbody>
+            <!-- Here new link -->
+            <% if @links.each do |link| %>
+            <% link.tools.each do |tool| %>
+            <tr>
+              <td style="column-width: 350px"><a href="<%= tool.link_url %>" target="_blank" class="link-detail-title"><%= tool.tool %><span><%= image_tag("link.svg") %></span></a></td>
+              <td><%= link_to 'Edit', edit_link_tool_path(link, tool), class: "link-options" %></td>
+              <td><%= link_to 'Remove', link_tool_path(link, tool), method: :delete, data: { confirm: 'Are you sure?' }, class: "link-options" %></td>
+            </tr>
+            <% end %>
+            <% end.empty? %>
+            <div class="empty-content">You don't have folders. <a href="<%= new_link_path %>">Get started creating one</a></div>
+            <% end %>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<%= form_for(link) do |f| %>
+  <% if link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(link.errors.count, "error") %> prohibited this link from being saved:</h2>
+
+      <ul>
+      <% link.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form_container">
+    <div class="field" style="height: 100%; padding: 20px 0 0 0; border-bottom: none;">
+      <div class="form-title">Folder Name</div>
+      <div class="form-input"><%= f.text_field :folderName %></div>
+    </div>
+    <div style="clear:both"></div>
+    <div class="actions">
+       <%= f.submit 'Save Changes' %>
+    </div>
+  </div>
+
+<% end %>

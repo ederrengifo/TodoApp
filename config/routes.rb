@@ -28,7 +28,11 @@ Rails.application.routes.draw do
       put :toggle, on: :member
     end
   end
-  resources :tools
+  resources :links do
+    resources :tools do
+      put :toggle, on: :member
+    end
+  end
   resources :notes do
     resources :notes_lists do
       put :toggle, on: :member

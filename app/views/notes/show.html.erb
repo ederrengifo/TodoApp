@@ -1,28 +1,98 @@
-<div class="wrapper">
-
-  <div class="box_todo"  style="border-top:0;">
-    <div class="update=todo">
-      <div class="detail_todo"><%= @note.noteTitle %></div>
+<div class="body-content animated fadeInLeft">
+  <div class="container-open">
+    <div style="width:65px; margin-right:10px; float:left; padding-top:20px;">
+      <a class="back-button" href="<%= notes_path %>">
+        <i class="material-icons md-24">arrow_back</i>
+      </a>
     </div>
-
-    <div class="task_container">
-      <% @note.notes_lists.each do |notes_list| %>
-      <div class="note_box">
-        <div class="note_head">
-          <div class="note_title" style="font-weight:400; padding-bottom:10px; font-size:15px; width:80%; margin:0;"><%= notes_list.codeTitle %></div>
-          <div class="note_clear"><%= link_to 'Clear', note_notes_list_path(@note, notes_list), method: :delete, data: { confirm: 'Are you sure?' } %></div>
+    <div class="notes-container-details">
+      <div class="notes-content-details">
+      <!-- Head -->
+        <div class="notes-head-details">
+          <div class="notes-head-content">
+            <div class="notes-main-title"><%= @note.noteTitle %></div>
+            <div class="notes-main-description"><%= @note.noteDescription %></div>
+            <div class="dropdown-notes">
+             <button id="myBtn-notes" class="note-menu-btn"><i class="material-icons md-20">more_vert</i></button>
+             <div id="myNoteDropdown" class="dropdown-note-content">
+               <%= link_to 'Edit', edit_note_path(@note)  %>
+               <%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' } %>
+             </div>
+             <script>
+              var noteBtn = document.getElementById("myBtn-notes");
+              noteBtn.onclick = function() {
+                document.getElementById("myNoteDropdown").classList.toggle("show");
+              }
+             </script>
+            </div>
+          </div>
         </div>
-        <div class="note_detail"><%= notes_list.code %></div>
+        <div class="notes-content-detail">
+          <!-- Each note input -->
+          <% @note.notes_lists.each do |notes_list| %>
+          <div class="note-input">
+            <div class="note-head">
+              <div class="note-title">
+                <%= notes_list.txtTitle %>
+                <%= notes_list.codeTitle %>
+                <%= simple_format(notes_list.embedTitle) %>
+              </div>
+              <div class="dropdown-detail-container">
+                <div class="dropdowns-detail">
+                  <button id="myDetailBtn-<%= notes_list.id %>" class="note-menu-btn"><i class="material-icons md-20">more_vert</i></button>
+                  <div id="myDetailDropdown-<%= notes_list.id %>" class="dropdown-note-content">
+                    <%= link_to 'Clear', note_notes_list_path(@note, notes_list), method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </div>
+                  <script>
+                    var detailBtn = document.getElementById("myDetailBtn-<%= notes_list.id %>");
+                    detailBtn.onclick = function() {
+                      document.getElementById("myDetailDropdown-<%= notes_list.id %>").classList.toggle("show");
+                    }
+                  </script>
+                </div>
+              </div>
+            </div>
+            <div class="note-detail">
+              <% if notes_list.txt.blank? %>
+                <span></span>
+              <% else %>
+                <%= simple_format(notes_list.txt, class:"txtStyle") %>
+              <% end %>
+
+              <% if notes_list.code.blank? %>
+                <span></span>
+              <% else %>
+                <%= simple_format(notes_list.code, class:"codeStyle") %>
+              <% end %>
+
+              <% if notes_list.embed.blank? %>
+                <span></span>
+              <% else %>
+                <%= simple_format(notes_list.embed, {}, sanitize: false) %>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <!-- New note  here -->
+        <div>
+          <div class="showNoteCreation">
+            <button id="newNoteBtn" class="new-note-btn">
+              <span><%= image_tag("add-note-detail.svg") %></span>
+              <span class="new-note-txt">Add New</span>
+            </button>
+            <div id="newNoteForm" class="new-note-content">
+              <%= render 'notes_lists/form_new_note', notes_list: NotesList.new(note: @note) %>
+            </div>
+            <script>
+              var newNoteBtn = document.getElementById("newNoteBtn");
+              newNoteBtn.onclick = function() {
+                document.getElementById("newNoteForm").classList.toggle("show");
+              }
+            </script>
+          </div>
+        </div>
       </div>
-      <% end %>
-
-      <%= render 'notes_lists/form_new_note', notes_list: NotesList.new(note: @note) %>
-
     </div>
-
   </div>
-
-  <%= link_to 'Edit', edit_note_path(@note) %> |
-  <%= link_to 'Back', notes_path %>
-
 </div>
