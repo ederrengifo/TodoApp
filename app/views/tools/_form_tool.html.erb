@@ -14,14 +14,36 @@
 <div class="form_container">
   <div class="field" style="height:100%; padding: 20px 0;">
     <div class="form-title">Title</div>
-    <div class="form-input" style="margin-bottom:10px;"><%= f.text_field :tool, placeholder:"Enter the name of your link" %></div>
+    <div class="form-input" style="margin-bottom:10px;" id="link-form-field-name-<%= tool.id %>"><%= f.text_field :tool, placeholder:"Enter the name of your link", class:"inputField" %></div>
     <div class="form-title">URL</div>
-    <div class="form-input"><%= f.text_field :link_url, placeholder:"Paste the URL" %></div>
+    <div class="form-input" id="link-form-field-url-<%= tool.id %>"><%= f.text_field :link_url, placeholder:"Paste the URL", class:"inputField" %></div>
   </div>
   <div style="clear:both"></div>
-  <div class="actions">
+  <div id="link-actions-<%= tool.id %>" class="actions">
      <%= f.submit 'Save Changes' %>
   </div>
+  <div class="cancel-actions"><%= link_to 'Cancel', link_path(@link) %></div>
+  <!-- Showing Input when validates Project Title -->
+  <script>
+    var inputToolName = document.getElementById("link-form-field-name-<%= tool.id %>").getElementsByClassName("inputField")[0];
+    inputToolName.onkeyup = function() {
+      var value = this.value;
+      if (value && value.length > 0) {
+        document.getElementById("link-actions-<%= tool.id %>").classList.add("show-inline");
+      } else {
+        document.getElementById("link-actions-<%= tool.id %>").classList.remove("show-inline");
+      }
+    }
+    var inputToolURL = document.getElementById("link-form-field-url-<%= tool.id %>").getElementsByClassName("inputField")[0];
+    inputToolURL.onkeyup = function() {
+      var value = this.value;
+      if (value && value.length > 0) {
+        document.getElementById("link-actions-<%= tool.id %>").classList.add("show-inline");
+      } else {
+        document.getElementById("link-actions-<%= tool.id %>").classList.remove("show-inline");
+      }
+    }
+  </script>
 </div>
 
 <% end %>

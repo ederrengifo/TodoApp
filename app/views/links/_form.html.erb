@@ -14,12 +14,25 @@
   <div class="form_container">
     <div class="field" style="height: 100%; padding: 20px 0 0 0; border-bottom: none;">
       <div class="form-title">Folder Name</div>
-      <div class="form-input"><%= f.text_field :folderName %></div>
+      <div class="form-input" id="folder-form-field-<%= link.id %>"><%= f.text_field :folderName, class:"inputField" %></div>
     </div>
     <div style="clear:both"></div>
-    <div class="actions">
-       <%= f.submit 'Save Changes' %>
+    <div id="folder-actions-<%= link.id %>" class="actions">
+       <%= f.submit 'Create Folder' %>
     </div>
+    <div class="cancel-actions"><%= link_to 'Cancel', links_path %></div>
+    <!-- Showing Input when validates Project Title -->
+    <script>
+      var inputFolder = document.getElementById("folder-form-field-<%= link.id %>").getElementsByClassName("inputField")[0];
+      inputFolder.onkeyup = function() {
+        var value = this.value;
+        if (value && value.length > 0) {
+          document.getElementById("folder-actions-<%= link.id %>").classList.add("show-inline");
+        } else {
+          document.getElementById("folder-actions-<%= link.id %>").classList.remove("show-inline");
+        }
+      }
+    </script>
   </div>
 
 <% end %>

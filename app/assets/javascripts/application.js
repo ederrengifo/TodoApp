@@ -28,6 +28,6 @@ window.onClick = function(event) {
   }
 }
 
-$('#myTextBox').on('input', function() {
-  alert('Text');
+$(document).on("keypress", "form", function(event) {
+    return event.keyCode != 13;
 });

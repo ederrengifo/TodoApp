@@ -227,6 +227,8 @@ textarea:focus {
 }
 .actions {
   margin-top: 25px;
+  margin-right: 25px;
+  display: none;
 }
 .actions input {
   border: 1px solid #007AFF;
@@ -240,6 +242,16 @@ textarea:focus {
   background: #007AFF;
   color: #FFF;
 }
+.cancel-actions {
+  display: inline-block;
+  margin-top: 20px;
+}
+.cancel-actions a {
+  color: #A8AEB7;
+}
+.cancel-actions a:hover {
+  color: #4A586A;
+}
 
 // Body general layout options
 
@@ -248,6 +260,9 @@ textarea:focus {
 }
 .show {
   display: block;
+}
+.show-inline {
+  display: inline-block;
 }
 
 
