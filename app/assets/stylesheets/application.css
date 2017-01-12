@@ -97,26 +97,26 @@
   max-width: 1070px;
   min-width: 970px;
   margin: 0 auto;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
-.graphic-containter {
+div.graphic-containter {
   width: 970px;
-  height: 380px;
+  height: 380px !important;
+  margin: 0 auto;
 }
 .clouds {
   z-index: 70;
-  position: absolute;
-  top: 290px;
-  left: 326px;
+  position: relative;
+  top: 213px;
+  margin-right: 12px;
   -vendor-animation-duration: 1.5s;
   -webkit-animation-duration: 1.5s;
   -moz-animation-duration: 1.5s;
 }
 .data {
   z-index: 60;
-  position: absolute;
-  top: 212px;
-  left: 604px;
+  position: relative;
+  top: 0px;
   -vendor-animation-duration: 0.5s;
   -vendor-animation-delay: 1s;
   -webkit-animation-duration: 0.5s;
@@ -126,9 +126,8 @@
 }
 .laptop {
   z-index: 50;
-  position: absolute;
-  top: 185px;
-  left: 552px;
+  position: relative;
+  top: -133px;
   -vendor-animation-duration: 0.5s;
   -vendor-animation-delay: 0.5s;
   -webkit-animation-duration: 0.5s;
@@ -138,9 +137,9 @@
 }
 .mountain {
   z-index: 40;
-  position: absolute;
-  top: 102px;
-  left: 492px;
+  position: relative;
+  top: -405px;
+  margin-left: 5px;
   -vendor-animation-duration: 1.2s;
   -vendor-animation-delay: 0.5s;
   -webkit-animation-duration: 1.2s;
@@ -150,9 +149,8 @@
 }
 .buildings {
   z-index: 30;
-  position: absolute;
-  top: 182px;
-  left: 460px;
+  position: relative;
+  top: -600px;
   -vendor-animation-duration: 2s;
   -vendor-animation-delay: 0.8s;
   -webkit-animation-duration: 2s;
@@ -162,9 +160,8 @@
 }
 .clouds-bg {
   z-index: 20;
-  position: absolute;
-  top: 132px;
-  left: 320px;
+  position: relative;
+  top: -818px;
   -vendor-animation-duration: 20s;
   -vendor-animation-iteration-count: infinite;
   -webkit-animation-duration: 20s;
@@ -174,9 +171,9 @@
 }
 .sun {
   z-index: 10;
-  position: absolute;
-  top: 125px;
-  left: 800px;
+  position: relative;
+  top: -960px;
+  margin-left: 265px;
   -vendor-animation-duration: 5s;
   -vendor-animation-delay: 1.2s;
   -webkit-animation-duration: 5s;
@@ -185,7 +182,7 @@
   -moz-animation-delay: 1.2s;
 }
 .cta-content {
-  top: 335px;
+  top: -44px;
   text-align: center;
   margin: 0 auto;
   width: 100%;
@@ -232,7 +229,6 @@
 .hero-line {
   width: 100%;
   height: 1px;
-  margin-top: 400px;
   border-bottom: 1px solid #E9EBED;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -320,7 +316,6 @@
   color: #000;
   font-weight: 400;
   font-size: 26px;
-  max-width: 480px;
   float: right;
 }
 .left-txt .txt {
