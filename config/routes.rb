@@ -11,8 +11,10 @@ Rails.application.routes.draw do
   end
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
-  delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
+  delete "/sign_out" => "sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
+  get "/landing" => "sessions#landing", as: "landing"
+
 
   get 'user/login'
   get 'user/signup'
@@ -44,6 +46,7 @@ Rails.application.routes.draw do
     end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "todo_app_lists#index"
+  root :to => "sessions#landing"
+
 
 end
