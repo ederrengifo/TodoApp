@@ -27,3 +27,7 @@ window.onClick = function(event) {
     }
   }
 }
+
+$('#myTextBox').on('input', function() {
+  alert('Text');
+});

@@ -20,16 +20,16 @@
     </div>
     <script>
       var inputTask = document.getElementById("textarea-task-<%= task.todo_app_list.id %>").getElementsByClassName("textarea-tasks")[0];
-      inputTask.onchange = function() {
+      inputTask.onkeyup = function() {
         var value = this.value;
-        console.log('holi');
         if (value && value.length > 0) {
 
-          document.getElementById("action-task-<%= task.todo_app_list.id %>").classList.toggle("show3");
+          document.getElementById("action-task-<%= task.todo_app_list.id %>").classList.add("show3");
         } else {
           document.getElementById("action-task-<%= task.todo_app_list.id %>").classList.remove("show3");
         }
       }
     </script>
+
   </div>
 <% end %>
