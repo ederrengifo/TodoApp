@@ -8,7 +8,7 @@
       width: 282px;
       margin-right: 10px;
       margin-top: 0px;
-      background: #FFFFFF;
+      background: #FDFDFD;
       border: 1px solid rgba(74,87,105,0.12);
       border-radius: 4px;
       margin-bottom: 10px;
@@ -27,12 +27,51 @@
               <button id="myBtn-<%= todo_app_list.id %>" class="project-menu-btn"><i class="material-icons md-20">more_vert</i></button>
               <div id="myDropdown-<%= todo_app_list.id %>" class="dropdown-project-content">
                 <%= link_to 'Edit Name & Status', edit_todo_app_list_path(todo_app_list) %>
-                <%= link_to 'Remove Project', todo_app_list, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <a id="delete-btn-<%= todo_app_list.id %>" class="remove">Delete</a>
+              </div>
+              <!-- Confirmation Modal -->
+              <div id="myModal<%= todo_app_list.id %>" class="modal">
+                <div class="modal-content">
+                  <div class="modal-title">Are you sure?</div>
+                  <div class="modal-text">Are you sure do you want to delete <%= todo_app_list.title %> project and their tasks?<br> This action cannot be undone.</div>
+                  <div class="modal-actions">
+                    <a id="cancel-modal-<%= todo_app_list.id %>" class="cancel">No, cancel</a>
+                    <%= link_to 'Yes, delete', todo_app_list, method: :delete, class: "confirm" %>
+                  </div>
+                </div>
+                <div class="close-modal" id="myModal-close-<%= todo_app_list.id %>"><a><i class="material-icons md-36">clear</i></a></div>
               </div>
               <script>
                 var projectBtn = document.getElementById("myBtn-<%= todo_app_list.id %>");
                 projectBtn.onclick = function() {
                   document.getElementById("myDropdown-<%= todo_app_list.id %>").classList.toggle("show");
+                  document.getElementById("myDropdown-<%= todo_app_list.id %>").classList.toggle("animated");
+                  document.getElementById("myDropdown-<%= todo_app_list.id %>").classList.toggle("fadeIn");
+                  document.getElementById("myBtn-<%= todo_app_list.id %>").classList.toggle("activate");
+                }
+                var modal = document.getElementById("myModal<%= todo_app_list.id %>");
+                var btn = document.getElementById("delete-btn-<%= todo_app_list.id %>");
+                var close = document.getElementById("myModal-close-<%= todo_app_list.id %>");
+                var cancel = document.getElementById("cancel-modal-<%= todo_app_list.id %>");
+                btn.onclick = function() {
+                  document.getElementById("myModal<%= todo_app_list.id %>").classList.add("show");
+                  document.getElementById("myModal<%= todo_app_list.id %>").classList.add("animated");
+                  document.getElementById("myModal<%= todo_app_list.id %>").classList.add("fadeIn");
+                  document.getElementsByClassName("modal-content")[0].classList.add("animated");
+                  document.getElementsByClassName("modal-content")[0].classList.add("bounceInDown");
+                  document.getElementById("myDropdown-<%= todo_app_list.id %>").classList.remove("show");
+                  document.getElementById("myBtn-<%= todo_app_list.id %>").classList.toggle("activate");
+                }
+                close.onclick = function() {
+                  document.getElementById("myModal<%= todo_app_list.id %>").classList.remove("show");
+                }
+                cancel.onclick = function() {
+                  document.getElementById("myModal<%= todo_app_list.id %>").classList.remove("show");
+                }
+                window.onclick = function(event) {
+                  if (event.target == modal) {
+                    document.getElementById("myModal<%= todo_app_list.id %>").classList.remove("show");
+                  }
                 }
               </script>
             </div>
@@ -67,6 +106,8 @@
                 var hideTask = document.getElementById("hide-task-option-<%= task.id %>");
                 taskBtn.onclick = function() {
                   document.getElementById("task-option-content-<%= task.id %>").classList.toggle("show2");
+                  document.getElementById("task-option-content-<%= task.id %>").classList.toggle("animated");
+                  document.getElementById("task-option-content-<%= task.id %>").classList.toggle("flipInX");
                 };
                 hideTask.onclick = function() {
                   document.getElementById("task-option-content-<%= task.id %>").classList.remove('show2');
@@ -87,7 +128,7 @@
       width: 282px;
       position: relative;
       margin-right: 10px;
-      background: #FFFFFF;
+      background: #FDFDFD;
       border: 1px solid rgba(74,87,105,0.12);
       border-radius: 4px;
       padding-bottom: 10px;

@@ -202,8 +202,12 @@ textarea:focus {
   color: #007AFF;
   text-decoration: none;
 }
-
-
+.user-activate {
+  transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+}
 .dropdown-user-icon {
   position: relative;
   width: 14px;
@@ -224,6 +228,7 @@ textarea:focus {
   height: 26px;
   float: right;
   margin-left: 30px;
+  transition: all 0.25s ease;
 }
 .actions {
   margin-top: 25px;
@@ -265,7 +270,96 @@ textarea:focus {
   display: inline-block;
 }
 
+// Modals - Delete Confirmation
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(31, 40, 50, 0.85);
+  text-align: center;
+}
+.modal-content {
+  background-color: #FFF;
+  width: 500px;
+  margin: 15% auto;
+  padding: 40px 40px 50px 40px;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.4);
+  border-radius: 4px;
+}
+.modal-title {
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 20px;
+}
+.modal-text {
+  color: #4A586A;
+  font-size: 14px;
+  line-height: 22px;
+  margin-bottom: 37px;
+}
+.modal-actions {
+  width: 100%;
+  height: 36px;
+}
+.modal-actions a.cancel {
+  color: #4A586A;
+  padding: 8px 30px 9px 30px;
+  font-weight: 400;
+  border: 1px solid #C8D1DA;
+  border-radius: 50px;
+  background-color: #FFF;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.modal-actions a.cancel:hover {
+  background-color: #E9F4FF;
+  text-decoration: none;
+  color: #007AFF;
+  border: 1px solid #E9F4FF;
+}
+.modal-actions a.confirm {
+  color: #F66969;
+  padding: 8px 30px 9px 30px;
+  font-weight: 400px;
+  border: 1px solid #F66969;
+  border-radius: 50px;
+  background-color: #FFF;
+  cursor: pointer;
+}
+.modal-actions a.confirm:hover {
+  background-color: #F66969;
+  text-decoration: none;
+  color: #FFF;
+  border: 1px solid #F66969;
+}
+.close-modal {
+  position: absolute;
+  top:40px;
+  right: 40px;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: all 0.25s ease;
+}
+.close-modal:hover {
+  opacity: 1;
+}
+.close-modal a {
+  color: #FFF;
+}
+.close-modal a i {
+  color: #FFF;
+}
+.close-modal a:hover i {
+  opacity: 1;
+  color: #FFF;
+  text-decoration: none;
+}
 
 // Notfifications
 

@@ -24,6 +24,8 @@
         var value = this.value;
         if (value && value.length > 0) {
           document.getElementById("action-task-<%= task.todo_app_list.id %>").classList.add("show3");
+          document.getElementById("action-task-<%= task.todo_app_list.id %>").classList.add("animated");
+          document.getElementById("action-task-<%= task.todo_app_list.id %>").classList.add("flipInX");
         } else {
           document.getElementById("action-task-<%= task.todo_app_list.id %>").classList.remove("show3");
         }

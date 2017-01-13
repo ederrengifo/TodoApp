@@ -47,6 +47,8 @@
       var value = this.value;
       if (value && value.length > 0) {
         document.getElementById("project-actions-<%= todo_app_list.id %>").classList.add("show-inline");
+        document.getElementById("project-actions-<%= todo_app_list.id %>").classList.add("animated");
+        document.getElementById("project-actions-<%= todo_app_list.id %>").classList.add("fadeInLeft");
       } else {
         document.getElementById("project-actions-<%= todo_app_list.id %>").classList.remove("show-inline");
       }

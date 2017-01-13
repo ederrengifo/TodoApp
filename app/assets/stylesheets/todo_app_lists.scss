@@ -144,7 +144,7 @@
   outline-style: none;
   box-shadow: none;
 }
-.project-menu-btn i:active {
+.activate i {
   color: #007AFF;
   outline-style: none;
   box-shadow: none;
@@ -323,6 +323,7 @@
 .project-menu-detail a {
   color: #C8D1DA;
   margin-left: 20px;
+  cursor: pointer;
 }
 .project-menu-detail .edit:hover {
   color: #007AFF;
