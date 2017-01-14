@@ -203,7 +203,7 @@ textarea:focus {
   text-decoration: none;
 }
 .user-activate {
-  transform: rotate(180deg);
+  transform: rotate(180deg) translateY(-3px);
   -ms-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
@@ -225,10 +225,14 @@ textarea:focus {
 .dropdown-user-down {
   position: relative;
   width: 10px;
-  height: 26px;
+  height: 21px;
   float: right;
   margin-left: 30px;
+  margin-top: 0px;
   transition: all 0.25s ease;
+}
+.dropdown-user-down img {
+  vertical-align: middle;
 }
 .actions {
   margin-top: 25px;

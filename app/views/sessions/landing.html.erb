@@ -1,3 +1,6 @@
+<% if signed_in? %>
+  <div>Welcome back! You have <%= Task.count %> pending tasks!</div>
+<% else %>
 <div class="landing-container">
   <!-- Top nav -->
   <div class="topNav-container">
@@ -79,3 +82,4 @@
   </div>
 
 </div>
+<% end %>

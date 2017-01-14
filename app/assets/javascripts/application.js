@@ -28,6 +28,6 @@ window.onClick = function(event) {
   }
 }
 
-$(document).on("keypress", "form", function(event) {
+$(document).on("keypress", ":input:not(textarea)", function(event) {
     return event.keyCode != 13;
 });

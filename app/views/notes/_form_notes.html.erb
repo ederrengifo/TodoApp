@@ -35,15 +35,6 @@
           document.getElementById("note-actions-<%= note.id %>").classList.remove("show-inline");
         }
       }
-      var inputNoteDesc = document.getElementById("link-note-field-desc-<%= note.id %>").getElementsByClassName("inputField")[0];
-      inputNoteDesc.onkeyup = function() {
-        var value = this.value;
-        if (value && value.length > 0) {
-          document.getElementById("note-actions-<%= note.id %>").classList.add("show-inline");
-        } else {
-          document.getElementById("note-actions-<%= note.id %>").classList.remove("show-inline");
-        }
-      }
     </script>
   </div>
 

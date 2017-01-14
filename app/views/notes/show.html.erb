@@ -11,18 +11,64 @@
         <div class="notes-head-details">
           <div class="notes-head-content">
             <div class="notes-main-title"><%= @note.noteTitle %></div>
-            <div class="notes-main-description"><%= @note.noteDescription %></div>
+            <div class="notes-main-description">
+              <% if @note.noteDescription? %>
+                <%= @note.noteDescription %>
+              <% else %>
+                <span style="color: #A8AEB7">No Description</span>
+              <% end %>
+            </div>
             <div class="dropdown-notes">
-             <button id="myBtn-notes" class="note-menu-btn"><i class="material-icons md-20">more_vert</i></button>
-             <div id="myNoteDropdown" class="dropdown-note-content">
+             <button id="myBtn-notes-<%= @note.id %>" class="note-menu-btn"><i class="material-icons md-20">more_vert</i></button>
+             <div id="myNoteDropdown-<%= @note.id %>" class="dropdown-note-content">
                <%= link_to 'Edit', edit_note_path(@note)  %>
-               <%= link_to 'Delete', @note, method: :delete, data: { confirm: 'Are you sure?' } %>
+               <a id="delete-btn-<%= @note.id %>" style="cursor:pointer;">Delete</a>
+             </div>
+             <!-- Modal Confirmation -->
+             <div id="myModal<%= @note.id %>" class="modal">
+               <div class="modal-content">
+                 <div class="modal-title">Are you sure?</div>
+                 <div class="modal-text">Are you sure do you want to delete <%= @note.noteTitle %> ?<br> This action cannot be undone.</div>
+                 <div class="modal-actions">
+                   <a id="cancel-modal-<%= @note.id %>" class="cancel">No, cancel</a>
+                   <%= link_to 'Yes, delete', @note, method: :delete, class: "confirm" %>
+                 </div>
+               </div>
+               <div class="close-modal" id="myModal-close-<%= @note.id %>"><a><i class="material-icons md-36">clear</i></a></div>
              </div>
              <script>
-              var noteBtn = document.getElementById("myBtn-notes");
-              noteBtn.onclick = function() {
-                document.getElementById("myNoteDropdown").classList.toggle("show");
-              }
+               var noteBtn = document.getElementById("myBtn-notes-<%= @note.id %>");
+               var noteDropdown = document.getElementById("myNoteDropdown-<%= @note.id %>");
+               noteBtn.onclick = function() {
+                 document.getElementById("myNoteDropdown-<%= @note.id %>").classList.toggle("show");
+                 document.getElementById("myNoteDropdown-<%= @note.id %>").classList.toggle("animated");
+                 document.getElementById("myNoteDropdown-<%= @note.id %>").classList.toggle("fadeIn");
+                 document.getElementById("myBtn-notes-<%= @note.id %>").classList.toggle("activate");
+               }
+               var modal = document.getElementById("myModal<%= @note.id %>");
+               var btn = document.getElementById("delete-btn-<%= @note.id %>");
+               var close = document.getElementById("myModal-close-<%= @note.id %>");
+               var cancel = document.getElementById("cancel-modal-<%= @note.id %>");
+               btn.onclick = function() {
+                 document.getElementById("myModal<%= @note.id %>").classList.add("show");
+                 document.getElementById("myModal<%= @note.id %>").classList.add("animated");
+                 document.getElementById("myModal<%= @note.id %>").classList.add("fadeIn");
+                 document.getElementsByClassName("modal-content")[0].classList.add("animated");
+                 document.getElementsByClassName("modal-content")[0].classList.add("bounceInDown");
+                 document.getElementById("myNoteDropdown-<%= @note.id %>").classList.remove("show");
+                 document.getElementById("myBtn-notes-<%= @note.id %>").classList.toggle("activate");
+               }
+               close.onclick = function() {
+                 document.getElementById("myModal<%= @note.id %>").classList.remove("show");
+               }
+               cancel.onclick = function() {
+                 document.getElementById("myModal<%= @note.id %>").classList.remove("show");
+               }
+               window.onclick = function(event) {
+                 if (event.target == modal) {
+                   document.getElementById("myModal<%= @note.id %>").classList.remove("show");
+                 }
+               }
              </script>
             </div>
           </div>
@@ -41,7 +87,7 @@
                 <div class="dropdowns-detail">
                   <button id="myDetailBtn-<%= notes_list.id %>" class="note-menu-btn"><i class="material-icons md-20">more_vert</i></button>
                   <div id="myDetailDropdown-<%= notes_list.id %>" class="dropdown-note-content">
-                    <%= link_to 'Clear', note_notes_list_path(@note, notes_list), method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <%= link_to 'Clear', note_notes_list_path(@note, notes_list), method: :delete, class:"single-a" %>
                   </div>
                   <script>
                     var detailBtn = document.getElementById("myDetailBtn-<%= notes_list.id %>");
@@ -54,19 +100,16 @@
             </div>
             <div class="note-detail">
               <% if notes_list.txt.blank? %>
-                <span></span>
               <% else %>
                 <%= simple_format(notes_list.txt, class:"txtStyle") %>
               <% end %>
 
               <% if notes_list.code.blank? %>
-                <span></span>
               <% else %>
-                <%= simple_format(notes_list.code, class:"codeStyle") %>
+                <div class="codeStyle"><%= simple_format(notes_list.code) %></div>
               <% end %>
 
               <% if notes_list.embed.blank? %>
-                <span></span>
               <% else %>
                 <%= simple_format(notes_list.embed, {}, sanitize: false) %>
               <% end %>

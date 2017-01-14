@@ -133,6 +133,7 @@
 .note-input:hover {
   border-left: 2px solid #007AFF;
   background-color: #FBFBFB;
+  border-radius: 0px 4px 4px 0px;
 }
 .note-input:hover .dropdown-detail-container .dropdowns-detail {
   display: block;
@@ -161,20 +162,24 @@
   font-weight: 500;
   color: #000;
   margin-bottom: 15px;
+  width: 95%
 }
 .note-title p {
   font-size: 16px;
   font-weight: 400;
   width: 85%;
 }
+.note-detail {
+  width: 95%;
+}
 .note-detail p {
   font-size: 16px;
   color: #4A586A;
-  line-height: 24px
+  line-height: 24px;
+  margin-bottom: 16px;
 }
-.note-detail p.codeStyle {
+.note-detail div.codeStyle {
   font-family: 'Roboto Mono';
-  font-size: 14px;
   border: 1px solid #DCE3EC;
   background-color: #F6FAFF;
   border-radius: 4px;
@@ -185,7 +190,11 @@
   box-sizing: border-box;
   border-left: 4px solid #DCE3EC;
 }
-.note-detail p.codeStyle:hover {
+.note-detail div.codeStyle p {
+  font-size: 14px;
+  margin: 0;
+}
+.note-detail div.codeStyle:hover {
   border-left: 4px solid #BFCDE0;
   color: #000;
 }
@@ -246,6 +255,11 @@
 .dropdown-note-content a:last-child {
   display: block;
   padding: 10px 20px 18px 20px;
+  color: #4A586A;
+}
+.dropdown-note-content a.single-a {
+  display: block;
+  padding: 10px 20px 10px 20px;
   color: #4A586A;
 }
 .dropdown-note-content a:hover {

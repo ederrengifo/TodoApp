@@ -21,12 +21,52 @@
                       <a href="<%= note_path(note) %>" ><%= note.noteTitle %></a>
                     </div>
                     <div class="note-description-index">
-                      <%= note.noteDescription %>
+                      <% if note.noteDescription? %>
+                        <%= note.noteDescription %>
+                      <% else %>
+                        <span style="color: #A8AEB7">No description</span>
+                      <% end %>
                     </div>
                   </div>
                 </td>
                 <td><%= link_to 'Edit', edit_note_path(note), class: "note-options" %></td>
-                <td><%= link_to 'Remove', note, method: :delete, data: { confirm: 'Are you sure?' }, class: "note-options" %></td>
+                <td><a id="delete-btn-<%= note.id %>" class="note-options" style="cursor:pointer;">Delete</a></td>
+                <!-- Confirmation Modal -->
+                <div id="myModal<%= note.id %>" class="modal">
+                  <div class="modal-content">
+                    <div class="modal-title">Are you sure?</div>
+                    <div class="modal-text">Are you sure do you want to delete <%= note.noteTitle %><br> This action cannot be undone.</div>
+                    <div class="modal-actions">
+                      <a id="cancel-modal-<%= note.id %>" class="cancel">No, cancel</a>
+                      <%= link_to 'Yes, delete', note, method: :delete, class: "confirm" %>
+                    </div>
+                  </div>
+                  <div class="close-modal" id="myModal-close-<%= note.id %>"><a><i class="material-icons md-36">clear</i></a></div>
+                </div>
+                <script>
+                var modal = document.getElementById("myModal<%= note.id %>");
+                var btn = document.getElementById("delete-btn-<%= note.id %>");
+                var close = document.getElementById("myModal-close-<%= note.id %>");
+                var cancel = document.getElementById("cancel-modal-<%= note.id %>");
+                btn.onclick = function() {
+                  document.getElementById("myModal<%= note.id %>").classList.add("show");
+                  document.getElementById("myModal<%= note.id %>").classList.add("animated");
+                  document.getElementById("myModal<%= note.id %>").classList.add("fadeIn");
+                  document.getElementsByClassName("modal-content")[0].classList.add("animated");
+                  document.getElementsByClassName("modal-content")[0].classList.add("bounceInDown");
+                }
+                close.onclick = function() {
+                  document.getElementById("myModal<%= note.id %>").classList.remove("show");
+                }
+                cancel.onclick = function() {
+                  document.getElementById("myModal<%= note.id %>").classList.remove("show");
+                }
+                window.onclick = function(event) {
+                  if (event.target == modal) {
+                    document.getElementById("myModal<%= note.id %>").classList.remove("show");
+                  }
+                }
+                </script>
               </tr>
             <% end.empty? %>
               <div class="empty-content">

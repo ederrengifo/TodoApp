@@ -48,7 +48,43 @@
             <tr>
               <td style="column-width: 350px"><a href="<%= tool.link_url %>" target="_blank" class="link-detail-title"><%= tool.tool %><span><%= image_tag("link.svg") %></span></a></td>
               <td><%= link_to 'Edit', edit_link_tool_path(link, tool), class: "link-options" %></td>
-              <td><%= link_to 'Remove', link_tool_path(link, tool), method: :delete, data: { confirm: 'Are you sure?' }, class: "link-options" %></td>
+              <td><a id="link-delete-btn-<%= tool.id %>" class="link-options" style="cursor:pointer;">Delete</a></td>
+              <!-- Confirmation modal -->
+              <div id="myModal<%= tool.id %>" class="modal">
+                <div class="modal-content">
+                  <div class="modal-title">Are you sure?</div>
+                  <div class="modal-text">Are you sure do you want to delete <%= tool.tool %><br> This action cannot be undone.</div>
+                  <div class="modal-actions">
+                    <a id="cancel-modal-<%= tool.id %>" class="cancel">No, cancel</a>
+                    <%= link_to 'Yes, delete', link_tool_path(link, tool), method: :delete, class: "confirm" %>
+                  </div>
+                </div>
+                <div class="close-modal" id="myModal-close-<%= tool.id %>"><a><i class="material-icons md-36">clear</i></a></div>
+              </div>
+              <script>
+              var modal = document.getElementById("myModal<%= tool.id %>");
+              var btn = document.getElementById("link-delete-btn-<%= tool.id %>");
+              var close = document.getElementById("myModal-close-<%= tool.id %>");
+              var cancel = document.getElementById("cancel-modal-<%= tool.id %>");
+              btn.onclick = function() {
+                document.getElementById("myModal<%= tool.id %>").classList.add("show");
+                document.getElementById("myModal<%= tool.id %>").classList.add("animated");
+                document.getElementById("myModal<%= tool.id %>").classList.add("fadeIn");
+                document.getElementsByClassName("modal-content")[0].classList.add("animated");
+                document.getElementsByClassName("modal-content")[0].classList.add("bounceInDown");
+              }
+              close.onclick = function() {
+                document.getElementById("myModal<%= tool.id %>").classList.remove("show");
+              }
+              cancel.onclick = function() {
+                document.getElementById("myModal<%= tool.id %>").classList.remove("show");
+              }
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  document.getElementById("myModal<%= tool.id %>").classList.remove("show");
+                }
+              }
+              </script>
             </tr>
             <% end %>
             <% end.empty? %>
