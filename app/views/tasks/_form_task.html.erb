@@ -12,11 +12,25 @@
   <% end %>
 
   <div class="field_task">
-    <%= f.text_field :content, placeholder: "Write your new task here" %>
-    <div class="actions_task">
+    <div id="textarea-task-<%= task.todo_app_list.id %>">
+      <%= f.text_area :content, placeholder: "Your new task here", rows: 1, class: "textarea-tasks", required: "Text here is required" %>
+    </div>
+    <div id="action-task-<%= task.todo_app_list.id %>" class="actions_task">
        <%= f.submit 'Add Task' %>
     </div>
+    <script>
+      var inputTask = document.getElementById("textarea-task-<%= task.todo_app_list.id %>").getElementsByClassName("textarea-tasks")[0];
+      inputTask.onkeyup = function() {
+        var value = this.value;
+        if (value && value.length > 0) {
+          document.getElementById("action-task-<%= task.todo_app_list.id %>").classList.add("show3");
+          document.getElementById("action-task-<%= task.todo_app_list.id %>").classList.add("animated");
+          document.getElementById("action-task-<%= task.todo_app_list.id %>").classList.add("flipInX");
+        } else {
+          document.getElementById("action-task-<%= task.todo_app_list.id %>").classList.remove("show3");
+        }
+      }
+    </script>
+
   </div>
-
-
 <% end %>

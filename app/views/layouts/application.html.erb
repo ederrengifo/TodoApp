@@ -5,33 +5,53 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700" rel="stylesheet">
     <%= render 'favicon' %>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <title>Doable | A personal tool</title>
+    <title>Doable | Your personal assistant</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="animate.css">
+     <script src="jquery-3.1.1.min.js" type="text/javascript"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
   </head>
 
   <body>
     <% if signed_in? %>
-    <div class="header">
-      <div class="wrapper" id="wrapper_header">
-        <ul>
-          <li class="logo">DOABLE</li>
-          <li class="<%= 'active' if current_page? controller:todo_app_lists_path %>"><%= link_to 'TASKS', todo_app_lists_path %></li>
-          <li class="<%= 'active' if current_page? controller:tools_path %>"><%= link_to 'TOOLS', tools_path %></li>
-          <li class="<%= 'active' if current_page? controller:notes_path %>"><%= link_to 'NOTES', notes_path %></li>
-          <li class="<%= 'active' if current_page? controller:boards_path %>"><%= link_to 'BOARD', boards_path %></li>
-        </ul>
-        <div class="logout_todo"><%= link_to "Logout", sign_out_path, method: :delete %></div>
+    <div class="header" style="z-index:15;">
+      <div class="container-header">
+        <div class="logo-container"><a><%= image_tag("logo.svg") %></a></div>
+        <div class="menu-container" style="width: 400px; float: left;">
+          <ul>
+            <li class="<%= 'active' if current_page? controller:todo_app_lists_path %>"><%= link_to 'Tasks', todo_app_lists_path %></li>
+            <li class="<%= 'active' if current_page? controller:links_path %>"><%= link_to 'Links', links_path %></li>
+            <li class="<%= 'active' if current_page? controller:notes_path %>"><%= link_to 'Notes', notes_path %></li>
+          </ul>
+        </div>
+        <div class="user-menu">
+          <div class="dropdown">
+            <div id="dropdown-user"class="dropdown-user-btn">
+              <div class="dropdown-user-down" id="user-icon-active"><%= image_tag("down.svg") %></div>
+              <div class="dropdown-user-name"><%= current_user.name %></div>
+              <div class="dropdown-user-icon"><%= image_tag("user.svg") %></div>
+            </div>
+            <div id="user-content" class="dropdown-user-content">
+              <%= link_to "Profile", profile_path %>
+              <%= link_to "Logout", sign_out_path, method: :delete %>
+            </div>
+            <script>
+              var projectBtn = document.getElementById("dropdown-user");
+              projectBtn.onclick = function() {
+                document.getElementById("user-content").classList.toggle("show");
+                document.getElementById("user-content").classList.toggle("animated");
+                document.getElementById("user-content").classList.toggle("fadeIn");
+                document.getElementById("user-icon-active").classList.toggle("user-activate");
+              }
+            </script>
+          </div>
+        </div>
       </div>
     </div>
-    <%= yield %>
+      <%= yield %>
     <% else %>
-      <div class="user_header">
-        <%= image_tag("logo.png") %>
-      </div>
       <%= yield %>
     <% end %>
 

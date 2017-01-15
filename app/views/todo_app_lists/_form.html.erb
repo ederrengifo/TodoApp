@@ -14,28 +14,52 @@
 <div class="form_container">
 
   <div class="field">
-    <div class="form_title">Task title</div>
-    <div><%= f.text_field :title, placeholder:"Title of the project" %></div>
-    <div class="task_status">
-      <div class="form_title" style="width:100%;">Task Status</div>
-      <div>
-        <div class="radio_todo"><%= f.radio_button :status, 'pending' %></div>
-        <div class="tag_todo"><%= f.label :status, 'Pending' %></div>
+    <div class="form-title">Project Title</div>
+    <div class="form-input" id="projects-form-field-<%= todo_app_list.id %>"><%= f.text_field :title, placeholder:"Title of the project", class:"inputField" %></div>
+    <div class="task-status" style="height:100%; width:100%; clear: both;">
+      <div class="form-title" style="width:100%;">Status</div>
+      <div class="selected pending" style="padding:10px 20px 10px 20x; float:left;">
+        <%= f.radio_button :status, 'pending', checked:"checked", type:"radio" %>
+        <%= f.label :status, 'Pending' %>
+        <div class="check"></div>
       </div>
-      <div>
-        <div class="radio_todo"><%= f.radio_button :status, 'progress' %></div>
-        <div class="tag_todo"><%= f.label :status, 'Progress' %></div>
+      <div class="selected progress" style="padding:10px 20px 10px 20x; float:left;">
+        <%= f.radio_button :status, 'progress' %>
+        <%= f.label :status, 'Progress' %>
+        <div class="check"></div>
       </div>
-      <div>
-        <div class="radio_todo"><%= f.radio_button :status, 'sent' %></div>
-        <div class="tag_todo"><%= f.label :status, 'Sent' %></div>
+      <div class="selected completed" style="padding:10px 20px 10px 20x; float: left;">
+        <%= f.radio_button :status, 'completed' %>
+        <%= f.label :status, 'Completed' %>
+        <div class="check"></div>
       </div>
     </div>
   </div>
-
-  <div class="actions">
-     <%= f.submit 'Create' %>
-  </div>
+  <div style="clear:both"></div>
+  <% if todo_app_list.new_record? %>
+    <div id="project-actions-<%= todo_app_list.id %>" class="actions">
+      <%= f.submit 'Create Project' %>
+    </div>
+  <% else %>
+    <div id="project-actions-<%= todo_app_list.id %>" class="actions show-inline">
+      <%= f.submit 'Save Changes' %>
+    </div>
+  <% end %>
+  <div class="cancel-actions"><%= link_to 'Cancel', todo_app_lists_path %></div>
+  <!-- Showing Input when validates Project Title -->
+  <script>
+    var inputProject = document.getElementById("projects-form-field-<%= todo_app_list.id %>").getElementsByClassName("inputField")[0];
+    inputProject.onkeyup = function() {
+      var value = this.value;
+      if (value && value.length > 0) {
+        document.getElementById("project-actions-<%= todo_app_list.id %>").classList.add("show-inline");
+        document.getElementById("project-actions-<%= todo_app_list.id %>").classList.add("animated");
+        document.getElementById("project-actions-<%= todo_app_list.id %>").classList.add("fadeInLeft");
+      } else {
+        document.getElementById("project-actions-<%= todo_app_list.id %>").classList.remove("show-inline");
+      }
+    }
+  </script>
 
 </div>
 

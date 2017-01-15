@@ -14,6 +14,11 @@ class UsersController < Clearance::UsersController
     render template: "users/new"
   end
 
+  def profile
+    @user = user_from_params
+    render template: "users/profile"
+  end
+
   def create
     @user = user_from_params
 

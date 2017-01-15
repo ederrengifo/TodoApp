@@ -1,0 +1,114 @@
+<!-- If user is signed in show Welcome Back -->
+<% if signed_in? %>
+  <div class="wb-container">
+    <div class="wb-content">
+      <div class="wb-graph" style="height: 250px; margin-top: 8%;">
+        <div class="wb-graph-container">
+          <div class="task-counter animated bounceIn">
+            <span><%= Task.count %></span>
+          </div>
+          <div class="wb-sparks animated zoomIn"><%= image_tag('sparks.svg') %></div>
+          <div class="wb-clouds animated bounceInDown"><%= image_tag('clouds-welcome.svg') %></div>
+          <div class="wb-tablet animated bounceInUp"><%= image_tag('tablet.svg') %></div>
+          <div class="wb-clouds-bg animated shake"><%= image_tag('cloud-bg-welcome.svg') %></div>
+          <div class="wb-sun animated fadeInUp"><%= image_tag('sun-welcome.svg') %></div>
+        </div>
+      </div>
+      <div class="wb-text">
+        <h2>Welcome back <%= current_user.name %> </h2>
+          <% if Task.count > 0 %>
+            <% if Task.count > 1 %>
+              <p>You have <%= Task.count %> pending tasks. <%= link_to 'Go and finish them!', todo_app_lists_path %></p>
+            <% else %>
+              <p>You just have <%= Task.count %> pending task. <%= link_to 'Go and finish it!', todo_app_lists_path %>
+            <% end %>
+          <% else %>
+            <p>You have <%= Task.count %> pending tasks. <%= link_to 'Go and create new ones!', todo_app_lists_path %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+<!-- If user is not signed in show Landing -->
+<% else %>
+<div class="landing-container">
+  <!-- Top nav -->
+  <div class="topNav-container">
+    <div class="topNav-content">
+      <div class="landing-logo">
+        <span><%= image_tag('logo.svg') %></span>
+        <span class="logoTxt">Doable</span>
+      </div>
+      <div class="landing-options">
+        <div><%= link_to 'Sign In', sign_in_path %></div>
+        <div class="btn"><%= link_to 'Sign Up', sign_up_path %></div>
+      </div>
+    </div>
+  </div>
+  <!-- Graphic and CTA -->
+  <div class="cta-container">
+    <div class="graphic-container" style="height: 380px;">
+      <div class="clouds animated fadeInDown"><%= image_tag('graph-clouds.svg') %></div>
+      <div class="data animated fadeInDown"><%= image_tag('graph-data.svg') %></div>
+      <div class="laptop animated fadeIn"><%= image_tag('graph-laptop.svg') %></div>
+      <div class="mountain animated fadeInUp"><%= image_tag('graph-mountain.svg') %></div>
+      <div class="buildings animated fadeInUp"><%= image_tag('graph-buildings.svg') %></div>
+      <div class="clouds-bg animated shake"><%= image_tag('graph-clouds-bg.svg') %></div>
+      <div class="sun animated fadeInUp"><%= image_tag('graph-sun.svg') %></div>
+    </div>
+    <div class="cta-content animated fadeIn">
+      <h1>Your personal assistant on the cloud. <span>Simple and free!</span></h1>
+      <div class="txt">Organize your tasks, links and notes in a clean environment</div>
+      <%= link_to 'Get Started Now!', sign_up_path %>
+    </div>
+  </div>
+  <div class="hero-line">
+    <div class="animated bounceInDown"><%= image_tag('scrolldown.svg') %></div>
+  </div>
+  <!-- 1st feature -->
+  <div class="feature-1-container">
+    <div class="left-image">
+      <%= image_tag('img-1@2x.png') %>
+    </div>
+    <div class="right-txt">
+      <h2>A practical to-do list</h2>
+      <div class="txt">Organize your tasks in this practical one-screen environment using cards. Be able to create projects, manage their status, create task and priorities.</div>
+    </div>
+  </div>
+  <!-- 2nd feature -->
+  <div class="feature-1-container">
+    <div class="left-txt">
+      <div style="max-width: 480px; float: right;">
+        <h2>All your links in one place</h2>
+        <div class="txt">Don’t lose your links. Save them here and organize them around folders. A very simple way to have all your favorites pages , references, tools, etc. at one touch.</div>
+      </div>
+    </div>
+      <div class="right-image">
+        <%= image_tag('img-2@2x.png') %>
+      </div>
+  </div>
+  <!-- 3th feature -->
+  <div class="feature-2-container">
+    <div class="center-txt">
+      <h2>Large possibilites with your notes</h2>
+      <div class="txt">Write whatever your want in your notes; texts, snippets and embed URL elements.</div>
+    </div>
+    <div class="center-image">
+      <%= image_tag('img-3@2x.png')  %>
+    </div>
+  </div>
+  <!-- Users count -->
+  <div class="counter-container">
+    <div class="counter">We already are <span><%= number_with_delimiter(User.count) %></span> happy users!</div>
+  </div>
+  <!-- Bottom CTA -->
+  <div class="bottom-container">
+    <h2>Start to organize your work without any cost</h2>
+    <div class="main-bottom-cta"><%= link_to 'Get Started Now!', sign_up_path %></div>
+  </div>
+  <!-- Footer -->
+  <div class="footer-container">
+    <div class="footer-txt">v 0.1. <span><%= image_tag('design.svg') %></span> and <span>< ></span> with <span><%= image_tag('love.svg') %></span> by <a class="author" href="http://www.ederrengifo.com" target="_blank">Eder Rengifo</a>. If you have some suggestion or you need more information, <a href="mailto:contact@ederrengifo.com">ask here.</a> </div>
+  </div>
+
+</div>
+<% end %>

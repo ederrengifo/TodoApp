@@ -1,4 +1,4 @@
-<%= form_for(tool) do |f| %>
+<%= form_for([tool.link, tool]) do |f| %>
   <% if tool.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(tool.errors.count, "error") %> prohibited this tool from being saved:</h2>
@@ -12,19 +12,49 @@
   <% end %>
 
 <div class="form_container">
-
-  <div class="field">
-    <div class="form_title">Tool name</div>
-    <div><%= f.text_field :tool, placeholder:"Enter the name of your tool" %></div>
-    <div class="form_title">Link</div>
-    <div><%= f.text_field :link, placeholder:"Paste the URL" %></div>
+  <div class="field" style="height:100%; padding: 20px 0;">
+    <div class="form-title">Title</div>
+    <div class="form-input" style="margin-bottom:10px;" id="link-form-field-name-<%= tool.id %>"><%= f.text_field :tool, placeholder:"Enter the name of your link", class:"inputField" %></div>
+    <div class="form-title">URL</div>
+    <div class="form-input" id="link-form-field-url-<%= tool.id %>"><%= f.text_field :link_url, placeholder:"Paste the URL", class:"inputField" %></div>
   </div>
-
-
-  <div class="actions">
-    <%= f.submit %>
+  <div style="clear:both"></div>
+  <% if tool.new_record? %>
+    <div id="link-actions-<%= tool.id %>" class="actions">
+      <%= f.submit 'Create Link' %>
+    </div>
+  <% else %>
+  <div id="link-actions-<%= tool.id %>" class="actions show-inline">
+    <%= f.submit 'Save Changes' %>
   </div>
+  <% end %>
 
+  <div class="cancel-actions"><%= link_to 'Cancel', link_path(@link) %></div>
+  <!-- Showing Input when validates Project Title -->
+  <script>
+    var inputToolName = document.getElementById("link-form-field-name-<%= tool.id %>").getElementsByClassName("inputField")[0];
+    inputToolName.onkeyup = function() {
+      var value = this.value;
+      if (value && value.length > 0) {
+        document.getElementById("link-actions-<%= tool.id %>").classList.add("show-inline");
+        document.getElementById("link-actions-<%= tool.id %>").classList.add("animated");
+        document.getElementById("link-actions-<%= tool.id %>").classList.add("fadeInLeft");
+      } else {
+        document.getElementById("link-actions-<%= tool.id %>").classList.remove("show-inline");
+      }
+    }
+    var inputToolURL = document.getElementById("link-form-field-url-<%= tool.id %>").getElementsByClassName("inputField")[0];
+    inputToolURL.onkeyup = function() {
+      var value = this.value;
+      if (value && value.length > 0) {
+        document.getElementById("link-actions-<%= tool.id %>").classList.add("show-inline");
+        document.getElementById("link-actions-<%= tool.id %>").classList.add("animated");
+        document.getElementById("link-actions-<%= tool.id %>").classList.add("fadeInLeft");
+      } else {
+        document.getElementById("link-actions-<%= tool.id %>").classList.remove("show-inline");
+      }
+    }
+  </script>
 </div>
 
 <% end %>

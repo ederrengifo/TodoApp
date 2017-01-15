@@ -1,34 +1,115 @@
+<div class="body-content animated fadeInLeft">
+  <div class="container-open">
+    <div style="width:65px; margin-right:10px; float:left; padding-top:20px;">
+      <a class="back-button" href="<%= todo_app_lists_path %>">
+        <i class="material-icons md-24">arrow_back</i>
+      </a>
+    </div>
+    <div class="box-project" style="
+    display: inline-block;
+    width: 720px;
+    min-height: 100%;
+    position: relative;
+    margin-right: 10px;
+    float: left;
+    background: #FDFDFD;
+    border: 1px solid rgba(74,87,105,0.12);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    ">
+      <div class="project-head-detail">
+        <div class="project-info" style="width: 520px;
+        height: 40px;
+        float: left;
+        position: relative;">
+          <div class="project-title-detail"><%= @todo_app_list.title %></div>
+          <span class="project-status-<%= @todo_app_list.status %>"><%= @todo_app_list.status %></span>
+        </div>
+        <div class="project-menu-detail">
+          <%= link_to 'Edit', edit_todo_app_list_path(@todo_app_list), class: "edit" %>
+          <a id="delete-btn-<%= @todo_app_list.id %>" class="remove">Delete</a>
+        </div>
+        <!-- Confirmation Modal -->
+        <div id="myModal<%= @todo_app_list.id %>" class="modal">
+          <div class="modal-content">
+            <div class="modal-title">Are you sure?</div>
+            <div class="modal-text">Are you sure do you want to delete <%= @todo_app_list.title %> project and their tasks? This action cannot be undone.</div>
+            <div class="modal-actions">
+              <a class="cancel">No, cancel</a>
+              <%= link_to 'Yes, delete', @todo_app_list, method: :delete, class: "confirm" %>
+            </div>
+          </div>
+          <div class="close-modal"><a><i class="material-icons md-36">clear</i></a></div>
+        </div>
+        <script>
+        var modal = document.getElementById("myModal<%= @todo_app_list.id %>");
+        var btn = document.getElementById("delete-btn-<%= @todo_app_list.id %>")
+        var close = document.getElementsByClassName("close-modal")[0];
+        var cancel = document.getElementsByClassName("cancel")[0];
+        btn.onclick = function() {
+          modal.style.display = "block";
+          modal.classList.add("animated")
+          modal.classList.add("fadeIn")
+          document.getElementsByClassName("modal-content")[0].classList.add("animated")
+          document.getElementsByClassName("modal-content")[0].classList.add("bounceInDown")
+        }
+        close.onclick = function() {
+          modal.style.display = "none";
+        }
+        cancel.onclick = function() {
+          modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+        </script>
 
+      </div>
+    <!-- Adding a new task content -->
+      <% @todo_app_list.tasks.each do |task| %>
+      <div class="project-task animated fadeInDown">
+        <div class="project-task-content">
+          <div style="clear:both; height: auto;">
+            <button id="task-option-btn-<%= task.id %>" style="width:80%;" class="task-options-btn">
+               <p><%= task.content %></p>
+            </button>
+            <div style="width:100%; position:relative; top:-23px; right:-10px; z-index:1;" class="icon-priority">
+              <%= link_to toggle_todo_app_list_task_path(@todo_app_list, task) , method: :put do %>
+                <div class="icon_<%= task.priority %>">
+                  <i class="material-icons md-18">turned_in_not</i>
+                  <div class="priority-tooltip">Priority</div>
+                </div>
+              <% end %>
+            </div>
 
-<div class="wrapper">
-
-<h1 class="title_todo">Detail</h1>
-
-<div class="box_todo">
-  <div class="update_todo">
-    <a href="<%= edit_todo_app_list_path(@todo_app_list) %>">
-      <div class="detail_todo"><%= @todo_app_list.title %></div>
-    </a>
-  </div>
-  <div class="show_label">
-    <span class="label_<%= @todo_app_list.status %>"><%= @todo_app_list.status %></span><%= link_to 'Edit Status', edit_todo_app_list_path(@todo_app_list) %>
-  </div>
-
-  <div class="task_container">
-    <% @todo_app_list.tasks.each do |task| %>
-      <div class="task">
-        <div class="detail"><%= task.content %></div>
-        <div class="action">
-
-            <%= link_to 'Done', todo_app_list_task_path(@todo_app_list, task), method: :delete %>
-
+            <div id="task-option-content-<%= task.id %>" class="task-options-content">
+              <span class="done">
+                  <i class="material-icons md-18">done</i>
+                  <%= link_to 'Is it done?', todo_app_list_task_path(@todo_app_list, task), method: :delete %>
+              </span>
+              <a id="hide-task-option-<%= task.id %>" class="not-yet">Not yet</a>
+            </div>
+            <script>
+              var taskBtn = document.getElementById("task-option-btn-<%= task.id %>");
+              var hideTask = document.getElementById("hide-task-option-<%= task.id %>");
+              taskBtn.onclick = function() {
+                document.getElementById("task-option-content-<%= task.id %>").classList.toggle("show2");
+              };
+              hideTask.onclick = function() {
+                document.getElementById("task-option-content-<%= task.id %>").classList.remove('show2');
+              }
+            </script>
+          </div>
         </div>
       </div>
-    <% end %>
-
-    <%= render 'tasks/form_task', task: Task.new(todo_app_list: @todo_app_list) %>
+      <% end %>
+    <!-- Adding a new task -->
+      <div class="project-task-new">
+        <%= render 'tasks/form_task', task: Task.new(todo_app_list: @todo_app_list) %>
+      </div>
+    </div>
 
   </div>
-</div>
-<%= link_to 'Back', todo_app_lists_path %>
 </div>

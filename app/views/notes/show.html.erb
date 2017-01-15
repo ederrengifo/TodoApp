@@ -1,28 +1,141 @@
-<div class="wrapper">
-
-  <div class="box_todo"  style="border-top:0;">
-    <div class="update=todo">
-      <div class="detail_todo"><%= @note.noteTitle %></div>
+<div class="body-content animated fadeInLeft">
+  <div class="container-open">
+    <div style="width:65px; margin-right:10px; float:left; padding-top:20px;">
+      <a class="back-button" href="<%= notes_path %>">
+        <i class="material-icons md-24">arrow_back</i>
+      </a>
     </div>
-
-    <div class="task_container">
-      <% @note.notes_lists.each do |notes_list| %>
-      <div class="note_box">
-        <div class="note_head">
-          <div class="note_title" style="font-weight:400; padding-bottom:10px; font-size:15px; width:80%; margin:0;"><%= notes_list.codeTitle %></div>
-          <div class="note_clear"><%= link_to 'Clear', note_notes_list_path(@note, notes_list), method: :delete, data: { confirm: 'Are you sure?' } %></div>
+    <div class="notes-container-details">
+      <div class="notes-content-details">
+      <!-- Head -->
+        <div class="notes-head-details">
+          <div class="notes-head-content">
+            <div class="notes-main-title"><%= @note.noteTitle %></div>
+            <div class="notes-main-description">
+              <% if @note.noteDescription? %>
+                <%= @note.noteDescription %>
+              <% else %>
+                <span style="color: #A8AEB7">No Description</span>
+              <% end %>
+            </div>
+            <div class="dropdown-notes">
+             <button id="myBtn-notes-<%= @note.id %>" class="note-menu-btn"><i class="material-icons md-20">more_vert</i></button>
+             <div id="myNoteDropdown-<%= @note.id %>" class="dropdown-note-content">
+               <%= link_to 'Edit', edit_note_path(@note)  %>
+               <a id="delete-btn-<%= @note.id %>" style="cursor:pointer;">Delete</a>
+             </div>
+             <!-- Modal Confirmation -->
+             <div id="myModal<%= @note.id %>" class="modal">
+               <div class="modal-content">
+                 <div class="modal-title">Are you sure?</div>
+                 <div class="modal-text">Are you sure do you want to delete <%= @note.noteTitle %> ?<br> This action cannot be undone.</div>
+                 <div class="modal-actions">
+                   <a id="cancel-modal-<%= @note.id %>" class="cancel">No, cancel</a>
+                   <%= link_to 'Yes, delete', @note, method: :delete, class: "confirm" %>
+                 </div>
+               </div>
+               <div class="close-modal" id="myModal-close-<%= @note.id %>"><a><i class="material-icons md-36">clear</i></a></div>
+             </div>
+             <script>
+               var noteBtn = document.getElementById("myBtn-notes-<%= @note.id %>");
+               var noteDropdown = document.getElementById("myNoteDropdown-<%= @note.id %>");
+               noteBtn.onclick = function() {
+                 document.getElementById("myNoteDropdown-<%= @note.id %>").classList.toggle("show");
+                 document.getElementById("myNoteDropdown-<%= @note.id %>").classList.toggle("animated");
+                 document.getElementById("myNoteDropdown-<%= @note.id %>").classList.toggle("fadeIn");
+                 document.getElementById("myBtn-notes-<%= @note.id %>").classList.toggle("activate");
+               }
+               var modal = document.getElementById("myModal<%= @note.id %>");
+               var btn = document.getElementById("delete-btn-<%= @note.id %>");
+               var close = document.getElementById("myModal-close-<%= @note.id %>");
+               var cancel = document.getElementById("cancel-modal-<%= @note.id %>");
+               btn.onclick = function() {
+                 document.getElementById("myModal<%= @note.id %>").classList.add("show");
+                 document.getElementById("myModal<%= @note.id %>").classList.add("animated");
+                 document.getElementById("myModal<%= @note.id %>").classList.add("fadeIn");
+                 document.getElementsByClassName("modal-content")[0].classList.add("animated");
+                 document.getElementsByClassName("modal-content")[0].classList.add("bounceInDown");
+                 document.getElementById("myNoteDropdown-<%= @note.id %>").classList.remove("show");
+                 document.getElementById("myBtn-notes-<%= @note.id %>").classList.toggle("activate");
+               }
+               close.onclick = function() {
+                 document.getElementById("myModal<%= @note.id %>").classList.remove("show");
+               }
+               cancel.onclick = function() {
+                 document.getElementById("myModal<%= @note.id %>").classList.remove("show");
+               }
+               window.onclick = function(event) {
+                 if (event.target == modal) {
+                   document.getElementById("myModal<%= @note.id %>").classList.remove("show");
+                 }
+               }
+             </script>
+            </div>
+          </div>
         </div>
-        <div class="note_detail"><%= notes_list.code %></div>
+        <div class="notes-content-detail">
+          <!-- Each note input -->
+          <% @note.notes_lists.each do |notes_list| %>
+          <div class="note-input">
+            <div class="note-head">
+              <div class="note-title">
+                <%= notes_list.txtTitle %>
+                <%= notes_list.codeTitle %>
+                <%= simple_format(notes_list.embedTitle) %>
+              </div>
+              <div class="dropdown-detail-container">
+                <div class="dropdowns-detail">
+                  <button id="myDetailBtn-<%= notes_list.id %>" class="note-menu-btn"><i class="material-icons md-20">more_vert</i></button>
+                  <div id="myDetailDropdown-<%= notes_list.id %>" class="dropdown-note-content">
+                    <%= link_to 'Clear', note_notes_list_path(@note, notes_list), method: :delete, class:"single-a" %>
+                  </div>
+                  <script>
+                    var detailBtn = document.getElementById("myDetailBtn-<%= notes_list.id %>");
+                    detailBtn.onclick = function() {
+                      document.getElementById("myDetailDropdown-<%= notes_list.id %>").classList.toggle("show");
+                    }
+                  </script>
+                </div>
+              </div>
+            </div>
+            <div class="note-detail">
+              <% if notes_list.txt.blank? %>
+              <% else %>
+                <%= simple_format(notes_list.txt, class:"txtStyle") %>
+              <% end %>
+
+              <% if notes_list.code.blank? %>
+              <% else %>
+                <div class="codeStyle"><%= simple_format(notes_list.code) %></div>
+              <% end %>
+
+              <% if notes_list.embed.blank? %>
+              <% else %>
+                <%= simple_format(notes_list.embed, {}, sanitize: false) %>
+              <% end %>
+            </div>
+          </div>
+          <% end %>
+        </div>
+        <!-- New note  here -->
+        <div>
+          <div class="showNoteCreation">
+            <button id="newNoteBtn" class="new-note-btn">
+              <span><%= image_tag("add-note-detail.svg") %></span>
+              <span class="new-note-txt">Add New</span>
+            </button>
+            <div id="newNoteForm" class="new-note-content">
+              <%= render 'notes_lists/form_new_note', notes_list: NotesList.new(note: @note) %>
+            </div>
+            <script>
+              var newNoteBtn = document.getElementById("newNoteBtn");
+              newNoteBtn.onclick = function() {
+                document.getElementById("newNoteForm").classList.toggle("show");
+              }
+            </script>
+          </div>
+        </div>
       </div>
-      <% end %>
-
-      <%= render 'notes_lists/form_new_note', notes_list: NotesList.new(note: @note) %>
-
     </div>
-
   </div>
-
-  <%= link_to 'Edit', edit_note_path(@note) %> |
-  <%= link_to 'Back', notes_path %>
-
 </div>

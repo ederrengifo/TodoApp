@@ -1,0 +1,46 @@
+<%= form_for(link) do |f| %>
+  <% if link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(link.errors.count, "error") %> prohibited this link from being saved:</h2>
+
+      <ul>
+      <% link.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form_container">
+    <div class="field" style="height: 100%; padding: 20px 0 0 0; border-bottom: none;">
+      <div class="form-title">Folder Name</div>
+      <div class="form-input" id="folder-form-field-<%= link.id %>"><%= f.text_field :folderName, class:"inputField" %></div>
+    </div>
+    <div style="clear:both"></div>
+    <% if link.new_record? %>
+      <div id="folder-actions-<%= link.id %>" class="actions">
+        <%= f.submit 'Create Folder' %>
+      </div>
+    <% else %>
+      <div id="folder-actions-<%= link.id %>" class="actions show-inline">
+        <%= f.submit 'Save Changes' %>
+      </div>
+    <% end %>
+    <div class="cancel-actions"><%= link_to 'Cancel', links_path %></div>
+    <!-- Showing Input when validates Project Title -->
+    <script>
+      var inputFolder = document.getElementById("folder-form-field-<%= link.id %>").getElementsByClassName("inputField")[0];
+      inputFolder.onkeyup = function() {
+        var value = this.value;
+        if (value && value.length > 0) {
+          document.getElementById("folder-actions-<%= link.id %>").classList.add("show-inline");
+          document.getElementById("folder-actions-<%= link.id %>").classList.add("animated");
+          document.getElementById("folder-actions-<%= link.id %>").classList.add("fadeInLeft");
+        } else {
+          document.getElementById("folder-actions-<%= link.id %>").classList.remove("show-inline");
+        }
+      }
+    </script>
+  </div>
+
+<% end %>

@@ -11,17 +11,39 @@
     </div>
   <% end %>
 
-<div class="form_container">
+  <div class="form_container">
+    <div class="field" style="height:100%; padding: 20px 0;">
+      <div class="form-title">Note Title</div>
+      <div class="form-input" style="margin-bottom:10px;" id="link-note-field-name-<%= note.id %>"><%= f.text_field :noteTitle, placeholder: "Your note title here", class:"inputField" %></div>
+      <div class="form-title">Description</div>
+      <div class="form-input" id="link-note-field-desc-<%= note.id %>"><%= f.text_field :noteDescription, placeholder: "Be short!", class:"inputField" %></div>
+    </div>
 
-  <div class="field">
-    <div class="form_title">Note title</div>
-    <div><%= f.text_field :noteTitle, placeholder: "Your note title here" %></div>
+    <div style="clear:both"></div>
+    <% if note.new_record? %>
+      <div id="note-actions-<%= note.id %>" class="actions">
+        <%= f.submit 'Create Note' %>
+      </div>
+    <% else %>
+      <div id="note-actions-<%= note.id %>" class="actions show-inline">
+        <%= f.submit 'Save Changes' %>
+      </div>
+    <% end %>
+    <div class="cancel-actions"><%= link_to 'Cancel', notes_path %></div>
+    <!-- Showing Input when validates Project Title -->
+    <script>
+      var inputNoteName = document.getElementById("link-note-field-name-<%= note.id %>").getElementsByClassName("inputField")[0];
+      inputNoteName.onkeyup = function() {
+        var value = this.value;
+        if (value && value.length > 0) {
+          document.getElementById("note-actions-<%= note.id %>").classList.add("show-inline");
+          document.getElementById("note-actions-<%= note.id %>").classList.add("animated");
+          document.getElementById("note-actions-<%= note.id %>").classList.add("fadeInLeft");
+        } else {
+          document.getElementById("note-actions-<%= note.id %>").classList.remove("show-inline");
+        }
+      }
+    </script>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-
-</div>
 
 <% end %>

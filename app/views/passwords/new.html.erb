@@ -1,29 +1,26 @@
-<div class="wrapper">
-  <div class="user_container">
-  <div class="user_form">
-
-  <h1 class="title_todo">Forgot Password</h1>
-  <div class="description_todo">Enter your e-mail address. We will send you a link to restart your password.</div>
-
-<%= form_for :password, url: passwords_path do |form| %>
-    <div class="user_form_fields">
-      <div class="form_title">E-mail address</div>
-      <div><%= form.text_field :email, placeholder: "name@able.co", type: 'email' %></div>
-    </div>
-
-    <div class="user_actions">
-      <div class="actions">
-        <%= form.submit 'Reset password' %>
+<div class="user-header">
+  <a href="<%= root_path %>"><%= image_tag("logo.svg") %></a>
+</div>
+<div class="user-container">
+  <div class="user-content">
+    <div class="user-form" style="border-radius: 4px;">
+      <h1 class="title-session">Forgot my password</h1>
+      <div class="description-session">Enter your e-mail address. We will send you a link to restart your password.</div>
+      <div class="form-session">
+        <%= form_for :password, url: passwords_path do |form| %>
+            <div class="user-form-fields">
+              <div><%= form.text_field :email, placeholder: "name@able.co", type: 'email' %></div>
+            </div>
+            <div class="actions-session">
+              <%= form.submit 'Send me the instructions' %>
+            </div>
+        <% end %>
       </div>
     </div>
 
-<% end %>
-
-  </div>
-
-  <div class="user_footer">
-    <p>Did your press the wrong link?<%= link_to t(".sign_in"), sign_in_path %></p>
-  </div>
+    <div class="user-footer">
+      <p>Did your press the wrong link? <%= link_to 'Sign In', sign_in_path %></p>
+    </div>
 
   </div>
 </div>

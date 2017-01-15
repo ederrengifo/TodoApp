@@ -1,23 +1,82 @@
-<div class="wrapper">
+<div class="body-content">
+  <div class="container-open">
+    <div class="content-index">
+      <!-- Notes Table Content -->
+      <div class="notes-content">
+        <div class="notes-head">
+          <div class="notes-title">
+            <span><%= @notes.count %></span><span>Notes</span>
+            <a class="new-note" href="<%= new_note_path %>">+ New Note</a>
+          </div>
+        </div>
+        <table class="notes-table">
+          <tbody>
+            <!-- Here new note -->
+            <% if @notes.each do |note| %>
+              <tr>
+                <td>
+                  <div class="note-icon" style="width: 30px; float: left; margin-right:20px;"><%= image_tag("note.svg") %></div>
+                  <div class="note-texts" style="width: 400px; float: left;">
+                    <div class="note-title-index">
+                      <a href="<%= note_path(note) %>" ><%= note.noteTitle %></a>
+                    </div>
+                    <div class="note-description-index">
+                      <% if note.noteDescription? %>
+                        <%= note.noteDescription %>
+                      <% else %>
+                        <span style="color: #A8AEB7">No description</span>
+                      <% end %>
+                    </div>
+                  </div>
+                </td>
+                <td><%= link_to 'Edit', edit_note_path(note), class: "note-options" %></td>
+                <td><a id="delete-btn-<%= note.id %>" class="note-options" style="cursor:pointer;">Delete</a></td>
+                <!-- Confirmation Modal -->
+                <div id="myModal<%= note.id %>" class="modal">
+                  <div class="modal-content">
+                    <div class="modal-title">Are you sure?</div>
+                    <div class="modal-text">Are you sure do you want to delete <%= note.noteTitle %><br> This action cannot be undone.</div>
+                    <div class="modal-actions">
+                      <a id="cancel-modal-<%= note.id %>" class="cancel">No, cancel</a>
+                      <%= link_to 'Yes, delete', note, method: :delete, class: "confirm" %>
+                    </div>
+                  </div>
+                  <div class="close-modal" id="myModal-close-<%= note.id %>"><a><i class="material-icons md-36">clear</i></a></div>
+                </div>
+                <script>
+                var modal = document.getElementById("myModal<%= note.id %>");
+                var btn = document.getElementById("delete-btn-<%= note.id %>");
+                var close = document.getElementById("myModal-close-<%= note.id %>");
+                var cancel = document.getElementById("cancel-modal-<%= note.id %>");
+                btn.onclick = function() {
+                  document.getElementById("myModal<%= note.id %>").classList.add("show");
+                  document.getElementById("myModal<%= note.id %>").classList.add("animated");
+                  document.getElementById("myModal<%= note.id %>").classList.add("fadeIn");
+                  document.getElementsByClassName("modal-content")[0].classList.add("animated");
+                  document.getElementsByClassName("modal-content")[0].classList.add("bounceInDown");
+                }
+                close.onclick = function() {
+                  document.getElementById("myModal<%= note.id %>").classList.remove("show");
+                }
+                cancel.onclick = function() {
+                  document.getElementById("myModal<%= note.id %>").classList.remove("show");
+                }
+                window.onclick = function(event) {
+                  if (event.target == modal) {
+                    document.getElementById("myModal<%= note.id %>").classList.remove("show");
+                  }
+                }
+                </script>
+              </tr>
+            <% end.empty? %>
+              <div class="empty-content">
+                You don't have notes. <a href="<%= new_note_path %>">Add your first note.</a>
+              </div>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
 
-<h1 class="title_todo">Notes</h1>
-
-<table class="table_todo">
-
-
-  <tbody>
-    <% @notes.each do |note| %>
-      <tr>
-        <td><a class="task" href="<%= note_path(note) %>" ><%= note.noteTitle %></a></td>
-        <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to 'Remove', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<div class="button_todo"><%= link_to 'New Note', new_note_path %></div>
-
+    </div>
+  </div>
 </div>

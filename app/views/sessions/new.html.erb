@@ -1,17 +1,25 @@
-<div class="wrapper">
-  <div class="user_container">
-  <div class="user_form">
-
-  <h1 class="title_todo">Login</h1>
-  <div class="description_todo">Use your able.co account to access.</div>
-
-  <%= render partial: '/sessions/form' %>
-
+<div class="user-header">
+  <a href="<%= root_path %>"><%= image_tag("logo.svg") %></a>
 </div>
+<div class="user-container">
+  <div class="user-content">
+    <div class="user-tabs">
+      <div class="active" style="float:left;">
+        Sign In
+      </div>
+      <div class="non-active" style="float:right;">
+        <%= link_to 'Sign Up', sign_up_path %>
+      </div>
+    </div>
+    <div class="user-form">
+      <h1 class="title-session">Log in into your account</h1>
+      <div class="description-session">Welcome back! Please enter your access info</div>
+      <div class="form-session"><%= render partial: '/sessions/form' %></div>
+    </div>
 
-  <div class="user_footer">
-    <p>Are you not registered?<%= link_to 'Sign up', sign_up_path %></p>
-  </div>
+   <div class="user-footer">
+     <p>Are you not registered? <%= link_to 'Sign Up', sign_up_path %></p>
+   </div>
 
   </div>
 </div>

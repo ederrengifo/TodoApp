@@ -1,0 +1,157 @@
+<div class="body-content">
+  <div class="container-open">
+    <div class="content-index">
+      <!-- Navigation Column -->
+      <div class="box-project" style= "
+      display: inline-block;
+      width: 282px;
+      position: relative;
+      margin-right: 35px;
+      background: #FFFFFF;
+      border: 1px solid rgba(74,87,105,0.12);
+      border-radius: 4px;
+      padding: 10px 0px;
+      ">
+        <div class="folder">
+          <a href="<%= links_path %>">
+            <%= image_tag("folder.svg") %>
+            <span>All links</span>
+          </a>
+        </div>
+        <% @links.each do |link| %>
+        <div class="folder <%= 'current' if current_page?(link_path(link)) %>">
+          <a href="<%= link_path(link) %>">
+            <%= image_tag("folder.svg") %>
+            <span><%= link.folderName %></span>
+          </a>
+        </div>
+        <% end %>
+        <div class="new-folder">
+          <a href="<%= new_link_path %>">
+            + New Folder
+          </a>
+        </div>
+      </div>
+      <!-- Links Detail Table -->
+      <div class="links-content">
+        <div class="links-head">
+          <div class="links-title">
+            <span><%= @link.folderName %></span>
+            <a id="folder-delete-btn-<%= @link.id %>" style="cursor:pointer; color: #A8AEB7;">Delete</a>
+            <!-- Confirmation Modal -->
+            <div id="myFolderModal<%= @link.id %>" class="modal">
+              <div class="modal-content">
+                <div class="modal-title">Are you sure?</div>
+                <div class="modal-text">Are you sure do you want to delete <%= @link.folderName %> and all its links?<br>This action cannot be undone.</div>
+                <div class="modal-actions">
+                  <a id="cancel-folder-modal-<%= @link.id %>" class="cancel">No, cancel</a>
+                  <%= link_to 'Yes, delete', @link, method: :delete, class: "confirm" %>
+                </div>
+              </div>
+              <div class="close-modal" id="myFolderModal-close-<%= @link.id %>"><a><i class="material-icons md-36">clear</i></a></div>
+            </div>
+            <script>
+            var modal = document.getElementById("myFolderModal<%= @link.id %>");
+            var btn = document.getElementById("folder-delete-btn-<%= @link.id %>");
+            var close = document.getElementById("myFolderModal-close-<%= @link.id %>");
+            var cancel = document.getElementById("cancel-folder-modal-<%= @link.id %>");
+            btn.onclick = function() {
+              document.getElementById("myFolderModal<%= @link.id %>").classList.add("show");
+              document.getElementById("myFolderModal<%= @link.id %>").classList.add("animated");
+              document.getElementById("myFolderModal<%= @link.id %>").classList.add("fadeIn");
+              document.getElementsByClassName("modal-content")[0].classList.add("animated");
+              document.getElementsByClassName("modal-content")[0].classList.add("bounceInDown");
+            }
+            close.onclick = function() {
+              document.getElementById("myFolderModal<%= @link.id %>").classList.remove("show");
+            }
+            cancel.onclick = function() {
+              document.getElementById("myFolderModal<%= @link.id %>").classList.remove("show");
+            }
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                document.getElementById("myFolderModal<%= @link.id %>").classList.remove("show");
+              }
+            }
+            </script>
+            <a class="new-tool" href="<%= new_link_tool_path(@link) %>">+ New Link</a>
+          </div>
+        </div>
+        <table class="links-table">
+          <tbody>
+            <!-- Here new link -->
+
+            <% if @link.tools.each do |tool| %>
+            <tr>
+              <td style="column-width: 350px"><a href="<%= tool.link_url %>" target="_blank" class="link-detail-title"><%= tool.tool %><span><%= image_tag("link.svg") %></span></a></td>
+              <td><%= link_to 'Edit', edit_link_tool_path(@link, tool), class: "link-options" %></td>
+              <td><a id="link-delete-btn-<%= tool.id %>" class="link-options" style="cursor:pointer;">Delete</a></td>
+              <!-- Confirmation Modal -->
+              <div id="myModal<%= tool.id %>" class="modal">
+                <div class="modal-content">
+                  <div class="modal-title">Are you sure?</div>
+                  <div class="modal-text">Are you sure do you want to delete <%= tool.tool %><br> This action cannot be undone.</div>
+                  <div class="modal-actions">
+                    <a id="cancel-modal-<%= tool.id %>" class="cancel">No, cancel</a>
+                    <%= link_to 'Yes, delete', @tool, method: :delete, class: "confirm" %>
+                  </div>
+                </div>
+                <div class="close-modal" id="myModal-close-<%= tool.id %>"><a><i class="material-icons md-36">clear</i></a></div>
+              </div>
+              <script>
+              var modal = document.getElementById("myModal<%= tool.id %>");
+              var btn = document.getElementById("link-delete-btn-<%= tool.id %>");
+              var close = document.getElementById("myModal-close-<%= tool.id %>");
+              var cancel = document.getElementById("cancel-modal-<%= tool.id %>");
+              btn.onclick = function() {
+                document.getElementById("myModal<%= tool.id %>").classList.add("show");
+                document.getElementById("myModal<%= tool.id %>").classList.add("animated");
+                document.getElementById("myModal<%= tool.id %>").classList.add("fadeIn");
+                document.getElementsByClassName("modal-content")[0].classList.add("animated");
+                document.getElementsByClassName("modal-content")[0].classList.add("bounceInDown");
+                document.getElementById("myDropdown-<%= tool.id %>").classList.remove("show");
+              }
+              close.onclick = function() {
+                document.getElementById("myModal<%= tool.id %>").classList.remove("show");
+              }
+              cancel.onclick = function() {
+                document.getElementById("myModal<%= tool.id %>").classList.remove("show");
+              }
+              window.onclick = function(event) {
+                if (event.target == modal) {
+                  document.getElementById("myModal<%= tool.id %>").classList.remove("show");
+                }
+              }
+              </script>
+            </tr>
+            <% end.empty? %>
+            <div class="empty-content">You don't have links in <%= @link.folderName %>. <a href="<%= new_link_tool_path(@link) %>">Add your first link</a></div>
+            <% end %>
+
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Foldername:</strong>
+  <%= @link.folderName %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @link.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>
+
+-->

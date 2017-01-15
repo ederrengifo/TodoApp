@@ -1,0 +1,28 @@
+<div class="body-content animated fadeInLeft">
+  <div class="container-open">
+    <div style="width:65px; margin-right:10px; float:left; padding-top:20px;">
+      <a class="back-button" href="<%= links_path %>">
+        <i class="material-icons md-24">arrow_back</i>
+      </a>
+    </div>
+    <div class="box-project" style="
+    display: inline-block;
+    width: 720px;
+    min-height: 100%;
+    position: relative;
+    margin-right: 10px;
+    float: left;
+    background: #FFFFFF;
+    border: 1px solid rgba(74,87,105,0.12);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    ">
+      <div class="detail-content">
+        <div class="project-title-detail">New Folder</div>
+        <div class="detail-form">
+          <%= render 'form', link: @link %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

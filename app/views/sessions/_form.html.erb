@@ -1,19 +1,16 @@
 <%= form_for :session, url: session_path do |form| %>
 
-<div class="user_form_fields">
-  <div class="form_title">E-mail address</div>
-  <div><%= form.text_field :email, type: 'email', placeholder: "name@able.co" %></div>
-  <div class="form_title">Password</div>
-  <div><%= form.text_field :password, placeholder: "4-8 characters", type: "password" %></div>
-</div>
-
-<div class="user_actions">
-  <div class="actions">
-    <%= form.submit 'Enter' %>
-  </div>
-  <div class="forgot_todo">
+<div class="user-form-fields">
+  <div><%= form.text_field :email, type: 'email', placeholder: "Email address" %></div>
+  <div><%= form.text_field :password, placeholder: "Your password", type: "password" %></div>
+  <div class="forgot-password">
     <%= link_to t(".forgot_password"), new_password_path %>
   </div>
 </div>
+
+<div class="actions-session">
+  <%= form.submit 'Confirm Access' %>
+</div>
+
 
 <% end %>
