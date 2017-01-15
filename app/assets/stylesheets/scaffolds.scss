@@ -367,49 +367,13 @@ textarea:focus {
 
 // Notfifications
 
-#notice {
-  color: green;
-  padding: 10px;
-  border: 1px #4CAF50 solid;
-  border-radius: 4px;
-  background-color: #E8F5E9;
-  margin-top: 10px;
-  margin-bottom: 10px;
+.error {
+  background-color: #FFEDED;
+  color: #FD7B7B;
+  font-size: 16px;
   width: 100%;
-  text-align: center;
-}
-
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-#error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
-  padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
-
-  h2 {
-    text-align: left;
-    font-weight: bold;
-    padding: 5px 5px 5px 15px;
-    font-size: 12px;
-    margin: -7px;
-    margin-bottom: 0;
-    background-color: #c00;
-    color: #fff;
-  }
-
-  ul li {
-    font-size: 12px;
-    list-style: square;
-  }
-}
-
-label {
-  display: block;
+  padding: 6px 0 10px 0;
+  border-radius: 4px;
+  margin-top: 20px;
+  margin-bottom: -20px;
 }

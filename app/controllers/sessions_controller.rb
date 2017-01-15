@@ -62,4 +62,5 @@ class SessionsController < Clearance::BaseController
    def url_for_signed_in_users
      url_after_create
    end
+
 end

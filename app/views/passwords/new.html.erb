@@ -6,10 +6,14 @@
     <div class="user-form" style="border-radius: 4px;">
       <h1 class="title-session">Forgot my password</h1>
       <div class="description-session">Enter your e-mail address. We will send you a link to restart your password.</div>
+      <% if flash.notice.blank? %>
+      <% else %>
+      <div class="error animated shake"><%= flash.notice %></div>
+      <% end %>
       <div class="form-session">
         <%= form_for :password, url: passwords_path do |form| %>
             <div class="user-form-fields">
-              <div><%= form.text_field :email, placeholder: "name@able.co", type: 'email' %></div>
+              <div><%= form.text_field :email, placeholder: "Your e-mail here", type: 'email' %></div>
             </div>
             <div class="actions-session">
               <%= form.submit 'Send me the instructions' %>

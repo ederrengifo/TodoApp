@@ -26,6 +26,7 @@ class UsersController < Clearance::UsersController
       sign_in @user
       redirect_back_or url_after_create
     else
+      flash.now.notice = "All the fields are required"
       render template: "users/new"
     end
   end

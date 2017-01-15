@@ -14,6 +14,10 @@
     <div class="user-form">
       <h1 class="title-session">Log in into your account</h1>
       <div class="description-session">Welcome back! Please enter your access info</div>
+      <% if flash.notice.blank? %>
+      <% else %>
+      <div class="error animated shake"><%= flash.notice %></div>
+      <% end %>
       <div class="form-session"><%= render partial: '/sessions/form' %></div>
     </div>
 

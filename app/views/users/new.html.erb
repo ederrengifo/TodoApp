@@ -14,6 +14,10 @@
     <div class="user-form">
       <h1 class="title-session">Create your account</h1>
       <div class="description-session">Complete all the following fields. Just one step.</div>
+      <% if flash.notice.blank? %>
+      <% else %>
+      <div class="error animated shake"><%= flash.notice %></div>
+      <% end %>
       <div class="form-session">
         <%= form_for @user do |form| %>
           <%= render partial: '/users/form', object: form %>
