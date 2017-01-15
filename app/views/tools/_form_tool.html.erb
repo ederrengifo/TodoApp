@@ -19,9 +19,16 @@
     <div class="form-input" id="link-form-field-url-<%= tool.id %>"><%= f.text_field :link_url, placeholder:"Paste the URL", class:"inputField" %></div>
   </div>
   <div style="clear:both"></div>
-  <div id="link-actions-<%= tool.id %>" class="actions">
-     <%= f.submit 'Save Changes' %>
+  <% if tool.new_record? %>
+    <div id="link-actions-<%= tool.id %>" class="actions">
+      <%= f.submit 'Create Link' %>
+    </div>
+  <% else %>
+  <div id="link-actions-<%= tool.id %>" class="actions show-inline">
+    <%= f.submit 'Save Changes' %>
   </div>
+  <% end %>
+
   <div class="cancel-actions"><%= link_to 'Cancel', link_path(@link) %></div>
   <!-- Showing Input when validates Project Title -->
   <script>
@@ -30,6 +37,8 @@
       var value = this.value;
       if (value && value.length > 0) {
         document.getElementById("link-actions-<%= tool.id %>").classList.add("show-inline");
+        document.getElementById("link-actions-<%= tool.id %>").classList.add("animated");
+        document.getElementById("link-actions-<%= tool.id %>").classList.add("fadeInLeft");
       } else {
         document.getElementById("link-actions-<%= tool.id %>").classList.remove("show-inline");
       }
@@ -39,6 +48,8 @@
       var value = this.value;
       if (value && value.length > 0) {
         document.getElementById("link-actions-<%= tool.id %>").classList.add("show-inline");
+        document.getElementById("link-actions-<%= tool.id %>").classList.add("animated");
+        document.getElementById("link-actions-<%= tool.id %>").classList.add("fadeInLeft");
       } else {
         document.getElementById("link-actions-<%= tool.id %>").classList.remove("show-inline");
       }

@@ -17,9 +17,15 @@
       <div class="form-input" id="folder-form-field-<%= link.id %>"><%= f.text_field :folderName, class:"inputField" %></div>
     </div>
     <div style="clear:both"></div>
-    <div id="folder-actions-<%= link.id %>" class="actions">
-       <%= f.submit 'Create Folder' %>
-    </div>
+    <% if link.new_record? %>
+      <div id="folder-actions-<%= link.id %>" class="actions">
+        <%= f.submit 'Create Folder' %>
+      </div>
+    <% else %>
+      <div id="folder-actions-<%= link.id %>" class="actions show-inline">
+        <%= f.submit 'Save Changes' %>
+      </div>
+    <% end %>
     <div class="cancel-actions"><%= link_to 'Cancel', links_path %></div>
     <!-- Showing Input when validates Project Title -->
     <script>
@@ -28,6 +34,8 @@
         var value = this.value;
         if (value && value.length > 0) {
           document.getElementById("folder-actions-<%= link.id %>").classList.add("show-inline");
+          document.getElementById("folder-actions-<%= link.id %>").classList.add("animated");
+          document.getElementById("folder-actions-<%= link.id %>").classList.add("fadeInLeft");
         } else {
           document.getElementById("folder-actions-<%= link.id %>").classList.remove("show-inline");
         }

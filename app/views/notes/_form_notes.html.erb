@@ -20,9 +20,15 @@
     </div>
 
     <div style="clear:both"></div>
-    <div id="note-actions-<%= note.id %>" class="actions">
-       <%= f.submit 'Save Changes' %>
-    </div>
+    <% if note.new_record? %>
+      <div id="note-actions-<%= note.id %>" class="actions">
+        <%= f.submit 'Create Note' %>
+      </div>
+    <% else %>
+      <div id="note-actions-<%= note.id %>" class="actions show-inline">
+        <%= f.submit 'Save Changes' %>
+      </div>
+    <% end %>
     <div class="cancel-actions"><%= link_to 'Cancel', notes_path %></div>
     <!-- Showing Input when validates Project Title -->
     <script>
@@ -31,6 +37,8 @@
         var value = this.value;
         if (value && value.length > 0) {
           document.getElementById("note-actions-<%= note.id %>").classList.add("show-inline");
+          document.getElementById("note-actions-<%= note.id %>").classList.add("animated");
+          document.getElementById("note-actions-<%= note.id %>").classList.add("fadeInLeft");
         } else {
           document.getElementById("note-actions-<%= note.id %>").classList.remove("show-inline");
         }

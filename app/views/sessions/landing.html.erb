@@ -1,5 +1,32 @@
+<!-- If user is signed in show Welcome Back -->
 <% if signed_in? %>
-  <div>Welcome back! You have <%= Task.count %> pending tasks!</div>
+  <div class="wb-container">
+    <div class="wb-content">
+      <div class="wb-graph" style="height: 250px; margin-top: 8%;">
+        <div class="wb-graph-container">
+          <div class="task-counter animated bounceIn">
+            <a><%= Task.count %></a>
+          </div>
+          <div class="wb-sparks animated zoomIn"><%= image_tag('sparks.svg') %></div>
+          <div class="wb-clouds animated bounceInDown"><%= image_tag('clouds-welcome.svg') %></div>
+          <div class="wb-tablet animated bounceInUp"><%= image_tag('tablet.svg') %></div>
+          <div class="wb-clouds-bg animated shake"><%= image_tag('cloud-bg-welcome.svg') %></div>
+          <div class="wb-sun animated fadeInUp"><%= image_tag('sun-welcome.svg') %></div>
+        </div>
+      </div>
+      <div class="wb-text">
+        <h2>Welcome back <%= current_user.name %> </h2>
+        <p>You have <%= Task.count %> pending tasks.
+          <% if Task.count > 0 %>
+            <%= link_to 'Go and finish them!', todo_app_lists_path %>
+          <% else %>
+            <%= link_to 'Go and create new ones!', todo_app_lists_path %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+<!-- If user is not signed in show Landing -->
 <% else %>
 <div class="landing-container">
   <!-- Top nav -->

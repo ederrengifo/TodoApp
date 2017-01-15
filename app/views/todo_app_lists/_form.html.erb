@@ -36,9 +36,15 @@
     </div>
   </div>
   <div style="clear:both"></div>
-  <div id="project-actions-<%= todo_app_list.id %>" class="actions">
-     <%= f.submit 'Save Changes' %>
-  </div>
+  <% if todo_app_list.new_record? %>
+    <div id="project-actions-<%= todo_app_list.id %>" class="actions">
+      <%= f.submit 'Create Project' %>
+    </div>
+  <% else %>
+    <div id="project-actions-<%= todo_app_list.id %>" class="actions show-inline">
+      <%= f.submit 'Save Changes' %>
+    </div>
+  <% end %>
   <div class="cancel-actions"><%= link_to 'Cancel', todo_app_lists_path %></div>
   <!-- Showing Input when validates Project Title -->
   <script>
