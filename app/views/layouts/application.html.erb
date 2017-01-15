@@ -34,7 +34,7 @@
               <div class="dropdown-user-icon"><%= image_tag("user.svg") %></div>
             </div>
             <div id="user-content" class="dropdown-user-content">
-              <a href="">Profile</a>
+              <%= link_to "Profile", profile_path %>
               <%= link_to "Logout", sign_out_path, method: :delete %>
             </div>
             <script>

@@ -367,7 +367,7 @@
   margin-bottom: 10px;
 }
 .selected input {
-  width: 25px;
+  width: 100px;
   display: inline-block;
   float: left;
   margin-right: 5px;
@@ -385,6 +385,8 @@
   border-radius: 50px;
 }
 .selected input[type=radio] {
+  width: 110px;
+  padding: 20px 0px 20px 0px;
   position: relative;
   visibility: visible;
   opacity: 0;
@@ -394,10 +396,11 @@
 .selected label {
   display: block;
   position: relative;
-  left: 7px;
+  left: -78px;
   z-index: 9;
   cursor: pointer;
   -webkit-transition: all 0.25s linear;
+  margin-right: -120px;
 }
 .pending:hover label {
   color: #FF7D7D;

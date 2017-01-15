@@ -473,15 +473,11 @@ div.graphic-containter {
   -moz-animation-duration: 1s;
   -moz-animation-delay: 1.5s;
 }
-.task-counter a {
+.task-counter span {
   color: rgba(255,255,255,1);
   font-weight: 400;
   font-size: 25px;
   text-align: center;
-}
-.task-counter a:hover {
-  color: rgba(255,255,255,0.75);
-  text-decoration: none;
 }
 .wb-graph-container {
   width: 368px;

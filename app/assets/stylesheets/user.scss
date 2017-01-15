@@ -123,3 +123,58 @@
 .user-footer p {
   color: #4A586A;
 }
+
+/* Profile Style */
+
+.profile-content {
+  max-width: 620px;
+  margin: 0 auto;
+  text-align: left;
+}
+.profile-content h1 {
+  color: #000;
+  font-size: 40px;
+  font-weight: 400;
+  padding: 0;
+  margin-bottom: 20px;
+}
+.profile-content p {
+  color: #4A586A;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 0;
+}
+.profile-data-detail {
+  width: 100%;
+  padding: 30px 0 40px 0;
+  border-bottom: 1px #E9EBED solid;
+  clear: both;
+  height: 60px;
+}
+.profile-data-detail-box {
+  display: inline-block;
+  float: left;
+  margin-right: 80px;
+}
+.profile-data-detail-box .usr-number {
+  color: #4A586A;
+  font-size: 32px;
+  font-weight: 400;
+  text-align: left;
+}
+.profile-data-detail-box .usr-description a {
+  color: #A8AEB7;
+}
+.profile-data-detail-box .usr-description a:hover {
+  color: #007AFF;
+}
+.profile-settings {
+  width: 500px;
+  margin-top: 40px;
+}
+.profile-form-label {
+  font-size: 16px;
+  color: #4A586A;
+  font-weight: 500;
+  margin: 10px 0;
+}

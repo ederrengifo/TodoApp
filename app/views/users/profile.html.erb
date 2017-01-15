@@ -1,0 +1,75 @@
+<% if signed_in? %>
+
+<div class="body-content">
+  <div class="container-open" style="text-align:center;">
+    <div class="profile-content">
+      <div class="profile-data">
+        <h1>Hello <%= current_user.name %>,</h1>
+        <p>Thank you for using Doable, this is a very early version, so just few things we can show you, yet. But if you want to change your password or name, do it below!</p>
+        <div class="profile-data-detail">
+          <div class="profile-data-detail-box">
+            <div class="usr-number"><%= Task.count %></div>
+            <div class="usr-description"><%= link_to 'Pending Tasks', todo_app_lists_path %></div>
+          </div>
+          <div class="profile-data-detail-box">
+            <div class="usr-number"><%= Tool.count %></div>
+            <div class="usr-description"><%= link_to 'Added Links', links_path %></div>
+          </div>
+          <div class="profile-data-detail-box">
+            <div class="usr-number"><%= Note.count %></div>
+            <div class="usr-description"><%= link_to 'Written Notes', notes_path %></div>
+          </div>
+        </div>
+      </div>
+      <div class="profile-settings">
+        <%= form_for @user do |form| %>
+          <div class="user-form-fields">
+            <div class="profile-form-label">Your Name</div>
+            <div><%= form.text_field :name, placeholder: "Set your new name" %></div>
+            <div class="profile-form-label">Change your password</div>
+            <div><%= form.text_field :password, placeholder: "Set your new password", type: "password" %></div>
+          </div>
+            <div class="actions-session" style="text-align:left;">
+              <%= form.submit 'Save Changes' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% else %>
+
+<% end %>
+
+<!-- <div class="user-header">
+  <a href="<%= root_path %>"><%= image_tag("logo.svg") %></a>
+</div>
+<div class="user-container">
+  <div class="user-content">
+    <div class="user-tabs">
+      <div class="non-active" style="float:left;">
+        <%= link_to 'Sign In', sign_in_path %>
+      </div>
+      <div class="active" style="float:right;">
+        Sign Up
+      </div>
+    </div>
+    <div class="user-form">
+      <h1 class="title-session">Create your account</h1>
+      <div class="description-session">Complete all the following fields. Just one step.</div>
+      <div class="form-session">
+        <%= form_for @user do |form| %>
+          <%= render partial: '/users/form', object: form %>
+          <div class="actions-session">
+              <%= form.submit 'Confirm Registration' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <div class="user-footer">
+    <p>Do you have an account? <%= link_to t(".sign_in"), sign_in_path %></p>
+  </div>
+  </div>
+</div>
+-->
