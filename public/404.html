@@ -1,55 +1,64 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>The page doesn't exist (404)</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700" rel="stylesheet">
   <style>
   body {
-    background-color: #EFEFEF;
+    background-color: #F6F9FB;
     color: #2E2F30;
     text-align: center;
-    font-family: arial, sans-serif;
+    font-family: "Roboto", arial, sans-serif;
     margin: 0;
+    height: 100%;
   }
 
   div.dialog {
     width: 95%;
     max-width: 33em;
-    margin: 4em auto 0;
+    margin: 14% auto 0;
   }
 
   div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+
   }
 
   h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
+    font-size: 36px;
+    color: #4A586A;
+    line-height: 42px;
+    font-weight: 400;
+    margin-top: -20px;
   }
 
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+  p {
+    margin: 0;
+    padding: 0;
+    color: #4A586A;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .error-graph {
+    width: 336px;
+    height: 182px;
+    text-align: center;
+  }
+  .error-txt {
+    position: relative;
+    z-index: 10;
+    color: #FD7B7B;
+    font-size: 52px;
+    font-family: "Roboto Mono", monospace;
+    top: -128px;
+  }
+  .error-img {
+    width: 336px;
+    height: 182px;
+    position: relative;
+    z-index: 5;
+    margin: 0 auto;
   }
   </style>
 </head>
@@ -58,10 +67,28 @@
   <!-- This file lives in public/404.html -->
   <div class="dialog">
     <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
+      <div class="error-graph">
+        <div class="error-img">
+          <svg width="336px" height="182px" viewBox="0 0 336 182" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+              <g id="Landing" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="Doable-landing" transform="translate(-551.000000, -178.000000)">
+                      <g id="Graphic-Copy" transform="translate(719.000000, 229.500000) scale(-1, 1) translate(-719.000000, -229.500000) translate(317.000000, 43.000000)">
+                          <g id="graph-laptop" transform="translate(233.516092, 135.709833)">
+                              <rect id="Rectangle-3" fill="#F6F9FB" x="36.9195402" y="-2.84217094e-14" width="264.897701" height="179.014541" rx="12"></rect>
+                              <rect id="Rectangle-4" fill="#F6F9FB" x="45.2264368" y="14.7640858" width="244.591954" height="143.027082"></rect>
+                              <path d="M168.521087,10.9189642 C169.668362,10.9189642 170.597811,9.98882683 170.597811,8.84276466 C170.597811,7.6967025 169.668362,6.76656509 168.521087,6.76656509 C167.373813,6.76656509 166.444363,7.6967025 166.444363,8.84276466 C166.444363,9.98882683 167.373813,10.9189642 168.521087,10.9189642 Z" id="Fill-1" fill="#6DB0F8"></path>
+                              <path d="M48.6101126,156.252934 L289.817468,156.252934 L289.817468,16.6095966 L48.6101126,16.6095966 L48.6101126,156.252934 Z M206.441839,168.248754 L299.662525,168.248754 L301.508502,168.248754 L336.27471,168.248754 L336.27471,175.056843 L335.853827,175.329056 C335.504937,175.555131 327.10205,180.860052 308.277699,180.860052 L289.509651,180.860052 L48.9170063,180.860052 L28.304827,180.860052 C21.8577523,180.642281 0.922527011,179.511906 0.922527011,174.105482 L0.922527011,168.248754 L36.9181557,168.248754 L38.7641328,168.248754 L131.266733,168.248754 L206.441839,168.248754 Z M206.416573,169.648805 C206.400766,169.801982 206.378384,169.949853 206.352079,170.094265 L334.428733,170.094265 L334.428733,174.021512 C332.531068,175.052229 324.198328,179.014541 308.277699,179.014541 L28.3362086,179.015464 C15.9893914,178.59561 2.76850402,176.523101 2.76850402,174.105482 L2.76850402,170.094265 L131.051446,170.094265 C131.115132,170.602703 131.296961,171.213567 131.763993,171.81059 C132.787587,173.120902 134.725863,173.785286 137.525287,173.785286 L201.211494,173.785286 C202.85626,173.785286 205.824591,172.981566 206.351617,170.094265 C206.377922,169.949853 206.400536,169.801982 206.416573,169.648805 Z M131.033519,169.350017 C131.049874,169.136706 131.08057,168.992295 131.091596,168.948203 L131.17928,168.598478 L131.092057,168.948203 C131.081031,168.992298 131.050083,169.136722 131.03349,169.350053 Z M46.7641356,158.098445 L291.663445,158.098445 L291.663445,14.7640858 L46.7641356,14.7640858 L46.7641356,158.098445 Z M38.7645943,11.9958197 C38.7645943,6.39930846 43.3195425,1.84551073 48.9174678,1.84551073 L289.510113,1.84551073 C295.108038,1.84551073 299.662986,6.39930846 299.662986,11.9958197 L299.662986,168.248754 L301.508963,168.248754 L301.508963,11.9958197 C301.508963,5.38150929 296.125171,-2.84217094e-14 289.510113,-2.84217094e-14 L48.9174678,-2.84217094e-14 C42.3014862,-2.84217094e-14 36.9186172,5.38150929 36.9186172,11.9958197 L36.9186172,168.248754 L38.7645943,168.248754 L38.7645943,11.9958197 Z" id="Combined-Shape" fill="#6DB0F8"></path>
+                          </g>
+                      </g>
+                  </g>
+              </g>
+          </svg>
+        </div>
+        <div class="error-txt">>404!</div>
+      </div>
+      <h1>Whoops!</h1>
+      <p>The page you're looking for doesn't exist. You may have mistyped the address or the page may have moved.</p>
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
   </div>
 </body>
 </html>
