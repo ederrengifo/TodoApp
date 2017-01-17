@@ -28,7 +28,7 @@
              <div id="myModal<%= @note.id %>" class="modal">
                <div class="modal-content">
                  <div class="modal-title">Are you sure?</div>
-                 <div class="modal-text">Are you sure do you want to delete <%= @note.noteTitle %> ?<br> This action cannot be undone.</div>
+                 <div class="modal-text">Are you sure do you want to delete this note and the content?<br> This action cannot be undone.</div>
                  <div class="modal-actions">
                    <a id="cancel-modal-<%= @note.id %>" class="cancel">No, cancel</a>
                    <%= link_to 'Yes, delete', @note, method: :delete, class: "confirm" %>

@@ -24,6 +24,7 @@ class UsersController < Clearance::UsersController
 
     if @user.save
       sign_in @user
+      UserNotifier.send_signup_email(@user).deliver
       redirect_back_or url_after_create
     else
       flash.now.notice = "All the fields are required"

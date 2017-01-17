@@ -30,6 +30,7 @@ This are the gems used in this project
 
 - [Clearance](https://github.com/thoughtbot/clearance) - For authentication
 - [Material Icons](http://google.github.io/material-design-icons/) - I used some icons from this library
+- [SendGrid](https://sendgrid.com/docs/Integrate/Frameworks/rubyonrails.html) - To manage the mail sending.
 
 ## Can I contribuite?
 

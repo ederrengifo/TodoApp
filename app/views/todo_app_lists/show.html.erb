@@ -22,7 +22,7 @@
         height: 40px;
         float: left;
         position: relative;">
-          <div class="project-title-detail"><%= @todo_app_list.title %></div>
+          <div class="project-title-detail"><%= truncate(@todo_app_list.title.html_safe, length: 48) %></div>
           <span class="project-status-<%= @todo_app_list.status %>"><%= @todo_app_list.status %></span>
         </div>
         <div class="project-menu-detail">

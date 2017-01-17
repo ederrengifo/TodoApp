@@ -22,7 +22,7 @@
         <div class="folder">
           <a href="<%= link_path(link) %>">
             <%= image_tag("folder.svg") %>
-            <span><%= link.folderName %></span>
+            <span><%= truncate(link.folderName.html_safe, length: 33) %></span>
           </a>
         </div>
         <% end %>
@@ -46,14 +46,14 @@
             <% if @links.each do |link| %>
             <% link.tools.each do |tool| %>
             <tr>
-              <td style="column-width: 350px"><a href="<%= tool.link_url %>" target="_blank" class="link-detail-title"><%= tool.tool %><span><%= image_tag("link.svg") %></span></a></td>
+              <td style="column-width: 350px"><a href="<%= tool.link_url %>" target="_blank" class="link-detail-title"><%= (tool.tool.html_safe).truncate(80) %><span><%= image_tag("link.svg") %></span></a></td>
               <td><%= link_to 'Edit', edit_link_tool_path(link, tool), class: "link-options" %></td>
               <td><a id="link-delete-btn-<%= tool.id %>" class="link-options" style="cursor:pointer;">Delete</a></td>
               <!-- Confirmation modal -->
               <div id="myModal<%= tool.id %>" class="modal">
                 <div class="modal-content">
                   <div class="modal-title">Are you sure?</div>
-                  <div class="modal-text">Are you sure do you want to delete <%= tool.tool %><br> This action cannot be undone.</div>
+                  <div class="modal-text">Are you sure do you want to delete this link?<br>This action cannot be undone.</div>
                   <div class="modal-actions">
                     <a id="cancel-modal-<%= tool.id %>" class="cancel">No, cancel</a>
                     <%= link_to 'Yes, delete', link_tool_path(link, tool), method: :delete, class: "confirm" %>

@@ -19,7 +19,7 @@
           height: 40px;
           float: left;
           position: relative;">
-            <div class="project-title"><a href="<%= todo_app_list_path(todo_app_list) %>"><%= todo_app_list.title %></a></div>
+            <div class="project-title"><a href="<%= todo_app_list_path(todo_app_list) %>"><%= truncate(todo_app_list.title, lenght: 20) %></a></div>
             <span class="project-status-<%= todo_app_list.status %>"><%= todo_app_list.status %></span>
           </div>
           <div class="project-menu">
@@ -33,7 +33,7 @@
               <div id="myModal<%= todo_app_list.id %>" class="modal">
                 <div class="modal-content">
                   <div class="modal-title">Are you sure?</div>
-                  <div class="modal-text">Are you sure do you want to delete <%= todo_app_list.title %> project and their tasks?<br> This action cannot be undone.</div>
+                  <div class="modal-text">Are you sure do you want to delete this project and their tasks?<br> This action cannot be undone.</div>
                   <div class="modal-actions">
                     <a id="cancel-modal-<%= todo_app_list.id %>" class="cancel">No, cancel</a>
                     <%= link_to 'Yes, delete', todo_app_list, method: :delete, class: "confirm" %>

@@ -18,11 +18,11 @@
                   <div class="note-icon" style="width: 30px; float: left; margin-right:20px;"><%= image_tag("note.svg") %></div>
                   <div class="note-texts" style="width: 400px; float: left;">
                     <div class="note-title-index">
-                      <a href="<%= note_path(note) %>" ><%= note.noteTitle %></a>
+                      <a href="<%= note_path(note) %>" ><%= (note.noteTitle.html_safe).truncate(110) %></a>
                     </div>
                     <div class="note-description-index">
                       <% if note.noteDescription? %>
-                        <%= note.noteDescription %>
+                        <%= (note.noteDescription.html_safe).truncate(130) %>
                       <% else %>
                         <span style="color: #A8AEB7">No description</span>
                       <% end %>
@@ -35,7 +35,7 @@
                 <div id="myModal<%= note.id %>" class="modal">
                   <div class="modal-content">
                     <div class="modal-title">Are you sure?</div>
-                    <div class="modal-text">Are you sure do you want to delete <%= note.noteTitle %><br> This action cannot be undone.</div>
+                    <div class="modal-text">Are you sure do you want to delete this note and the content?.<br> This action cannot be undone.</div>
                     <div class="modal-actions">
                       <a id="cancel-modal-<%= note.id %>" class="cancel">No, cancel</a>
                       <%= link_to 'Yes, delete', note, method: :delete, class: "confirm" %>
