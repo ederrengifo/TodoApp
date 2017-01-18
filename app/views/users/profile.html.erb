@@ -5,7 +5,7 @@
     <div class="profile-content">
       <div class="profile-data">
         <h1>Hello <%= current_user.name %>,</h1>
-        <p>Thank you for using Doable, this is a very early version, so just few things we can show you, yet. But if you want to change your password or name, do it below!</p>
+        <p>Thank you for using Doable, this is a very early version, so just few things we can show you, yet. Coming soon more options and more customization features!</p>
         <div class="profile-data-detail">
           <div class="profile-data-detail-box">
             <div class="usr-number"><%= Task.count %></div>
@@ -20,19 +20,6 @@
             <div class="usr-description"><%= link_to 'Written Notes', notes_path %></div>
           </div>
         </div>
-      </div>
-      <div class="profile-settings">
-        <%= form_for @user do |form| %>
-          <div class="user-form-fields">
-            <div class="profile-form-label">Your Name</div>
-            <div><%= form.text_field :name, placeholder: "Set your new name" %></div>
-            <div class="profile-form-label">Change your password</div>
-            <div><%= form.text_field :password, placeholder: "Set your new password", type: "password" %></div>
-          </div>
-            <div class="actions-session" style="text-align:left;">
-              <%= form.submit 'Save Changes' %>
-          </div>
-        <% end %>
       </div>
     </div>
   </div>
