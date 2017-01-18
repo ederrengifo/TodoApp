@@ -1,7 +1,7 @@
 Clearance.configure do |config|
   config.routes = false
   config.allow_sign_up = true
-  config.cookie_domain = ".todoable.co"
+  config.cookie_domain = "www.todoable.co"
   config.cookie_expiration = lambda { |cookies| 1.year.from_now.utc }
   config.cookie_name = "remember_token"
   config.cookie_path = "/"
