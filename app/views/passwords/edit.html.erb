@@ -1,21 +1,29 @@
 <div class="user-header">
   <a href="<%= root_path %>"><%= image_tag("logo.svg") %></a>
 </div>
-<div id="clearance" class="password-reset">
-  <h2><%= t(".title") %></h2>
+<div class="user-container">
+  <div class="user-content">
+    <div class="user-form" style="border-radius: 4px;">
+      <h1 class="title-session">Change your password</h1>
+      <div class="description-session">Please set a new password in the field below</div>
+      <% if flash.notice.blank? %>
+      <% else %>
+      <div class="error animated shake"><%= flash.notice %></div>
+      <% end %>
+      <div class="form-session">
+        <%= form_for :password_reset,
+              url: user_password_path(@user, token: @user.confirmation_token),
+              html: { method: :put } do |form| %>
+              <div class="user-form-fields">
+                <div><%= form.password_field :password, placeholder: "Your new password here" %></div>
+              </div>
+              <div class="actions-session">
+              <%= form.submit 'Confirm Change' %>
+              </div>
+        <% end %>
 
-  <p><%= t(".description") %></p>
-
-  <%= form_for :password_reset,
-        url: user_password_path(@user, token: @user.confirmation_token),
-        html: { method: :put } do |form| %>
-    <div class="password-field">
-      <%= form.label :password %>
-      <%= form.password_field :password %>
+      </div>
     </div>
 
-    <div class="submit-field">
-      <%= form.submit %>
-    </div>
-  <% end %>
+  </div>
 </div>

@@ -1,3 +1,13 @@
-<div id="clearance" class="password-reset">
-  <p><%= t(".description") %></p>
+<div id="clearance" class="user-header">
+  <a href="<%= root_path %>"><%= image_tag("logo.svg") %></a>
+</div>
+<div class="user-container">
+  <div class="user-content">
+    <div class="user-form" style="border-radius: 4px;">
+      <div class="description-session">You will receive an email within the next few minutes. It contains instructions for changing your password.</div>
+    </div>
+    <div class="user-footer">
+      <p>Do you want to go back? <%= link_to 'Return to the page', root_path %></p>
+    </div>
+  </div>
 </div>

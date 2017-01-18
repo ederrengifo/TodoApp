@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :favorites
   resources :messages
   resources :boards
-  resources :passwords, controller: "clearance/passwords", only: [:create, :new]
+  resources :passwords, controller: "passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
   resources :users, controller: "users", only: [:create, :profile] do
     resource :password,
