@@ -5,7 +5,7 @@
       <div class="wb-graph" style="height: 250px; margin-top: 8%;">
         <div class="wb-graph-container">
           <div class="task-counter animated bounceIn">
-            <span><%= Task.count %></span>
+            <span><%= current_user.tasks.count %></span>
           </div>
           <div class="wb-sparks animated zoomIn"><%= image_tag('sparks.svg') %></div>
           <div class="wb-clouds animated bounceInDown"><%= image_tag('clouds-welcome.svg') %></div>
@@ -16,14 +16,14 @@
       </div>
       <div class="wb-text">
         <h2>Welcome back <%= current_user.name %>!</h2>
-          <% if Task.count > 0 %>
-            <% if Task.count > 1 %>
-              <p>You have <%= Task.count %> pending tasks. <%= link_to 'Go and finish them!', todo_app_lists_path %></p>
+          <% if current_user.tasks.count  > 0 %>
+            <% if current_user.tasks.count  > 1 %>
+              <p>You have <%= current_user.tasks.count  %> pending tasks. <%= link_to 'Go and finish them!', todo_app_lists_path %></p>
             <% else %>
-              <p>You just have <%= Task.count %> pending task. <%= link_to 'Go and finish it!', todo_app_lists_path %>
+              <p>You just have <%= current_user.tasks.count  %> pending task. <%= link_to 'Go and finish it!', todo_app_lists_path %>
             <% end %>
           <% else %>
-            <p>You have <%= Task.count %> pending tasks. <%= link_to 'Go and create new ones!', todo_app_lists_path %>
+            <p>You have <%= current_user.tasks.count  %> pending tasks. <%= link_to 'Go and create new ones!', todo_app_lists_path %>
           <% end %>
       </div>
     </div>

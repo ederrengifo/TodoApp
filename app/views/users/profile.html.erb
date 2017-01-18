@@ -8,15 +8,15 @@
         <p>Thank you for using Doable, this is a very early version, so just few things we can show you, yet. Coming soon more options and more customization features!</p>
         <div class="profile-data-detail">
           <div class="profile-data-detail-box">
-            <div class="usr-number"><%= Task.count %></div>
+            <div class="usr-number"><%= current_user.tasks.count  %></div>
             <div class="usr-description"><%= link_to 'Pending Tasks', todo_app_lists_path %></div>
           </div>
           <div class="profile-data-detail-box">
-            <div class="usr-number"><%= Tool.count %></div>
+            <div class="usr-number"><%= current_user.tools.count %></div>
             <div class="usr-description"><%= link_to 'Added Links', links_path %></div>
           </div>
           <div class="profile-data-detail-box">
-            <div class="usr-number"><%= Note.count %></div>
+            <div class="usr-number"><%= current_user.notes.count %></div>
             <div class="usr-description"><%= link_to 'Written Notes', notes_path %></div>
           </div>
         </div>
