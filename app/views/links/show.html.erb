@@ -93,7 +93,7 @@
                   <div class="modal-text">Are you sure do you want to delete this link?<br> This action cannot be undone.</div>
                   <div class="modal-actions">
                     <a id="cancel-modal-<%= tool.id %>" class="cancel">No, cancel</a>
-                    <%= link_to 'Yes, delete', @tool, method: :delete, class: "confirm" %>
+                    <%= link_to 'Yes, delete', link_tool_path(@link, tool), method: :delete, class: "confirm" %>
                   </div>
                 </div>
                 <div class="close-modal" id="myModal-close-<%= tool.id %>"><a><i class="material-icons md-36">clear</i></a></div>
